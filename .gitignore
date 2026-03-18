@@ -1,0 +1,16 @@
+# Obsidian
+.obsidian/
+.trash/
+
+# Flutter/Dart (for flutter_skeleton)
+.dart_tool/
+.packages
+build/
+.pub-cache/
+.pub/
+/build/
+*.DS_Store
+*.swp
+
+# OS Files
+Thumbs.db
