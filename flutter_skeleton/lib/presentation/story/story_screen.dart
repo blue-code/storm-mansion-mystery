@@ -224,7 +224,7 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
           // 카메라 흔들림 연출 (위험도가 0보다 크고, 변화가 있을 때 애니메이션 렌더링)
           if (gameState.dangerLevel > 0) {
             content = content.animate(key: ValueKey('danger_${gameState.dangerLevel}'))
-               .shake(hz: 8, amount: 5, duration: 500.ms);
+               .shake(hz: 8, duration: 500.ms);
           }
 
           return content;

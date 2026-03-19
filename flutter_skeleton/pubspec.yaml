@@ -1,0 +1,35 @@
+name: storm_mansion_mystery
+description: "A new Flutter project for the mystery game."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: any
+  freezed_annotation: any
+  animated_text_kit: any
+  audioplayers: any
+  flutter_animate: any
+  shared_preferences: any
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: any
+  freezed: any
+  flutter_lints: any
+  json_serializable: ^6.9.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/story/
+    - assets/images/
+    - assets/audio/
