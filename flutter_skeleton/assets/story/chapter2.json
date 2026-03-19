@@ -1,34 +1,34 @@
 {
-  "chapter": "폭풍 저택의 유언 - Day 2 (의심과 파편)",
+  "chapter": "폭풍 저택의 유언 - Day 2 (의심과 기만)",
   "scenes": [
     {
       "id": "scene_day2_hub_morning",
       "background_image": "mansion_corridor",
       "speaker": "system",
-      "text": "[ 2일 차 아침 ]\n폭풍우는 조금도 잦아들지 않았다. 전화선은 먹통이고 계곡을 잇는 단 하나뿐인 다리는 완전히 끊어져 버렸다. 경찰이 오려면 적어도 이틀은 걸린다.\n\n범인이 증거를 인멸하기 전에 서둘러 남은 6명의 유력 용의자들의 알리바이를 깨고 방 안을 샅샅이 뒤져야 한다.\n당신은 아침나절 동안(Time 2 소모 전까지) 흩어진 인물들과 장소를 먼저 수색하기로 한다. 어디부터 시작할까?",
+      "text": "[ 2일 차 아침 ]\n폭풍우는 조금도 잦아들지 않았다. 다리는 무너졌고 전화선마저 예리한 칼로 깔끔하게 절단된 것을 확인했다.\n어젯밤 영감이 살해당한 뒤, 이 역겨운 욕망의 소굴에는 완전한 고립만이 남았다.\n\n연쇄 살인마가 증거를 모두 없애고 입막음을 위해 다음 타겟을 노리기 전에, 용의자들의 추악한 비밀을 파헤쳐 알리바이를 부수어야 한다. \n가장 먼저 누구의 은밀한 진실을 들춰낼 것인가?",
       "choices": [
         {
-          "text": "[조사] 첫째 아들 리처드의 방 (오만과 낭비벽)",
+          "text": "[조사] 첫째 아들 리처드의 방 (사채와 마약)",
           "next_scene_id": "scene_investigate_richard_room",
           "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
         },
         {
-          "text": "[대화] 식당에서 혼자 식사 중인 오펜하이머 박사",
+          "text": "[대화] 식당에서 초조하게 땀 흘리는 오펜하이머 박사",
           "next_scene_id": "scene_talk_doctor",
           "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
         },
         {
-          "text": "[탐색] 저택 뒷편의 낡은 온실 (위험)",
+          "text": "[위험 탐색] 피비린내가 피어오르는 낡은 온실",
           "next_scene_id": "scene_investigate_greenhouse_trap",
           "effects": { "time_cost": 1, "danger_delta": 1, "add_evidence": [] }
         },
         {
-          "text": "[탐색] 낮에 다시 살펴본 사건 현장(서재)",
+          "text": "[재탐색] 여전히 아몬드 향이 배어 있는 살인 현장(서재)",
           "next_scene_id": "scene_investigate_study_day2",
           "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
         },
         {
-          "text": "더 이상 조사할 것이 없다 (시간 경과 - 오후로 진행)",
+          "text": "더 이상 조사할 수 없다 (오후로 시간 강제 경과)",
           "next_scene_id": "scene_day2_afternoon_event",
           "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
         }
@@ -38,15 +38,15 @@
       "id": "scene_investigate_richard_room",
       "background_image": "mansion_corridor",
       "speaker": "system",
-      "text": "리처드의 방 문은 살짝 열려 있었다. 테이블 위에는 막대한 금액의 독촉장이 어지럽게 널려 있다.\n그는 영감이 어젯밤 유언장을 고치겠다고 선언한 직후 살의를 품었을 가능성이 가장 높다.\n\n주위를 살피던 중 리처드의 자켓 주머니 밖으로 튀어나온 수상한 쪽지를 발견한다.",
+      "text": "리처드의 방은 짐승의 우리처럼 악취가 진동했다. 바닥에는 술병과 백색 가루가 어지럽게 널려 있다.\n침대 밑에서 삐져나온 봉투 속에는 갱단이 보낸 잔혹한 협박 편지가 들어있다. '내일까지 빚을 갚지 않으면 네 여동생과 널 토막내어 돼지 먹이로 주겠다.'\n영감이 죽어야만 막대한 유산으로 목숨을 건질 수 있었던 그는 극단적 선택을 할 동기가 차고 넘친다.",
       "choices": [
         {
-          "text": "쪽지를 훔친다 (위험도 증가)",
+          "text": "극비 문서인 이 협박 편지를 내 코트 안주머니에 챙긴다",
           "next_scene_id": "scene_richard_room_steal",
-          "effects": { "time_cost": 0, "danger_delta": 1, "trust_delta": {"리처드": -30}, "add_evidence": ["리처드의 도박 빚 독촉장"] }
+          "effects": { "time_cost": 0, "danger_delta": 1, "trust_delta": {"리처드": -30}, "add_evidence": ["마피아의 인체 훼손 협박장"] }
         },
         {
-          "text": "건드리지 않고 그대로 돌아온다 (Hub로 이동)",
+          "text": "미치광이를 자극하지 않기 위해 그대로 방을 빠져나온다",
           "next_scene_id": "scene_day2_hub_morning",
           "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
         }
@@ -56,10 +56,10 @@
       "id": "scene_richard_room_steal",
       "background_image": "mansion_corridor",
       "speaker": "system",
-      "text": "쪽지는 지역 지하 도박장 마피아의 살해 협박 편지였다.\n만약 영감이 죽고 유산을 물려받는다면 그는 당장 목숨을 건질 수 있었던 것이다. 엄청난 동기를 확보했다!\n\n당신은 다급히 쪽지를 챙겨 복도로 몰래 빠져나왔다.",
+      "text": "결정적인 동기를 확보했다. 편지를 챙기던 순간, 등 뒤에서 침대 매트리스가 삐걱거린다.\n시체처럼 잠들어 있던 리처드의 핏발 선 눈이 번쩍 떠져 당신의 뒷모습을 노려보기 시작했다.\n당신은 숨을 죽인 채 다급히 방을 빠져나와 복도의 짙은 그림자 속으로 도망쳤다.",
       "choices": [
         {
-          "text": "다른 곳을 조사하러 간다 (Hub로 이동)",
+          "text": "거친 숨을 고르며 다음 장소를 탐색한다",
           "next_scene_id": "scene_day2_hub_morning",
           "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
         }
@@ -69,17 +69,17 @@
       "id": "scene_talk_doctor",
       "background_image": "mansion_study_room",
       "speaker": "오펜하이머 박사",
-      "text": "\"오, 탐정 양반 푹 주무셨소?\n영감님의 시신을 간이 부검해 보았소만... 사인은 명확한 '청산가리 중독'이더군. 하지만 내가 알기론 저택에 그따위 맹독은 없었소.\"\n\n그는 불안한 듯 시선을 피하며 커피를 홀짝이고 있었다. 온실 지하실에서 가끔 그가 독자적인 약물 실험(아마도 청산염)을 했다는 사실을 당신은 알고 있다.",
+      "text": "\"탐정 양반, 뭔가 오해가 있는 것 같소만.\"\n오펜하이머는 손수건으로 창백한 목덜미의 식은땀을 닦으며 입술을 씹었다. 그의 목에는 누군가 격정적으로 할퀸 생채기가 붉게 부어올라 있었다. 어젯밤 온실에서 벌어진 밀회, 영감의 시신에 발라져 있던 독이 들어간 최음제... 모든 정황이 그의 변태적 지식과 연결된다.",
       "choices": [
         {
-          "text": "온실에서 들었던 이상한 냄새를 넌지시 언급한다",
+          "text": "어젯밤 에블린과의 난교와 불법 약물 조제에 대해 매섭게 추궁한다",
           "next_scene_id": "scene_doctor_hostile",
-          "effects": { "time_cost": 0, "danger_delta": 0, "trust_delta": {"오펜하이머": -20}, "add_evidence": [] }
+          "effects": { "time_cost": 0, "danger_delta": 0, "trust_delta": {"오펜하이머": -30, "에블린": -20}, "add_evidence": [] }
         },
         {
-          "text": "수고 많으셨다며 다른 곳으로 이동한다 (Hub로 이동)",
+          "text": "목덜미의 상처를 쳐다보며 비웃음만 남기고 돌아선다",
           "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "trust_delta": {"오펜하이머": 10}, "add_evidence": [] }
+          "effects": { "time_cost": 0, "danger_delta": 0, "trust_delta": {"오펜하이머": 0}, "add_evidence": ["비밀을 감추고 떠는 주치의"] }
         }
       ]
     },
@@ -87,12 +87,12 @@
       "id": "scene_doctor_hostile",
       "background_image": "mansion_study_room",
       "speaker": "오펜하이머 박사",
-      "text": "\"온... 온실이 뭐 어쨌다는 거요! 난 영감의 주치의일 뿐 아무 짓도 안 했어!\"\n박사는 얼굴이 붉으락푸르락해지더니 다짜고짜 식당을 빠져나가 버렸다. 그가 무언가를 숨기고 있는 것은 부인할 수 없는 사실이다.",
+      "text": "\"이, 이 버러지 같은 자식이! 영감도 자업자득이야! 그 노친네가 에블린에게 무슨 짓을 했는지 안다면 너도 그런 소리는 못 할 거다!\"\n박사는 눈을 희번덕거리며 식당 나이프를 집어들더니 테이블을 쾅 내리쳤다. 그의 반응은 명백한 살해 동기를 자백한 것이나 마찬가지였다.",
       "choices": [
         {
-          "text": "거실로 돌아간다. (Hub로 이동)",
+          "text": "나이프를 든 광인을 피해 재빨리 거실로 대피한다",
           "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["반응이 격렬한 주치의"] }
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["독약 조제를 자백할 뻔한 박사"] }
         }
       ]
     },
@@ -100,10 +100,10 @@
       "id": "scene_investigate_greenhouse_trap",
       "background_image": "mansion_corridor",
       "speaker": "system",
-      "text": "[ 꽝! 함정 발동 ]\n온실 안은 묘한 악취가 났다. 하지만 범인의 단서라기보다는 누군가 버려둔 고장 난 원예 도구들뿐이었다.\n오히려 떨어지는 무거운 삽에 발등을 찍혀 부상을 입고 말았다! 귀중한 시간만 낭비하고 위험도만 올랐다.",
+      "text": "[ 꽝! 끔찍한 함정 발동 ]\n온실 문을 여는 순간, 환각 작용을 일으키는 독성 식물의 포자와 달콤한 핏내음에 정신이 아득해진다.\n비틀거리며 안으로 들어선 당신의 발목을 향해, 숨겨져 있던 날카로운 불법 사냥용 덫이 무자비하게 닫힌다.\n'아아아악!' 뼈가 부서지는 고통 속에 당신은 피를 흘리며 덫을 비틀어 빼낸다. 과다 출혈로 귀중한 시간과 체력을 심각하게 낭비했다.",
       "choices": [
         {
-          "text": "절뚝거리며 거실로 돌아간다 (Hub로 이동)",
+          "text": "핏자국을 질질 끌며 간신히 안전지대로 피신한다",
           "next_scene_id": "scene_day2_hub_morning",
           "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
         }
@@ -113,12 +113,12 @@
       "id": "scene_investigate_study_day2",
       "background_image": "mansion_study_room",
       "speaker": "system",
-      "text": "낮에 다시 확인한 서재는 어제의 혼란과는 사뭇 달랐다.\n밝은 햇빛에 비친 바닥 한구석에서 반짝이는 것을 발견했다. 어젯밤 혼란 속에 진범이 미처 수습하지 못하고 떨어뜨린 작은 금속 조각이다.\n온실 자물쇠를 여는 마스터키의 부러진 끄트머리로 보인다.",
+      "text": "서재 바닥에는 아직 치우지 못한 검붉은 핏자국이 점점이 이어져 있었다. 어둠 속에선 보이지 않았던 단서다.\n핏자국은 아서 영감의 시신에서 시작해 벽난로 앞 두꺼운 융단 구석으로 향해 있다. 그곳을 들추자, 핏물이 말라붙어 뻣뻣해진 가죽 장갑 한 짝이 버려져 있다.\n장갑 안쪽에는 촘촘하게 'E'라는 이니셜이 금실로 자수 놓여 있다.",
       "choices": [
         {
-          "text": "조각을 주머니에 챙기고 복도로 돌아간다 (Hub로 이동)",
+          "text": "피 묻은 장갑을 중요한 증거물로 주머니에 숨긴다",
           "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["부러진 온실 열쇠 조각"] }
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["피 묻은 가죽 장갑(E)"] }
         }
       ]
     },
@@ -126,10 +126,10 @@
       "id": "scene_day2_afternoon_event",
       "background_image": "stormy_mansion_exterior",
       "speaker": "system",
-      "text": "[ 2일 차 오후 - 메인 이벤트 ]\n당신이 서재를 나오자, 2층에서 찢어지는 듯한 비명 소리가 들려왔다.\n\n\"꺄아아아아악!!\"\n단순히 단서를 수집하는 시간은 끝났다. 폭풍 저택의 살인마가 두 번째 타겟을 사냥한 것이다.",
+      "text": "[ 2일 차 오후 - 가학적인 메인 이벤트 ]\n당신이 머리를 식히려던 찰나, 2층 복도에서 뼈를 긁어내는 듯한 처절하고 기괴한 비명 소리가 진동했다.\n\n\"살려줘!! 내 눈, 내 눈이이이이이!!\"\n단순히 단서를 수집하며 여유를 부릴 시간은 끝났다. 폭풍 저택의 미치광이가 두 번째 제물을 완전히 파괴하기 시작한 것이다.",
       "choices": [
         {
-          "text": "2층으로 전속력으로 뛰어 올라간다 (계속)",
+          "text": "권총을 빼어들고 2층 소리가 나는 곳으로 전속력으로 질주한다",
           "next_scene_id": "scene_day2_second_murder",
           "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
         }
