@@ -1,0 +1,103 @@
+{
+  "chapter": "폭풍 저택의 유언 - Day 1 (살인의 밤)",
+  "scenes": [
+    {
+      "id": "scene_101",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "요란한 천둥소리가 블랙우드 저택을 뒤흔들었다.\n초대받지 않은 불길함이 엄습해오던 찰나, 서재에서 무언가 쓰러지는 둔탁한 소리가 들렸다.\n\n문을 열고 들어가자, 아서 블랙우드 영감이 바닥에 웅크린 채 고통스러워하고 있었다. 그의 입가에는 희미한 거품이 고여 있고, 테이블 위 브랜디 잔이 바닥에 나뒹군다.",
+      "choices": [
+        {
+          "text": "서재에 남아 현장을 면밀히 살핀다",
+          "next_scene_id": "scene_102",
+          "conditions": {},
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "trust_delta": {"메리": 10},
+            "add_evidence": ["서재 바닥의 밀실 열쇠"]
+          }
+        },
+        {
+          "text": "누군가 도망쳤을지 모른다. 복도로 뛰쳐나간다",
+          "next_scene_id": "scene_103",
+          "conditions": {},
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 1,
+            "trust_delta": {},
+            "add_evidence": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_102",
+      "background_image": "mansion_study_room",
+      "speaker": "메리",
+      "text": "뒤늦게 복도에서 달려온 하녀 메리가 비명을 지른다.\n\n\"오, 맙소사! 주인님! 헉... 비서님, 어떻게 된 거죠? 서재 문짝이 완전히 안쪽에서 잠겨 있던 걸요!\"\n\n당신은 침착하게 그녀를 다독였다. 밀실 살인이다. 메리는 당신의 차분한 태도에 약간의 신뢰를 가지게 되었다.",
+      "choices": [
+        {
+          "text": "다음 날 아침으로 진행 (Day 2)",
+          "next_scene_id": "scene_day2_morning",
+          "conditions": {},
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "trust_delta": {},
+            "add_evidence": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_103",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "어두운 복도 끝, 폭풍우가 치는 창문 너머로 온실 쪽으로 향하는 희미한 램프 불빛이 보였다.\n\n당신이 그쪽으로 발걸음을 서둘러 옮기는 순간, 어둠 속에서 누군가의 거친 손이 당신의 어깨를 낚아챘다.\n\n\"거기서 혼자 뭐하는 겁니까?\"",
+      "choices": [
+        {
+          "text": "놀라서 돌아본다",
+          "next_scene_id": "scene_104",
+          "conditions": {},
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "trust_delta": {},
+            "add_evidence": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_104",
+      "background_image": "mansion_corridor",
+      "speaker": "리처드",
+      "text": "아서의 첫째 아들인 리처드 블랙우드였다.\n불안한 안색으로 당신을 노려보고 있었지만, 무언가를 심하게 숨기려는 듯한 기색이 역력했다.\n가장 노골적인 것은 그의 소매 끝에 묻은 축축한 '진흙'이었다.\n\n\"아버지는... 대체 무슨 일이 생기신 거요?\"",
+      "choices": [
+        {
+          "text": "진흙 묻은 소매를 날카롭게 추궁한다",
+          "next_scene_id": "scene_day2_morning",
+          "conditions": {},
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 1,
+            "trust_delta": {"리처드": -20},
+            "add_evidence": ["리처드의 진흙 묻은 소매"]
+          }
+        },
+        {
+          "text": "의심을 거두고 일단 현장 상황을 말해준다",
+          "next_scene_id": "scene_day2_morning",
+          "conditions": {},
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "trust_delta": {"리처드": 10},
+            "add_evidence": []
+          }
+        }
+      ]
+    }
+  ]
+}
