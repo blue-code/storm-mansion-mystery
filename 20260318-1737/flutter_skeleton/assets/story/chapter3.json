@@ -1,0 +1,107 @@
+{
+  "chapter": "폭풍 저택의 유언 - Day 3 (마지막 재판)",
+  "scenes": [
+    {
+      "id": "scene_day3_morning",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "[ 3일 차 아침 ]\n끝나지 않을 것 같던 폭풍우가 멎고, 저 멀리 임시 다리를 복구하며 경찰차의 사이렌 소리가 들려온다.\n\n살아남은 자들은 무거운 침묵 속에서 메인 응접실에 모여 있다. 누군가는 두려움에, 누군가는 자신의 비밀이 들통날까 봐 떨고 있다.\n당신은 그간 수집한 단서와 사람들의 표정을 떠올린다. 이 비극의 마침표를 찍고 범인을 지목할 시간이다.",
+      "choices": [
+        {
+          "text": "[지목] 에블린 (조카딸)",
+          "next_scene_id": "scene_accuse_evelyn",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        },
+        {
+          "text": "[지목] 리처드 (첫째 아들)",
+          "next_scene_id": "scene_accuse_richard",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        },
+        {
+          "text": "[포기] 단서가 부족하다. 함구한다.",
+          "next_scene_id": "scene_ending_unsolved",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        }
+      ]
+    },
+    {
+      "id": "scene_accuse_evelyn",
+      "background_image": "evelyn_portrait",
+      "speaker": "에블린",
+      "text": "\"제가 범인이라고요? 맙소사, 비서님. 실성하셨군요.\n제가 대체 왜 심장마비로 쓰러지신 큰아버지를 독살하겠어요? 상속인인 저에게 무슨 이득이 있다고!\"\n\n그녀는 여유롭게 웃으며 반론한다. 그녀의 완벽한 논리를 부술 결정적인 동기(증거)가 필요하다.",
+      "choices": [
+        {
+          "text": "에블린의 유산 결격 증서 조각을 제시한다",
+          "next_scene_id": "scene_evelyn_evidence_1",
+          "conditions": { "required_evidence": ["에블린의 유산 결격 증서 조각"] },
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        },
+        {
+          "text": "에블린이 심장약을 훔쳐갔다는 정황을 내세운다",
+          "next_scene_id": "scene_ending_evelyn_escape",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        }
+      ]
+    },
+    {
+      "id": "scene_evelyn_evidence_1",
+      "background_image": "evelyn_portrait",
+      "speaker": "에블린",
+      "text": "당신이 내민 불탄 문서 조각을 본 에블린의 여유로운 미소가 산산조각 났다.\n[...입양아인 에블린에게는 한 푼의 재산도 상속할 수 없음...]\n\n\"이건... 어디서...!\"\n그녀는 떨리는 목소리로 반문했다. 하지만 심장마비로 위장한 '독살'의 물적 증거가 없다면 그녀는 또 빠져나갈 것이다.",
+      "choices": [
+        {
+          "text": "치명적인 심장약 병(바꿔치기된 약)을 제시한다",
+          "next_scene_id": "scene_ending_true",
+          "conditions": { "required_evidence": ["치명적인 심장약 병"] },
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        },
+        {
+          "text": "동기가 충분하다며 무작정 몰아붙인다",
+          "next_scene_id": "scene_ending_evelyn_escape",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        }
+      ]
+    },
+    {
+      "id": "scene_accuse_richard",
+      "background_image": "mansion_corridor",
+      "speaker": "리처드",
+      "text": "\"나? 내가 내 아버지를 죽였다고?! 말도 안 되는 소리 작작 해!\"\n리처드가 분노하며 소리쳤다. \n당신은 그의 방에서 발견한 도박 빚과 서재 창틀에 남은 진흙 묻은 알리바이를 폭로했다.",
+      "choices": [
+        {
+          "text": "당신이 빛 때문에 아버지를 살해했소!",
+          "next_scene_id": "scene_ending_bad_richard",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        }
+      ]
+    },
+    {
+      "id": "scene_ending_true",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "[ 진엔딩: 폭풍 속의 진실 ]\n\n결정적인 약병이 테이블 위에 올려지자, 에블린은 털썩 주저앉았다. \n\"그래... 당신 말이 맞아. 그 늙은이는 진짜 핏줄이 아니란 이유로 날 저택에서 내쫓으려 했어. 차라리 모두 다 폭풍우 속에 묻혀버리는 게 나았을 텐데.\"\n\n경찰이 들이닥치고, 에블린의 손에 수갑이 채워졌다. 당신의 추리로 인해 저택의 오랜 저주와 끔찍한 살인 사건은 막을 내렸다.",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_evelyn_escape",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "[ 노멀 엔딩: 공범의 도주 ]\n\n에블린은 당신의 논리에 구멍이 있음을 날카롭게 지적했다.\n동기나 정황은 있었지만 '결정적인 흉기(약병)'를 확인하지 못한 당신은 수세에 몰렸다. 그 틈을 타 에블린의 명령을 듣던 정원사 토마스가 거짓 자백을 하며 뛰어들었다.\n수사가 혼선에 빠진 사이 경찰이 들이닥쳤고, 진짜 흑막인 에블린은 눈물을 흘리는 슬픈 상속녀 연기를 하며 저택을 유유히 빠져나갔다.",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_bad_richard",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "[ 배드 엔딩: 엉뚱한 희생양 ]\n\n리처드의 도박 빚은 사실이었지만, 그는 살인을 저지를 만큼 대담하지 못했다. 당신의 고발에 에블린이 교묘하게 맞장구를 치면서 모든 정황 증거가 리처드를 향해버렸다.\n울붗짖는 리처드가 경찰에 끌려가고, 뒤돌아선 에블린은 당신을 향해 작고 섬뜩한 미소를 지어 보였다.\n살인마는 여전히 등 뒤에 살아있다.",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_unsolved",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "[ 미해결 엔딩: 침묵의 저택 ]\n\n당신은 증거의 부족을 통감하고 끝내 입을 열지 못했다.\n사건은 단순 심장마비 혹은 신원 미상의 침입자에 의한 강도 사건으로 흐지부지 종결 조치되었다.\n누가 범인인지 모른 채 모두가 서로를 평생 의심하고 두려워해야 하는 끔찍한 지옥만이 남았다.",
+      "choices": []
+    }
+  ]
+}
