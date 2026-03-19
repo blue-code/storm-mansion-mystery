@@ -25,6 +25,29 @@ class GameState {
     this.isDead = false,
   });
 
+  // 로컬 저장소(SharedPreferences, Hive) 저장을 위한 직렬화(JSON) 코드
+  Map<String, dynamic> toJson() {
+    return {
+      'currentSceneId': currentSceneId,
+      'timeElapsed': timeElapsed,
+      'dangerLevel': dangerLevel,
+      'evidence': evidence,
+      'trustMap': trustMap,
+      'isDead': isDead,
+    };
+  }
+
+  factory GameState.fromJson(Map<String, dynamic> json) {
+    return GameState(
+      currentSceneId: json['currentSceneId'] as String? ?? 'scene_101',
+      timeElapsed: json['timeElapsed'] as int? ?? 0,
+      dangerLevel: json['dangerLevel'] as int? ?? 0,
+      evidence: (json['evidence'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? const [],
+      trustMap: (json['trustMap'] as Map<String, dynamic>?)?.map((k, v) => MapEntry(k, v as int)) ?? const {},
+      isDead: json['isDead'] as bool? ?? false,
+    );
+  }
+
   GameState copyWith({
     String? currentSceneId,
     int? timeElapsed,

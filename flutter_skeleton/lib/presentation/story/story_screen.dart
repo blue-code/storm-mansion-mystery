@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../core/models/game_state.dart';
 import '../../data/models/scene_node.dart';
@@ -9,23 +12,76 @@ import '../providers/game_provider.dart';
 
 // JSON 파일을 읽어 SceneNode 맵을 제공하는 프로바이더
 final storyNodesProvider = FutureProvider<Map<String, SceneNode>>((ref) async {
-  final jsonString = await rootBundle.loadString('assets/story/chapter1.json');
-  final Map<String, dynamic> jsonMap = json.decode(jsonString);
-  final List<dynamic> scenesRaw = jsonMap['scenes'];
-  
   Map<String, SceneNode> sceneMap = {};
-  for (var raw in scenesRaw) {
-    final node = SceneNode.fromJson(raw);
-    sceneMap[node.id] = node;
+
+  Future<void> loadChapter(String path) async {
+    try {
+      final jsonString = await rootBundle.loadString(path);
+      final Map<String, dynamic> jsonMap = json.decode(jsonString);
+      final List<dynamic> scenesRaw = jsonMap['scenes'];
+      for (var raw in scenesRaw) {
+        final node = SceneNode.fromJson(raw);
+        sceneMap[node.id] = node;
+      }
+    } catch (e) {
+      debugPrint('챕터 로드 실패 ($path): $e');
+    }
   }
+
+  // 챕터 1, 2 연속 로드 (Key 충돌이 없도록 ID를 독립적으로 구성해야 함)
+  await loadChapter('assets/story/chapter1.json');
+  await loadChapter('assets/story/chapter2.json');
+
   return sceneMap;
 });
 
-class StoryScreen extends ConsumerWidget {
+class StoryScreen extends ConsumerStatefulWidget {
   const StoryScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<StoryScreen> createState() => _StoryScreenState();
+}
+
+class _StoryScreenState extends ConsumerState<StoryScreen> {
+  late AudioPlayer bgmPlayer;
+  late AudioPlayer sfxPlayer;
+  String? _currentBgm;
+  String? _lastPlayedSceneId;
+
+  @override
+  void initState() {
+    super.initState();
+    bgmPlayer = AudioPlayer();
+    sfxPlayer = AudioPlayer();
+    bgmPlayer.setReleaseMode(ReleaseMode.loop);
+  }
+
+  @override
+  void dispose() {
+    bgmPlayer.dispose();
+    sfxPlayer.dispose();
+    super.dispose();
+  }
+
+  void _handleSound(SceneNode node) {
+    // BGM 처리
+    if (node.bgm != _currentBgm) {
+      _currentBgm = node.bgm;
+      if (_currentBgm != null && _currentBgm!.isNotEmpty) {
+        bgmPlayer.play(AssetSource('audio/$_currentBgm.mp3'));
+      } else {
+        bgmPlayer.stop();
+      }
+    }
+    
+    // SFX 처리
+    if (node.sfx != null && node.sfx!.isNotEmpty) {
+      sfxPlayer.play(AssetSource('audio/${node.sfx}.mp3'));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final gameState = ref.watch(gameStateProvider);
     final scenesAsyncValue = ref.watch(storyNodesProvider);
 
@@ -41,22 +97,29 @@ class StoryScreen extends ConsumerWidget {
             return const Center(child: Text('오류: 장면을 찾을 수 없습니다.', style: TextStyle(color: Colors.white)));
           }
 
-          return Stack(
+          // 사운드 재생 로직
+          if (_lastPlayedSceneId != currentNode.id) {
+            _lastPlayedSceneId = currentNode.id;
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (mounted) _handleSound(currentNode);
+            });
+          }
+
+          Widget content = Stack(
             fit: StackFit.expand,
             children: [
-              // 1. Layer: 정적 배경 이미지 (에셋 최적화 전략 적용)
+              // 1. Layer: 정적 배경 이미지
               if (currentNode.backgroundImageUrl.isNotEmpty)
                 ColorFiltered(
                   colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.darken),
-                  child: Image.asset( // Image.network나 로컬에셋 처리
+                  child: Image.asset(
                     'assets/images/${currentNode.backgroundImageUrl}.png',
                     fit: BoxFit.cover,
-                    // 실제 구현 시엔 에러 빌더 추가 필요
                     errorBuilder: (_, __, ___) => Container(color: Colors.black),
                   ),
                 ),
 
-              // 2. 상단 상태바 (위험도 및 남은 시간 표시)
+              // 2. 상단 상태바
               Positioned(
                 top: 50, left: 20, right: 20,
                 child: Row(
@@ -73,7 +136,7 @@ class StoryScreen extends ConsumerWidget {
                 ),
               ),
 
-              // 3. 중앙 인물 스탠딩 레이어 (화자가 system이 아닐 경우)
+              // 3. 중앙 인물 스탠딩 레이어
               if (currentNode.speaker != 'system')
                 Positioned(
                   bottom: 250,
@@ -89,7 +152,7 @@ class StoryScreen extends ConsumerWidget {
               Positioned(
                 bottom: 0, left: 0, right: 0,
                 child: Container(
-                  height: 350,
+                  height: 380,
                   padding: const EdgeInsets.all(24.0),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -109,12 +172,23 @@ class StoryScreen extends ConsumerWidget {
                           style: const TextStyle(color: Colors.redAccent, fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       const SizedBox(height: 8),
-                      // 본문 텍스트 (추후 타이프라이터 효과 라이브러리 교체 추천)
-                      Text(
-                        currentNode.text,
-                        style: const TextStyle(color: Colors.white, fontSize: 16, height: 1.6),
+                      // 타이프라이터 적용된 본문 텍스트
+                      SizedBox(
+                        height: 60,
+                        child: AnimatedTextKit(
+                          key: ValueKey(currentNode.id),
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              currentNode.text,
+                              textStyle: const TextStyle(color: Colors.white, fontSize: 16, height: 1.6),
+                              speed: const Duration(milliseconds: 30),
+                            ),
+                          ],
+                          isRepeatingAnimation: false,
+                          displayFullTextOnTap: true,
+                        ),
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 16),
                       
                       // 선택지 버튼 렌더링
                       ...currentNode.choices.map((choice) => Padding(
@@ -133,7 +207,6 @@ class StoryScreen extends ConsumerWidget {
                               newEvidence: choice.addEvidence,
                             );
                             
-                            // 신뢰도 로직 추가
                             choice.trustDelta.forEach((charName, delta) {
                               ref.read(gameStateProvider.notifier).updateTrust(charName, delta);
                             });
@@ -147,6 +220,14 @@ class StoryScreen extends ConsumerWidget {
               )
             ],
           );
+
+          // 카메라 흔들림 연출 (위험도가 0보다 크고, 변화가 있을 때 애니메이션 렌더링)
+          if (gameState.dangerLevel > 0) {
+            content = content.animate(key: ValueKey('danger_${gameState.dangerLevel}'))
+               .shake(hz: 8, amount: 5, duration: 500.ms);
+          }
+
+          return content;
         },
       ),
     );

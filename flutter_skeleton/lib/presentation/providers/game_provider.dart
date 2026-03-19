@@ -1,13 +1,46 @@
+import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../core/models/game_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../core/models/game_state.dart';
+
+/// SharedPreferences 인스턴스를 제공하는 프로바이더
+final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
+  throw UnimplementedError('앱 초기화 시점에 ProviderScope에서 override 해야 합니다.');
+});
 
 /// 게임 전체의 상태를 관장하는 최상위 Riverpod Provider
 final gameStateProvider = StateNotifierProvider<GameStateNotifier, GameState>((ref) {
-  return GameStateNotifier();
+  final prefs = ref.watch(sharedPreferencesProvider);
+  return GameStateNotifier(prefs);
 });
 
 class GameStateNotifier extends StateNotifier<GameState> {
-  GameStateNotifier() : super(const GameState());
+  final SharedPreferences prefs;
+  static const String _saveKey = 'game_state_save';
+
+  GameStateNotifier(this.prefs) : super(_loadInitialState(prefs));
+
+  static GameState _loadInitialState(SharedPreferences prefs) {
+    final savedJsonString = prefs.getString(_saveKey);
+    if (savedJsonString != null && savedJsonString.isNotEmpty) {
+      try {
+        final decoded = json.decode(savedJsonString) as Map<String, dynamic>;
+        return GameState.fromJson(decoded);
+      } catch (e) {
+        return const GameState();
+      }
+    }
+    return const GameState();
+  }
+
+  void _saveState() {
+    prefs.setString(_saveKey, json.encode(state.toJson()));
+  }
+
+  void resetGame() {
+    state = const GameState();
+    _saveState();
+  }
 
   /// 선택지를 골랐을 때 호출되는 핵심 액션 함수
   void makeChoice({
@@ -16,10 +49,8 @@ class GameStateNotifier extends StateNotifier<GameState> {
     int dangerDelta = 0,
     List<String> newEvidence = const [],
   }) {
-    // 1. 이미 죽었으면 동작 안함
     if (state.isDead) return;
 
-    // 2. 새로운 단서(Set) 합치기
     final updatedEvidence = List<String>.from(state.evidence);
     for (var ev in newEvidence) {
       if (!updatedEvidence.contains(ev)) {
@@ -27,11 +58,9 @@ class GameStateNotifier extends StateNotifier<GameState> {
       }
     }
 
-    // 3. 위험도 갱신 (위험도가 3 이상 누적되면 사망 플래그 On)
     final newDangerLevel = state.dangerLevel + dangerDelta;
     final isNowDead = newDangerLevel >= 3;
 
-    // 4. StateNotifier 상태 업데이트
     state = state.copyWith(
       currentSceneId: isNowDead ? 'scene_death_bad_ending' : nextSceneId,
       timeElapsed: state.timeElapsed + timeCost,
@@ -39,6 +68,8 @@ class GameStateNotifier extends StateNotifier<GameState> {
       evidence: updatedEvidence,
       isDead: isNowDead,
     );
+    
+    _saveState();
   }
 
   /// 특정 인물의 신뢰도를 올리거나 내리는 함수
@@ -50,5 +81,6 @@ class GameStateNotifier extends StateNotifier<GameState> {
     updatedTrust[characterName] = currentTrust + delta;
 
     state = state.copyWith(trustMap: updatedTrust);
+    _saveState();
   }
 }

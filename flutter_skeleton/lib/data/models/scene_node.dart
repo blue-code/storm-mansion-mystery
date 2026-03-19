@@ -3,6 +3,8 @@ class SceneNode {
   final String backgroundImageUrl;
   final String speaker;
   final String text;
+  final String? bgm;
+  final String? sfx;
   final List<ChoiceNode> choices;
 
   SceneNode({
@@ -10,6 +12,8 @@ class SceneNode {
     required this.backgroundImageUrl,
     required this.speaker,
     required this.text,
+    this.bgm,
+    this.sfx,
     required this.choices,
   });
 
@@ -19,6 +23,8 @@ class SceneNode {
       backgroundImageUrl: json['background_image'] as String? ?? '',
       speaker: json['speaker'] as String? ?? 'system',
       text: json['text'] as String,
+      bgm: json['bgm'] as String?,
+      sfx: json['sfx'] as String?,
       choices: (json['choices'] as List<dynamic>)
           .map((e) => ChoiceNode.fromJson(e as Map<String, dynamic>))
           .toList(),

@@ -18,6 +18,11 @@
           "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
         },
         {
+          "text": "[탐색] 저택 뒷편의 낡은 온실 (위험)",
+          "next_scene_id": "scene_investigate_greenhouse_trap",
+          "effects": { "time_cost": 1, "danger_delta": 1, "add_evidence": [] }
+        },
+        {
           "text": "[탐색] 낮에 다시 살펴본 사건 현장(서재)",
           "next_scene_id": "scene_investigate_study_day2",
           "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
@@ -88,6 +93,19 @@
           "text": "거실로 돌아간다. (Hub로 이동)",
           "next_scene_id": "scene_day2_hub_morning",
           "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["반응이 격렬한 주치의"] }
+        }
+      ]
+    },
+    {
+      "id": "scene_investigate_greenhouse_trap",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "[ 꽝! 함정 발동 ]\n온실 안은 묘한 악취가 났다. 하지만 범인의 단서라기보다는 누군가 버려둔 고장 난 원예 도구들뿐이었다.\n오히려 떨어지는 무거운 삽에 발등을 찍혀 부상을 입고 말았다! 귀중한 시간만 낭비하고 위험도만 올랐다.",
+      "choices": [
+        {
+          "text": "절뚝거리며 거실로 돌아간다 (Hub로 이동)",
+          "next_scene_id": "scene_day2_hub_morning",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
         }
       ]
     },

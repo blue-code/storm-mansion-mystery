@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const ProviderScope(child: MysteryApp()));
+import 'presentation/providers/game_provider.dart';
+import 'presentation/story/story_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+
+  runApp(
+    ProviderScope(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(prefs),
+      ],
+      child: const MysteryApp(),
+    ),
+  );
 }
 
 class MysteryApp extends StatelessWidget {
@@ -16,7 +30,7 @@ class MysteryApp extends StatelessWidget {
         brightness: Brightness.dark,
         primaryColor: Colors.red[900],
         scaffoldBackgroundColor: const Color(0xFF121212),
-        fontFamily: 'NotoSerif', // 명조체 계열 추천
+        fontFamily: 'NotoSerif',
       ),
       home: const MainMenuScreen(),
     );
@@ -64,7 +78,11 @@ class MainMenuScreen extends ConsumerWidget {
                     minimumSize: const Size(200, 50),
                   ),
                   onPressed: () {
-                    // TODO: StoryScreen으로 이동
+                    // 새 사건 조사 (진행 상황 초기화)
+                    ref.read(gameStateProvider.notifier).resetGame();
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (_) => const StoryScreen()),
+                    );
                   },
                   child: const Text('새 사건 조사', style: TextStyle(fontSize: 18, color: Colors.white)),
                 ),
@@ -75,7 +93,10 @@ class MainMenuScreen extends ConsumerWidget {
                     minimumSize: const Size(200, 50),
                   ),
                   onPressed: () {
-                    // TODO: 이어하기 로직
+                    // 기록 열람 (이어하기) - Provider 초기화 시 자동으로 최신 상태 로드됨
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (_) => const StoryScreen()),
+                    );
                   },
                   child: const Text('기록 열람 (이어하기)', style: TextStyle(fontSize: 18, color: Colors.white70)),
                 ),
