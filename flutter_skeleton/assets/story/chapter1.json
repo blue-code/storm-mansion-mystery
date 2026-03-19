@@ -1,282 +1,703 @@
 {
-  "chapter": "폭풍 저택의 유언 - Day 1 (정욕과 살인의 밤)",
+  "chapter": "폭풍 저택의 유언 - Day 1 (초대와 첫 번째 밤)",
   "scenes": [
     {
       "id": "scene_101",
-      "background_image": "mansion_study_room_blood",
+      "background_image": "stormy_mansion_exterior",
       "speaker": "system",
-      "text": "요란한 천둥소리가 안 그래도 기분 나쁜 블랙우드 저택을 뒤흔들었다.\n기괴한 신음소리에 이끌려 아서 영감의 서재로 다가간 당신은, 굳게 잠긴 참나무 문턱 아래로 스며나온 끈적한 검붉은 피를 발견한다.\n\n떨리는 손으로 문을 열자... 영감은 하의가 반쯤 벗겨진 기괴한 모습으로 바닥에 나뒹굴고 있다. \n방안에는 싸구려 향수 냄새와 함께 치명적인 청산가리 특유의 '아몬드 냄새'가 진동한다. 누군가 정사를 벌이던 중 그를 독살한 것이 틀림없다.",
+      "text": "초대장은 지나치게 공손했고, 그 공손함 때문에 오히려 불길했다. 아서 블랙우드는 자신의 유언과 관련해 반드시 외부 증인이 필요하다며, 당신에게 폭풍이 몰아치는 해안 저택으로 와 달라고 요청했다.\n\n변호사도 가족도 아닌 외부 탐정에게 보낸 편지라는 점이 이미 이상했다. 더 이상한 것은 서명 아래 덧붙은 짧은 문장이었다. \"내가 말을 바꾸기 전에 도착해 주시오.\" 누가, 무엇을, 얼마나 급히 막으려는지 문장 하나만으로도 충분히 느껴졌다.",
+      "next_scene_id": "scene_day0_office",
+      "continue_text": "사무실에서 사건 준비를 마무리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_office",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "출발 전 사무실은 이미 어두워져 있었다. 창문 밖에는 비가 내리기 시작했고, 책상 위엔 미처 정리하지 못한 다른 의뢰 서류가 남아 있었다. 그러나 이번 초대장은 그 모든 일을 뒤로 밀어낼 만큼 묘하게 사람을 붙들었다.\n\n당신은 권총보다 수첩을, 망토보다 여분의 심지와 성냥을 먼저 챙겼다. 이런 집에선 무력보다 기록과 시간 감각이 더 중요하다는 경험이 있었기 때문이다.",
+      "next_scene_id": "scene_day0_archive_clipping",
+      "continue_text": "스크랩 상자에서 블랙우드 관련 기사를 더 꺼낸다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_archive_clipping",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "사무실 선반 가장 아래에는 오래된 스크랩 상자가 있었다. 블랙우드 가문에 대한 기사들은 대체로 두 부류였다. 하나는 자선 행사와 후원 기사, 다른 하나는 사교계의 소문과 후계 문제를 다룬 짧은 칼럼이었다.\n\n흥미로운 점은 두 부류의 문장이 서로 전혀 다른 집안을 말하는 것처럼 보인다는 것이다. 공공의 얼굴로서의 블랙우드와, 집 안에서 서로를 시험하는 블랙우드. 이번 의뢰는 아마 후자의 얼굴과 만나게 될 일에 더 가까워 보였다.",
+      "next_scene_id": "scene_day0_client_memory",
+      "continue_text": "아서 블랙우드라는 사람 자체를 다시 떠올린다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_client_memory",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "아서 블랙우드라는 이름은 처음 듣는 것이 아니었다. 그는 자선 후원과 냉정한 사업 판단으로 동시에 유명한 사람이었다. 누구에게는 은인이고, 누구에게는 끝까지 마음을 열지 않는 후원자였다.\n\n흥미로운 점은 그가 늘 사람을 돕되 완전히 자유롭게 두지는 않았다는 평판이었다. 지원과 통제가 한 몸인 사람. 그런 인물이 죽음을 앞두고 외부 탐정을 부른 이유는 단순한 상속 확인 이상일 가능성이 컸다.",
+      "next_scene_id": "scene_day0_journey_note",
+      "continue_text": "출발 전 사건 수첩 첫 장을 작성한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_journey_note",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "당신은 수첩 첫 장에 단 세 줄만 적었다. \"유언 변경 전날 호출.\" \"외부 탐정만 지목.\" \"죽기 전 말을 바꾸기 전에.\" 사건은 늘 처음 문장에서 방향이 드러난다.\n\n이 의뢰가 특히 불길한 이유는, 의뢰인 스스로도 자신이 무슨 말을 완전히 끝내지 못할 수 있다고 예상한 흔적이 있기 때문이다. 구조 요청이면서 유언장 같은 문장이었다.",
+      "next_scene_id": "scene_day0_station_departure",
+      "continue_text": "역 플랫폼의 공기와 마지막 망설임을 지나간다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_station_departure",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "역 플랫폼은 비 냄새와 석탄 냄새가 뒤섞여 있었다. 야간 열차를 기다리는 사람들은 대개 말이 적고, 그런 장소에선 떠나는 사람의 결심이 더 또렷해 보인다. 당신은 한순간 초대장을 찢어 버릴 수도 있다고 생각했지만, 결국 그러지 않았다.\n\n탐정에게 중요한 것은 호기심이 아니라 끝까지 보는 습관이다. 블랙우드 저택은 애초부터 들어가서는 안 될 집처럼 보였고, 바로 그렇기 때문에 더 들어가야 하는 집이기도 했다.",
+      "next_scene_id": "scene_day0_platform_observer",
+      "continue_text": "플랫폼 끝에서 마지막으로 주변 사람들을 훑는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_platform_observer",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "플랫폼 끝에는 우산도 없이 빗속에 서 있는 역무원이 있었다. 그는 출발 종을 치기 전 잠깐 당신 쪽을 보더니, 블랙우드 행 열차라는 말에만 유독 고개를 느리게 끄덕였다. 이 노선에서 그 이름이 갖는 무게를 오래 본 사람의 반응 같았다.\n\n낯선 집으로 향할 때는 의뢰인보다도 주변 사람들의 짧은 반응이 더 많은 것을 말해 준다. 블랙우드 저택은 이미 이 지역 사람들 사이에서 설명 없이도 긴장을 부르는 이름인 듯했다.",
+      "next_scene_id": "scene_day0_ticket_inspection",
+      "continue_text": "표를 확인하는 짧은 절차 속에서도 분위기를 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_ticket_inspection",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "검표원은 표를 확인하며 목적지를 한 번 더 읽었다. 그 짧은 침묵 뒤 그는 형식적인 미소를 지었지만, 시선은 아주 잠깐 당신 얼굴에 머물렀다. 낯선 사람을 걱정하는 눈빛이라기보다, 이미 여러 이야기를 들은 장소로 누군가 떠나는 것을 보는 사람의 눈빛에 가까웠다.\n\n사건은 현장에 도착한 뒤에만 시작되지 않는다. 현장에 도착하기 전, 이미 주변 사람들이 공유하는 공기의 밀도에서도 절반쯤 시작된다.",
+      "next_scene_id": "scene_day0_train",
+      "continue_text": "그 불길한 밀도를 안고 열차에 오른다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_train",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "해안선으로 향하는 열차는 저녁이 깊어질수록 더 느려졌다. 객실 창에 빗물이 겹겹이 흐르자 바깥 풍경은 물감처럼 번졌다. 당신은 블랙우드 가문에 대한 신문 스크랩을 다시 펼쳤다.\n\n가주는 냉정하고 완고한 후원자였다. 양녀 에블린은 교양 있고 침착한 인물로, 사교계에서는 흠 없는 상속 후보로 알려져 있었다. 친아들 리처드는 도박과 빚, 성급한 분노로 이름이 오르내렸고, 주치의 도로시 페어뱅크 박사는 가족이 아닌데도 이상할 만큼 오래 가문 안에 머물렀다.",
+      "next_scene_id": "scene_day0_train_reflection",
+      "continue_text": "신문의 문장과 실제 저택의 공기가 얼마나 다를지 가늠해 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_train_reflection",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "신문은 언제나 사람을 두 겹으로 쓴다. 바깥에 보이는 이름과 안에서 실제로 작동하는 관계는 거의 다르다. 당신이 지금 읽는 것은 후원자 아서, 양녀 에블린, 문제아 리처드, 충직한 주치의 박사라는 단순한 구도였지만, 실제 저택 안에서는 그 네 이름 사이에 훨씬 더 오래된 감정의 결이 엉켜 있을 가능성이 컸다.\n\n그래서 사건은 아직 시작도 하지 않았는데 이미 한 가지가 분명했다. 블랙우드 저택에 들어간다는 건 재산 분쟁 현장에 들어가는 일이 아니라, 오래 길들여진 관계 안으로 들어가는 일이라는 점이다.",
+      "next_scene_id": "scene_day0_fellow_passenger",
+      "continue_text": "객실 안의 낯선 시선과 짧은 대화로 시선을 돌린다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_fellow_passenger",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "같은 객실 끝자리에는 지방 신문을 읽는 노인이 앉아 있었다. 그는 당신이 블랙우드 가문 이름이 적힌 봉투를 접는 것을 보자, 대단한 호기심 없이 한 마디만 던졌다. \"그 집은 바깥에선 존경받고, 안에선 오래 아픈 집이라더군요.\"\n\n뜬소문처럼 들릴 수도 있었지만, 오래된 지방 사람의 말에는 대개 과장보다 축약이 많다. 당신은 그 짧은 표현을 기억해 두었다. 오래 아픈 집. 병이 사람에게만 생기지 않는다면, 가문에도 그런 병은 있을 수 있다.",
+      "next_scene_id": "scene_day0_case_notes",
+      "continue_text": "가문 기록과 방금 들은 말을 함께 맞춰 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_case_notes",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "열차가 터널에 들어가자 창밖이 잠시 완전히 어두워졌다. 당신은 그 짧은 어둠을 틈타 수첩을 꺼냈다. 블랙우드 가문 사건 노트에는 사람 이름보다 성격에 대한 메모가 더 많았다. 이 집안은 언제나 사실보다 분위기가 먼저 사건을 움직였기 때문이다.\n\n아서는 후계자를 길러 낸다기보다 시험하는 사람으로 보였고, 에블린은 순종보다 적응에 능한 인물로 기록돼 있었다. 리처드는 결함이 많은 사람이었지만, 동시에 모두가 너무 쉽게 희생양으로 삼을 수 있는 사람이기도 했다.",
+      "next_scene_id": "scene_day0_blackwood_ledger",
+      "continue_text": "과거 기사와 가계 기록을 더 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_blackwood_ledger",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "가계 기록 한 귀퉁이에는 유독 덧칠된 흔적이 많았다. 입양과 후견, 요양과 유학, 병환과 장기 체류 같은 단어들이 자주 등장했다. 단정한 기록일수록 감추는 것이 많다.\n\n당신은 특히 최근 1년의 지출 메모에 눈을 멈췄다. 서재 수리, 온실 보수, 주치의 특별 자문료. 누군가의 건강과 누군가의 자격이 이미 오래전부터 같은 장부 위에 적혀 있었다.",
+      "next_scene_id": "scene_day0_carriage",
+      "continue_text": "폭풍 속 마차길로 접어든다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_carriage",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "역에서 갈아탄 마차는 절벽길을 따라 저택으로 올라갔다. 마부는 쓸데없는 말이 없는 사람이었지만, 블랙우드 저택의 정문이 보이자 무심한 얼굴이 아주 잠깐 굳었다.\n\n멀리 번개가 바다 위를 가르자 검은 지붕과 탑, 젖은 석벽이 한순간 드러났다. 처음 보는 집인데도, 누군가 이미 오래전부터 이 집 안에서 숨을 죽이고 기다리고 있었다는 기분이 들었다.",
+      "next_scene_id": "scene_day0_storm_coast",
+      "continue_text": "저택 아래 해안과 절벽을 먼저 훑어본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_storm_coast",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "마차가 마지막 언덕을 돌기 전, 절벽 아래의 해안이 잠깐 시야에 들어왔다. 파도는 검은 바위를 거의 덮을 만큼 높게 치솟고 있었고, 뒤편 해안길은 이미 일부가 잠겨 있었다. 누군가 이 밤에 밖으로 도망치거나 지원을 부르기는 쉽지 않아 보였다.\n\n폭풍은 단지 배경이 아니었다. 이 집을 닫아 버리는 벽이었다. 사건이 벌어진다면, 적어도 오늘 밤은 저택 안에서 해결해야 한다는 뜻이었다.",
+      "next_scene_id": "scene_day0_driver_warning",
+      "continue_text": "마부가 남긴 마지막 경고를 곱씹는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day0_driver_warning",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "정문에 이르기 직전 마부는 처음이자 마지막으로 먼저 말을 꺼냈다. \"새벽 전에 누가 부르더라도 절벽길 쪽 문은 열지 마십시오.\" 이유를 묻자 그는 곧바로 입을 다물었지만, 말한 뒤 후회하는 얼굴은 아니었다.\n\n경험에서 나온 충고인지, 미신인지, 과거의 사건 때문인지는 알 수 없었다. 하지만 낯선 집에 들어가기 전 듣는 마지막 말은 종종 오래 남는다. 당신은 절벽길 쪽 문이라는 표현을 따로 기억했다.",
+      "next_scene_id": "scene_arrival_gate",
+      "continue_text": "저택 정문 앞에 내린다",
+      "choices": []
+    },
+    {
+      "id": "scene_arrival_gate",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "검은 철문은 성문처럼 높았고, 문기둥 위의 석사자는 폭우를 맞으며 묵묵히 저택을 지키고 있었다. 하인 둘이 서둘러 마차 문을 열었지만 환대의 표정보다는 사고를 숨기려는 사람들의 긴장감이 먼저 보였다.\n\n정원은 오랫동안 아름다웠을 것이나 지금은 거의 버려진 성역에 가까웠다. 가지치기되지 않은 장미넝쿨이 철제 아치를 휘감고 있었고, 온실 유리 지붕에는 번개가 닿을 때마다 푸른 금이 번쩍였다.",
+      "next_scene_id": "scene_arrival_hall",
+      "continue_text": "현관 안으로 들어간다",
+      "choices": []
+    },
+    {
+      "id": "scene_arrival_hall",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "현관 홀은 넓고 차가웠다. 벽난로는 켜져 있었지만 손님을 위한 온기보다는 체면을 위한 불 같았다. 층계참까지 이어진 붉은 카펫은 물기 한 점 없이 정리되어 있었고, 그 완벽한 정돈이 오히려 집의 숨막힘을 드러냈다.\n\n집사는 저택의 주인이 곧 만찬장에서 당신을 맞을 것이라 말했지만, 말끝의 떨림은 \"곧\"이라는 단어를 자신도 믿지 못한다는 듯했다.",
+      "next_scene_id": "scene_arrival_butler",
+      "continue_text": "집사의 첫 반응과 태도를 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_arrival_butler",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "?? ?? ??? ???? ??? ?????. ?? ??? ??? ? ?? ??? ?? ???, ? ??? ?? ??, ???? ??? ? ?? ?? ?? ?? ???. ??? ?????, ? ???? ??????? ?? ??? ??? ????.\n\n??? ??? ??? ?? ? ?? ??? ?? ?? ???. ??? ??? ?? ?? ? ?? ??? ?? ?? ?? ??? ???? ?? ????. ??? ?? ??? ??? ???, ?? ??? ??? ??? ??? ????? ???? ????.",
+      "next_scene_id": "scene_arrival_guestbook",
+      "continue_text": "현관 테이블의 방문 기록과 방 배정표를 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_arrival_guestbook",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "현관 테이블 위에는 손님용 방문 기록장이 펼쳐져 있었다. 정식으로 이름을 적은 방문자는 거의 없었지만, 최근 며칠 사이 의사와 변호사, 정원사 출입이 평소보다 잦았다는 표시는 남아 있었다. 특히 변호사의 이름은 이틀 전과 사흘 전, 두 번이나 적혀 있었다.\n\n유언 변경이 즉흥적 결심이 아니라 이미 진행 중인 사안이었다는 뜻이다. 오늘 밤은 시작이 아니라 마무리 직전일 가능성이 높았다.",
+      "next_scene_id": "scene_arrival_wet_cloak",
+      "continue_text": "젖은 외투를 맡기며 하인들의 반응을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_arrival_wet_cloak",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "젖은 외투를 벗겨 주는 하인의 손길은 능숙했지만, 마차에서 묻은 절벽길 진흙을 보자 잠깐 멈칫했다. 아주 짧은 반응이었지만, 저택 바깥 길 사정을 내부 사람들이 예민하게 의식하고 있다는 뜻으로 읽혔다.\n\n집 안의 긴장은 종종 말보다 반사적인 몸짓으로 먼저 드러난다. 당신은 외투 주머니 속 수첩이 젖지 않았는지 확인하면서도, 방금 그 멈칫함을 따로 기억해 두었다.",
+      "next_scene_id": "scene_arrival_staircase",
+      "continue_text": "홀과 계단의 시야를 더 넓게 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_arrival_staircase",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "홀 중앙 계단은 마치 무대처럼 저택 전체를 가르고 있었다. 위층 난간에서는 방금 누군가 몸을 숨긴 듯 커튼이 아주 미세하게 흔들렸다. 저택은 외부인에게 구조를 숨기지 않았다. 대신 이 구조를 누가 어떻게 이용하는지가 비밀이었다.\n\n당신은 계단의 폭, 복도의 갈라지는 방향, 서재와 만찬장으로 이어지는 동선을 눈에 담았다. 훗날 범인을 좇게 된다면 결국 이 첫 인상이 지도가 될 것이다.",
+      "next_scene_id": "scene_portrait_gallery",
+      "continue_text": "초상화 복도로 걸어간다",
+      "choices": []
+    },
+    {
+      "id": "scene_portrait_gallery",
+      "background_image": "evelyn_portrait",
+      "speaker": "system",
+      "text": "복도를 따라 걸으며 오래된 초상화들을 살피자, 이 집안의 피와 체면이 얼마나 집요하게 이어졌는지 알 수 있었다. 그 가운데 가장 최근 그림은 젊은 여인의 초상화였다. 이름표에는 \"에블린 블랙우드\"라고 적혀 있었다.\n\n실제 인물을 아직 보지 못했는데도, 그림만으로도 성격이 읽혔다. 온화하게 웃고 있지만 조금도 자신을 내주지 않는 얼굴. 누군가를 안심시키는 표정이면서 동시에, 그 안심이 허락된 사람에게만 주어진다는 것을 알고 있는 사람의 표정이었다.",
+      "next_scene_id": "scene_portrait_annotations",
+      "continue_text": "초상 아래의 작은 메모와 명패를 더 살핀다",
+      "choices": []
+    },
+    {
+      "id": "scene_portrait_annotations",
+      "background_image": "evelyn_portrait",
+      "speaker": "system",
+      "text": "초상화 아래 명패 옆에는 최근에 덧붙인 듯한 작은 관리 메모가 있었다. 조명 교체 날짜와 액자 보수 기록 같은 사소한 내용이었지만, 에블린의 초상만 유독 자주 손을 본 흔적이 남아 있었다.\n\n집안의 얼굴로 세워진 사람은 늘 관리된다. 사랑받아서일 수도 있고, 무너질 수 없어서일 수도 있다. 당신은 에블린이 이 집에서 단순한 양녀가 아니라, 체면의 일부로 길러졌을 가능성을 떠올렸다.",
+      "next_scene_id": "scene_housekeeper_whisper",
+      "continue_text": "복도 끝의 속삭임으로 시선을 옮긴다",
+      "choices": []
+    },
+    {
+      "id": "scene_housekeeper_whisper",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "하녀 하나가 은촛대를 정리하다 당신과 눈이 마주치자 급히 시선을 피했다. 잠시 후 그녀는 거의 입 모양만으로 속삭였다. \"오늘 밤은 누가 누구 방으로 가는지 기억해 두세요. 이 집에선 발소리도 거짓말을 합니다.\"\n\n묻고 싶은 것이 많았지만 그녀는 그 이상 말하지 않았다. 다만 쟁반을 든 손끝이 하얗게 질려 있었고, 이 집 사람들이 두려워하는 것이 단순한 유산 다툼이 아니라는 것만은 분명했다.",
+      "next_scene_id": "scene_waiting_room",
+      "continue_text": "응접실로 안내받는다",
+      "choices": []
+    },
+    {
+      "id": "scene_waiting_room",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "응접실은 지나치게 조용했다. 찻잔은 준비돼 있었지만 아무도 마시지 않은 채 식어 있었고, 벽시계만 또렷하게 분을 깎아 먹고 있었다. 문밖에서는 낮게 말다툼하는 남녀의 목소리가 들렸고, 누군가 \"오늘만은 참으라\"고 말하는 것이 어렴풋이 들렸다.\n\n잠시 뒤 문이 열리고 집사가 당신을 만찬장으로 안내했다. 저택 전체가 저녁식사라는 형식을 억지로 유지한 채, 그 아래에서 다른 무언가가 이미 금 가고 있었다.",
+      "next_scene_id": "scene_waiting_room_listen",
+      "continue_text": "문밖의 대화를 더 신중히 듣는다",
+      "choices": []
+    },
+    {
+      "id": "scene_waiting_room_listen",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "문밖의 목소리는 곧 사라지지 않았다. 여자는 낮고 단정하게, 남자는 감정을 억지로 누르며 말했다. 단어는 모두 들리지 않았지만 \"오늘 안에\", \"문서\", \"그 사람은 아직 모른다\" 같은 조각들이 분명하게 귀에 걸렸다.\n\n직접적인 증거는 아니어도 충분히 중요한 징후였다. 이 집 사람들은 아서가 당신을 부르기 전부터 이미 같은 문제를 두고 서로 다른 계산을 하고 있었다.",
+      "next_scene_id": "scene_waiting_room_clock",
+      "continue_text": "응접실 시계와 가구 배치까지 천천히 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_waiting_room_clock",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "응접실 벽시계는 분침이 살짝 느렸다. 누군가 하루 이틀 미뤄 둔 것이 아니라, 이 집 전체가 몇 분씩 어긋난 시간을 견디며 움직이고 있는 듯한 인상이 들었다. 소파 배치 역시 묘했다. 서로 마주 보게 두기보다 비스듬히 틀어 두어, 대화보다는 감시와 회피가 쉽게 일어나는 구조였다.\n\n집안의 가구 배치는 우연이 아니다. 오래 함께 산 사람들이 가장 편하게 거짓말할 수 있는 방향으로 굳는다.",
+      "next_scene_id": "scene_waiting_room_fireplace",
+      "continue_text": "난로와 테이블에 남은 흔적을 더 가까이 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_waiting_room_fireplace",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "응접실 난로 위에는 최근까지 쓰였던 편지칼과 반쯤 탄 봉투 조각이 놓여 있었다. 치워 버리기엔 급했고, 숨기기엔 시간이 모자랐던 것처럼 보였다. 당신은 봉투의 문장 일부만 읽을 수 있었다. \"아침 전까지 결정\"이라는 표현이 유독 또렷했다.\n\n블랙우드 저택의 문제는 이미 만찬 전부터 타오르고 있었다. 저녁식사는 갈등의 시작이 아니라, 마지막 가림막에 가까웠다.",
+      "next_scene_id": "scene_waiting_room_window",
+      "continue_text": "창문 밖 정원과 온실 위치를 확인한다",
+      "choices": []
+    },
+    {
+      "id": "scene_waiting_room_window",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "응접실 창으로는 온실이 비스듬히 내려다보였다. 번개가 칠 때마다 온실의 유리 골격이 한순간 드러났다가 다시 어둠 속으로 잠겼다. 응접실, 만찬장, 서재, 온실은 서로 독립된 공간처럼 보이지만 실제로는 시선과 동선이 미묘하게 이어져 있었다.\n\n누군가 조용히 움직이려 한다면 이 연결을 알고 있어야 한다. 그리고 오래 산 사람이라면 당연히 알고 있을 것이다.",
+      "next_scene_id": "scene_waiting_room_scent",
+      "continue_text": "응접실에 남은 향과 사람의 흔적을 더 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_waiting_room_scent",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "응접실 공기에는 찻잎 냄새 말고도 향수와 약 냄새가 희미하게 겹쳐 있었다. 누군가가 오래 머문 자리가 아니라, 급히 다녀가며 감정과 긴장을 남기고 간 자리의 냄새였다.\n\n저택은 겉보기엔 정리돼 있었지만, 실제로는 사람들의 흔적이 서로 겹쳐 쌓이고 있었다. 오늘 밤 이 집에서 벌어질 일도 아마 그런 중첩 속에서 터질 것이다.",
+      "next_scene_id": "scene_waiting_room_floor",
+      "continue_text": "응접실 바닥과 카펫의 작은 흐트러짐까지 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_waiting_room_floor",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "응접실 카펫 가장자리에는 최근 급히 방향을 튼 듯한 눌림이 남아 있었다. 한 사람이 오래 서 있었던 자리가 아니라, 두세 사람이 짧고 날카로운 대화를 나누다 갑자기 흩어진 자리처럼 보였다.\n\n큰 집은 흔적을 잘 숨기지만 완전히 지우지는 못한다. 당신은 만찬 전부터 이미 이 방에서 누군가가 결정을 재촉하고 누군가가 시간을 벌고 있었다는 인상을 굳혔다.",
+      "next_scene_id": "scene_arthur_intro",
+      "continue_text": "이제 만찬장으로 들어가 모두를 실제로 마주한다",
+      "choices": []
+    },
+    {
+      "id": "scene_arthur_intro",
+      "background_image": "mansion_study_room",
+      "speaker": "아서 블랙우드",
+      "text": "\"?? ? ??? ???. ?? ?? ?? ?? ?? ???.\"\n\n?? ????? ???? ?????, ??? ??? ?? ??? ??? ??? ?? ? ?????. ??? ?? ???? ?? ?? ???? ??? ???, ?? ?? ?? ?? ?? ?? ????? ???? ???? ??? ???. ??? ??? ???? ??? ???, ?? ??? ?? ??? ??? ???? ??? ????.",
+      "next_scene_id": "scene_dinner_intro",
+      "continue_text": "테이블의 다른 사람들을 살핀다",
+      "choices": []
+    },
+    {
+      "id": "scene_dinner_intro",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "긴 식탁의 양끝에 긴장이 걸려 있었다. 아서의 오른편에는 에블린이, 왼편에는 리처드가 앉아 있었다. 도로시 페어뱅크 박사는 가족도 아닌데 가족보다 더 익숙한 자세로 자리를 지키고 있었다.\n\n에블린은 하인에게 말을 건넬 때 목소리를 낮췄고, 리처드는 와인을 받는 순간조차 상대를 시험하듯 내려다봤다. 박사는 누구의 편도 아닌 얼굴을 하고 있었지만, 실제로는 모두의 상태를 측정하는 사람처럼 눈동자를 움직였다.",
+      "next_scene_id": "scene_dinner_smalltalk",
+      "continue_text": "만찬 초반의 대화 흐름을 먼저 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_dinner_smalltalk",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "?? ??? ??? ???? ????. ???? ?? ???? ?? ?? ??? ??? ??? ?? ??? ??? ??, ???? ?? ??? ?????? ??? ? ????? ????. ??? ??? ??? ?? ??? ??? ?? ?? ?? ??? ?? ???.\n\n? ?? ?????? ??? ??? ???. ???? ??? ?? ???? ?? ??? ????, ???? ??? ??? ?? ?? ?? ??? ????? ????. ??? ??? ???? ??? ??, ??? ?? ?? ?? ????? ???? ??.",
+      "next_scene_id": "scene_dinner_arthur_test",
+      "continue_text": "아서가 식탁을 어떻게 지배하는지 지켜본다",
+      "choices": []
+    },
+    {
+      "id": "scene_dinner_arthur_test",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "아서는 별것 아닌 질문으로도 사람을 시험했다. 하인에게는 포도주 산지를 묻고, 리처드에겐 최근 사교 모임 이름을 묻고, 에블린에겐 후견 기금 보고서를 기억하느냐고 물었다. 질문 자체보다 답변 직후의 표정을 보는 사람의 방식이었다.\n\n가족을 돌보는 가장이라기보다, 늘 평가표를 들고 있는 감독자에 가까웠다. 그의 집에서 오래 산 사람이라면 누구나 언젠가 사랑보다 심사를 먼저 배웠을 것이다.",
+      "next_scene_id": "scene_dinner_serving_order",
+      "continue_text": "하인들이 누구를 어떻게 대하는지도 살핀다",
+      "choices": []
+    },
+    {
+      "id": "scene_dinner_serving_order",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "하인들이 음식을 내오는 순서에도 미묘한 위계가 드러났다. 아서의 접시는 가장 먼저 놓였고, 박사는 가족이 아닌데도 리처드보다 먼저 시중을 받았다. 에블린은 그 사실을 알아차리면서도 모른 척했고, 리처드는 알아차릴수록 더 불편해 보였다.\n\n집 안의 권력은 늘 공식 호칭으로만 드러나지 않는다. 누가 먼저 돌봄을 받는지, 누가 설명 없이도 배려받는지가 훨씬 솔직한 질서다.",
+      "next_scene_id": "scene_dinner_character_tableau",
+      "continue_text": "이제 세 사람 중 한 명의 표정에 집중한다",
+      "choices": []
+    },
+    {
+      "id": "scene_dinner_character_tableau",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "만찬 초반은 의외로 평온했다. 그 평온함이야말로 가장 불길했다. 모두가 예절을 지키고 있었지만, 예절을 지키는 이유가 서로를 존중해서가 아니라 지금 당장 무너지지 않기 위해서라는 점이 너무 선명했기 때문이다.\n\n당신은 세 사람 가운데 누구를 먼저 읽어야 이 집의 균열이 잘 보일지 가늠했다.",
       "choices": [
         {
-          "text": "시신의 셔츠를 들춰 은밀히 남겨진 흔적을 살핀다",
-          "next_scene_id": "scene_body_check",
+          "text": "에블린의 침착함이 진짜인지 살핀다",
+          "next_scene_id": "scene_observe_evelyn",
           "effects": {
             "time_cost": 1,
             "danger_delta": 0,
-            "add_evidence": ["시신에 남은 붉은 립스틱 자국"]
+            "add_evidence": [
+              "에블린은 감정을 먼저 숨기고 상황을 정리한다"
+            ]
           }
         },
         {
-          "text": "현장을 훼손하지 않고 범인이 빠져나간 창문을 조사한다",
-          "next_scene_id": "scene_window_check",
+          "text": "리처드의 불안과 허세를 살핀다",
+          "next_scene_id": "scene_observe_richard",
           "effects": {
             "time_cost": 1,
             "danger_delta": 0,
-            "add_evidence": []
+            "add_evidence": [
+              "리처드는 무시당한다고 느끼면 곧바로 공격적으로 변한다"
+            ]
+          }
+        },
+        {
+          "text": "박사의 시선이 누구에게 머무는지 본다",
+          "next_scene_id": "scene_observe_doctor",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": [
+              "박사는 대화보다 사람의 약점과 반응을 먼저 읽는다"
+            ]
           }
         }
       ]
     },
     {
-      "id": "scene_body_check",
+      "id": "scene_observe_evelyn",
       "background_image": "mansion_study_room",
       "speaker": "system",
-      "text": "입가에 묻은 거품... 전형적인 청산가리 계열 독이다. 영감의 굳은 손에는 쾌락을 극대화하는 최음제 병이 쥐어져 있었고, 목덜미에는 짙은 붉은색 립스틱 자국과 누군가 강하게 할퀸 상처가 선명하다.\n그때, 밖에서 급박한 하이힐 소리가 서재를 향해 다가온다!",
+      "text": "에블린은 상석에서 가장 멀지 않은 자리에 앉아 있었지만 자신을 드러내려 애쓰지 않았다. 대신 누군가가 지나치게 거칠어지기 직전, 하인에게 물을 더 따르게 하거나 주제를 바꾸어 테이블의 흐름을 조정했다.\n\n친절함이라기보다 통제에 가까운 배려였다. 그녀는 누구보다 예의 바르지만, 동시에 누구보다 빠르게 방 안의 질서를 계산하는 사람이었다.",
+      "next_scene_id": "scene_observe_evelyn_memory",
+      "continue_text": "그 침착함이 어떤 종류의 생존 습관인지 더 생각해 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_evelyn_memory",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "??? ???? ???? ??? ???? ???? ???? ????. ???? ??? ??? ??? ? ?? ??? ?? ???? ?? ??? ???, ?? ???? ? ??? ??? ?? ???? ??.\n\n??? ???? ??? ?? ??? ???? ?? ?? ??? ? ???. ? ????? ???? ??? ??? ????. ???? ??? ?? ?? ? ????, ?? ???? ??? ?????? ??? ? ???? ??.",
+      "next_scene_id": "scene_observe_evelyn_vs_arthur",
+      "continue_text": "에블린과 아서 사이의 미묘한 긴장도 함께 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_evelyn_vs_arthur",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "에블린이 가장 조심하는 사람은 리처드가 아니라 아서처럼 보였다. 그녀는 리처드의 공격성은 흘려보낼 수 있었지만, 아서가 조용히 시선을 두는 순간에는 아주 미세하게 어깨를 굳혔다.\n\n그것은 단순한 존경이나 두려움만으로는 설명되지 않는 반응이었다. 오래 사랑받고 오래 시험당한 사람이 동시에 가질 법한 몸의 기억에 가까웠다.",
+      "next_scene_id": "scene_observe_merge",
+      "continue_text": "다시 식탁 전체의 기류를 함께 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_richard",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "리처드는 술잔을 들 때마다 조금씩 더 힘을 주었다. 아버지가 하인의 실수를 지적하자 그는 웃으며 넘어가는 척했지만, 바로 다음 순간 종업원에게 잔을 거칠게 밀어붙였다.\n\n분노를 참는 방식이 서투른 사람, 그리고 스스로도 그것을 알고 있는 사람 특유의 숨 가쁨이 있었다. 그는 미성숙한 만큼 단순하지 않았다. 모욕을 오래 기억하고, 그 모욕이 쌓일수록 스스로 더 초라해진다는 사실을 아는 얼굴이었다.",
+      "next_scene_id": "scene_observe_richard_memory",
+      "continue_text": "리처드의 불안이 어디서 비롯된 것인지 한 번 더 짚는다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_richard_memory",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "???? ?? ??? ??? ??? ?????? ???? ???. ?? ??? ??? ???? ??? ??? ???? ????, ???? ??? ? ??? ??? ???? ???. ?? ?? ???? ??? ??????? ?? ???? ????? ?? ????.\n\n?? ??? ???? ???? ???, ??? ???? ?? ? ??? ?? ??? ? ??? ???? ??. ??? ?? ??? ?? ??? ???, ?? ?? ???? ?? ??? ??? ??? ?? ???.",
+      "next_scene_id": "scene_observe_richard_vs_arthur",
+      "continue_text": "리처드와 아서 사이의 오래된 적대를 더 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_richard_vs_arthur",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "리처드는 아서를 미워하면서도 끝까지 그의 반응을 기다리고 있었다. 완전히 등을 돌린 사람이라면 아버지의 한숨 하나에 그렇게까지 표정이 흔들리지는 않는다. 그는 아직도 평가받고 있었고, 여전히 그 평가에서 벗어나지 못했다.\n\n누군가를 증오하면서 동시에 그 사람의 인정을 구하는 상태는 사람을 쉽게 망가뜨린다. 그리고 그런 사람은 종종 사건의 원인보다 도구로 더 자주 이용된다.",
+      "next_scene_id": "scene_observe_merge",
+      "continue_text": "다시 모두의 표정이 얽힌 식탁으로 시선을 돌린다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_doctor",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "박사는 말을 아꼈다. 대신 누가 어떤 음식을 남기는지, 아서가 몇 번 기침하는지, 에블린이 언제 시선을 거두는지 조용히 세고 있는 것처럼 보였다.\n\n전문가의 침착함이 분명 있었지만, 사람을 돌보는 의사라기보다 환자의 통제권을 손에 쥔 사람의 태도에 가까웠다. 그는 가족 사이의 긴장에 놀라지 않았다. 이미 잘 알고 있는 사람처럼.",
+      "next_scene_id": "scene_observe_doctor_memory",
+      "continue_text": "박사의 침착함이 어디서 오는지 더 곱씹는다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_doctor_memory",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "??? ???? ???? ????? ?? ???. ??? ????? ???????, ?? ??? ?? ?? ??? ??? ??? ??? ?? ??? ??? ????. ??? ??? ??? ?? ???? ??? ?? ??? ?? ?? ??? ?????.\n\n???? ? ??? ?? ?, ??? ?? ?? ??? ???? ??? ??? ?? ???? ??? ??? ???? ???? ??. ??? ?? ? ??? ????? ???.",
+      "next_scene_id": "scene_observe_doctor_vs_house",
+      "continue_text": "박사가 이 집을 얼마나 자기 일처럼 여기는지도 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_doctor_vs_house",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "박사는 손님처럼 앉아 있었지만 손님처럼 보이지는 않았다. 하인이 실수했을 때 가장 먼저 반응하는 것도, 아서의 기침 뒤에 물잔 위치를 바꾸는 것도 그였다. 집안의 일부가 아닌데도 집안의 습관을 가장 정확히 알고 있는 사람의 움직임이었다.\n\n그런 위치는 편리하면서도 위험하다. 외부자라는 면책을 갖고 있으면서도, 내부자만큼 많은 정보를 손에 넣을 수 있기 때문이다.",
+      "next_scene_id": "scene_observe_merge",
+      "continue_text": "이제 모든 사람의 관계를 한꺼번에 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_observe_merge",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "짧은 관찰만으로도 세 사람은 모두 의심스러웠다. 하지만 의심스럽다는 사실보다 중요한 것은, 세 사람 모두 아서의 한마디를 기다리고 있다는 점이었다. 상속과 유언이 오늘 밤의 축이고, 그 축이 돌아가는 순간 누군가는 반드시 손해를 볼 것이다.",
+      "next_scene_id": "scene_will_announcement",
+      "continue_text": "아서가 입을 연다",
+      "choices": []
+    },
+    {
+      "id": "scene_will_announcement",
+      "background_image": "mansion_study_room",
+      "speaker": "아서 블랙우드",
+      "text": "\"?? ?? ??? ?? ??? ?? ??? ?????. ?? ? ??? ??? ??? ?? ????.\"\n\n? ??? ???? ???? ??? ?? ???. ???? ?? ???? ? ??? ???? ??? ????, ???? ?? ???? ??? ???. ??? ?? ??? ?? ????, ?? ??? ??? ? ??? ?? ????? ??? ?? ???.\n\n??? ? ?? ?? ??? ?? ?? ?? ???? ?? ??? ????? ??? ??? ????. ???? ??? ??, ???? ??? ???, ??? ??? ???? ?? ???? ???.",
+      "next_scene_id": "scene_dinner_aftershock",
+      "continue_text": "식사가 끝난 뒤 흩어지는 사람들을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_dinner_aftershock",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "만찬은 형식적으로 끝났지만, 아무도 곧장 방으로 돌아가지 않았다. 아서는 잠시 후 서재에서 당신과 따로 이야기하겠다고 말했고, 다른 이들은 각자의 방향으로 흩어졌다. 누구도 완전히 자연스럽지 않았다.\n\n바로 그때가 인물의 본성이 가장 잘 드러나는 순간이었다. 누가 어디로 가는지를 보면, 그 사람이 무엇을 두려워하는지 더 쉽게 읽을 수 있다.",
       "choices": [
         {
-          "text": "재빨리 무거운 벨벳 커튼 뒤로 몸을 숨겨 동태를 살핀다",
-          "next_scene_id": "scene_hide_curtain",
+          "text": "에블린을 조용히 따라간다",
+          "next_scene_id": "scene_follow_evelyn_1",
           "effects": {
-            "time_cost": 0,
+            "time_cost": 1,
             "danger_delta": 0,
-            "add_evidence": ["독이 섞인 최음제 병"]
+            "add_evidence": [
+              "에블린은 유언 발표 직후 온실 방향 복도로 향했다"
+            ]
           }
         },
         {
-          "text": "당당하게 시신 앞에 서서 밀려들어오는 자와 마주한다",
+          "text": "리처드를 따라간다",
+          "next_scene_id": "scene_follow_richard_1",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": [
+              "리처드는 만찬 직후 술과 함께 편지를 챙겨 나갔다"
+            ]
+          }
+        },
+        {
+          "text": "박사의 동선을 따라간다",
+          "next_scene_id": "scene_follow_doctor_1",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": [
+              "박사는 아서의 약 상자를 직접 들고 서재 쪽으로 향했다"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_follow_evelyn_1",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "에블린은 발소리를 거의 남기지 않았다. 그녀는 온실로 향하는 복도에서 잠시 멈추더니, 창가에 놓인 시든 화분을 고쳐 세웠다. 긴장한 사람의 행동치고는 지나치게 침착했다.\n\n잠시 후 그녀는 혼잣말처럼 중얼거렸다. \"지금 바뀌면 너무 늦어.\" 누구에게 한 말인지, 무엇이 늦는다는 뜻인지 알 수 없었지만, 문장의 무게는 결코 가볍지 않았다.",
+      "next_scene_id": "scene_follow_merge",
+      "continue_text": "에블린이 사라진 뒤 복도로 돌아온다",
+      "choices": []
+    },
+    {
+      "id": "scene_follow_richard_1",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "리처드는 응접실 옆 작은 술장으로 들어가자마자 병을 땄다. 그는 주머니에서 편지 여러 장을 꺼내 훑어보더니 하나를 난로 속에 밀어 넣었다. 완전히 태우지 못한 채 급히 구겨 넣는 모습이 다급했다.\n\n불빛에 비친 글자 몇 개만으로도 내용은 짐작됐다. 채권, 상환, 마지막 경고. 그는 격분해 있었지만 동시에 겁먹어 있었다.",
+      "next_scene_id": "scene_follow_merge",
+      "continue_text": "리처드가 다른 쪽으로 사라질 때까지 기다린다",
+      "choices": []
+    },
+    {
+      "id": "scene_follow_doctor_1",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "박사는 하인에게 맡길 수도 있는 약 상자를 직접 들고 서재 쪽으로 향했다. 그는 문 앞에서 잠시 멈춰 유리병 라벨을 확인하더니, 누군가 보기 전에 다시 상자 덮개를 닫았다.\n\n아주 짧은 순간이었지만 인상이 남았다. 환자를 돌보는 습관적인 점검이라기보다, 기록과 물건이 정확히 제 자리에 있는지 확인하는 사람의 동작이었다.",
+      "next_scene_id": "scene_follow_merge",
+      "continue_text": "박사가 서재 문 안으로 사라진다",
+      "choices": []
+    },
+    {
+      "id": "scene_follow_merge",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "누구를 따라갔든 공통된 사실은 하나였다. 이 집의 사람들은 저마다 다른 이유로 오늘 밤을 버티고 있었다. 그리고 모두가 아서와 서재를 중심으로 움직이고 있었다.\n\n당신은 객실로 돌아가라는 안내를 받았지만, 잠드는 일은 애초에 불가능해 보였다.",
+      "next_scene_id": "scene_follow_family_history",
+      "continue_text": "흩어진 동선을 가족사와 연결해 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_follow_family_history",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "방으로 돌아가는 길에 당신은 세 사람의 동선을 단순한 현재 행동이 아니라 오래된 관계의 연장으로 보기 시작했다. 에블린은 위기 때마다 사람들의 시선에서 벗어나 질서를 세울 수 있는 공간으로 갔고, 리처드는 감정을 숨기지 못한 채 술과 편지로 도망쳤다. 박사는 언제나 사건이 일어나는 중심으로 향했다.\n\n가족 안에서 오래 반복된 역할은 위기 때 더 선명하게 드러난다. 누군가는 달래고, 누군가는 부수고, 누군가는 관리한다. 문제는 그 셋이 한 사건 안에서 동시에 움직일 때다.",
+      "next_scene_id": "scene_guest_room_layout",
+      "continue_text": "객실 구조와 밤의 이동 가능성부터 살핀다",
+      "choices": []
+    },
+    {
+      "id": "scene_guest_room_layout",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "배정받은 객실은 정갈했지만 어딘가 임시 숙소처럼 느껴졌다. 창문은 정원을 향했고, 복도 쪽 문 외에도 하인용 소문 하나가 따로 달려 있었다. 평소엔 편의를 위한 구조겠지만, 사건이 나면 은밀한 이동 통로가 되기 쉬운 배치였다.\n\n당신은 창문 고리와 문 잠금장치를 하나씩 확인했다. 저택에서 밤을 맞는다는 건 단순히 잠을 자는 일이 아니라, 어느 문이 먼저 열릴지 예상하는 일이다.",
+      "next_scene_id": "scene_guest_room_notes",
+      "continue_text": "객실에 앉아 인물별 메모를 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_guest_room_notes",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "객실에 돌아온 뒤에도 잠들 생각은 들지 않았다. 당신은 만찬장에서 본 표정과 복도에서 들은 목소리, 그리고 각자가 숨기려 했던 것을 짧게 적어 내려갔다.\n\n에블린은 감정 대신 질서를 유지하려 했고, 리처드는 무시당한 상처를 술로 덮으려 했으며, 박사는 타인의 생사보다 통제권을 더 중시하는 사람처럼 보였다. 사건이 터지기 전부터 이미 세 사람은 서로 다른 방식으로 무너지고 있었다.",
+      "next_scene_id": "scene_night_restlessness",
+      "continue_text": "잠들지 못한 채 복도의 소리를 기다린다",
+      "choices": []
+    },
+    {
+      "id": "scene_night_restlessness",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "자정이 가까워지자 저택은 오히려 더 또렷해졌다. 벽 속 배관 소리, 멀리서 닫히는 문, 바람이 창틀을 떠는 소리 하나하나가 선명했다. 잠시 뒤, 분명 사람의 것이어야 할 발소리가 복도를 지나갔다.\n\n곧이어 낮게 억눌린 언쟁, 유리 깨지는 소리, 그리고 누군가 숨을 삼키는 짧은 침묵이 이어졌다. 움직여야 할 순간이었다.",
+      "next_scene_id": "scene_night_clock",
+      "continue_text": "시간의 흐름과 발소리를 더 세밀히 좇는다",
+      "choices": []
+    },
+    {
+      "id": "scene_night_clock",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "벽시계가 열한 번을 넘기고, 반 시를 향해 가는 동안 발소리는 두 번 더 지나갔다. 한 번은 무게가 실린 남성의 구두 소리였고, 다른 한 번은 카펫 가장자리를 조심해 걷는 가벼운 발소리였다. 저택은 거대한 시계처럼 움직이고 있었고, 각자는 자기 시간이 따로 있는 듯했다.\n\n당신은 그제야 하녀의 경고를 정확히 이해했다. 이 집에선 누가 어디로 갔는지를 기억하는 일이 곧 진실을 기억하는 일이다.",
+      "next_scene_id": "scene_night_window_rain",
+      "continue_text": "복도로 나가기 전 바깥 빗소리와 창가를 살핀다",
+      "choices": []
+    },
+    {
+      "id": "scene_night_window_rain",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "문을 열기 직전 창가에 멈춰 서자 빗소리가 유난히 거칠게 들렸다. 창문 가장자리에는 이미 누군가 급히 지나가며 묻힌 듯한 젖은 손자국이 희미하게 번져 있었다. 객실 앞 복도만이 아니라 저택 바깥 회랑도 누군가 이용하고 있는 듯했다.\n\n이 밤은 단순히 집 안에서만 벌어지는 사건이 아닐 수도 있었다. 저택 안팎을 모두 아는 사람이 움직인다면, 현장은 더 복잡해진다.",
+      "next_scene_id": "scene_night_explore",
+      "continue_text": "지체하지 않고 복도로 나선다",
+      "choices": []
+    },
+    {
+      "id": "scene_night_explore",
+      "background_image": "corridor_night_explore",
+      "speaker": "system",
+      "text": "복도는 비에 젖은 바람 냄새로 가득했다. 소리는 서재 근처에서 났지만, 접근 경로는 셋이었다. 창문 쪽 바깥 회랑으로 돌아갈 수도 있었고, 정면 문으로 곧장 갈 수도 있었으며, 두꺼운 커튼 뒤 그늘에 몸을 숨긴 채 상황을 지켜볼 수도 있었다.",
+      "choices": [
+        {
+          "text": "깨진 창 쪽 외벽 회랑으로 돈다",
+          "next_scene_id": "scene_window_check",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 1,
+            "add_evidence": [
+              "깨진 창틀 바깥에 젖은 흙이 묻어 있었다"
+            ]
+          }
+        },
+        {
+          "text": "정면의 서재 문으로 곧장 간다",
           "next_scene_id": "scene_confront_door",
           "effects": {
-            "time_cost": 0,
-            "danger_delta": 1,
-            "add_evidence": ["독이 섞인 최음제 병"]
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": [
+              "서재 문 안쪽에 급히 닫힌 긁힌 자국이 남아 있었다"
+            ]
+          }
+        },
+        {
+          "text": "커튼 뒤에 숨은 채 사람들의 동선을 본다",
+          "next_scene_id": "scene_hide_curtain",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": [
+              "커튼 근처에 에블린의 향수와 닮은 향이 남아 있었다"
+            ]
           }
         }
       ]
     },
     {
       "id": "scene_window_check",
-      "background_image": "mansion_study_room",
+      "background_image": "study_window_clue",
       "speaker": "system",
-      "text": "창문은 깨져 있었고, 거센 비바람이 들이친다.\n창틀의 날카로운 유리 조각에는 검은색 여성용 레이스 스타킹의 조각이 피에 젖은 채 찢겨 걸려 있다.\n치정 살인의 용의자가 이제 막 빠져나간 게 분명하다. 그 순간, 복도 쪽에서 누군가 서재 문을 쾅쾅 두드린다.",
-      "choices": [
-        {
-          "text": "황급히 안에서 잠긴 문을 열어준다",
-          "next_scene_id": "scene_confront_door",
-          "effects": {
-            "time_cost": 0,
-            "danger_delta": 0,
-            "add_evidence": ["피 묻은 처참한 레이스 조각"]
-          }
-        }
-      ]
-    },
-    {
-      "id": "scene_confront_door",
-      "background_image": "mansion_study_room",
-      "speaker": "에블린",
-      "text": "문이 거칠게 열리며 조카딸 에블린과 맏아들 리처드가 뛰어들어온다.\n리처드는 코카인에 취한 듯 동공이 풀려 있고, 에블린의 옷차림은 묘하게 헝클어져 있으며 스타킹 한쪽이 찢어져 다리에 피가 흐르고 있다.\n\n\"당신 대체 여기서 무슨 짓을 엿본 거지?!\" 에블린이 날카롭게 비명을 지른다.",
-      "choices": [
-        {
-          "text": "당신의 찢어진 다리와 립스틱이 설명해 주고 있다고 냉소한다",
-          "next_scene_id": "scene_richard_suspect",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 1,
-            "trust_delta": {"에블린": -20},
-            "add_evidence": []
-          }
-        },
-        {
-          "text": "나는 방금 시신을 발견했을 뿐이라며 물러서서 방어한다",
-          "next_scene_id": "scene_richard_suspect",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 0,
-            "trust_delta": {"리처드": 10},
-            "add_evidence": []
-          }
-        }
-      ]
-    },
-    {
-      "id": "scene_hide_curtain",
-      "background_image": "mansion_study_room",
-      "speaker": "system",
-      "text": "커튼 틈새로 숨죽여 내다본다.\n열쇠를 따고 헐레벌떡 들어온 사람은 조카딸 에블린이었다. 그녀는 시신의 끔찍한 몰골에는 동요하지 않은 채, 영감의 바지 주머니와 금고 주변을 미친 듯이 뒤지기 시작했다.\n\"그 영감탱이가 카메라를 어디다 둔 거야... 내 영상이 유출되면 다 끝인데!\" 그녀가 울먹이며 중얼거린다.",
-      "choices": [
-        {
-          "text": "끝까지 숨을 죽이고 그녀가 포기하길 기다린다",
-          "next_scene_id": "scene_evelyn_leaves",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 0,
-            "add_evidence": ["포르노 테이프를 찾는 에블린"]
-          }
-        },
-        {
-          "text": "기습적으로 튀어나와 비디오테이프 얘기를 캐묻는다",
-          "next_scene_id": "scene_evelyn_hostile",
-          "effects": {
-            "time_cost": 0,
-            "danger_delta": 2,
-            "trust_delta": {"에블린": -40},
-            "add_evidence": []
-          }
-        }
-      ]
-    },
-    {
-      "id": "scene_evelyn_hostile",
-      "background_image": "evelyn_knife_attack",
-      "speaker": "에블린",
-      "text": "에블린은 소스라치게 놀라더니, 이내 광기에 찬 표정으로 돌변했다.\n\"그 늙은 변태가 내 인생을 갉아먹은 걸로도 모자라서... 이제 네놈까지 날 협박해?\" \n그녀는 치마를 걷어올려 허벅지에 숨겼던 호신용 단검을 뽑아들고 당신의 목을 노린다.",
-      "choices": [
-        {
-          "text": "재빨리 책상을 엎어 가로막고 복도로 도망쳐 비명을 지른다",
-          "next_scene_id": "scene_richard_suspect",
-          "effects": {
-            "time_cost": 0,
-            "danger_delta": 0,
-            "add_evidence": []
-          }
-        },
-        {
-          "text": "내가 그 테이프를 찾아주겠다며 그녀를 안심시킨다 (위험)",
-          "next_scene_id": "scene_death_bad_ending_1",
-          "effects": {
-            "time_cost": 0,
-            "danger_delta": 3,
-            "add_evidence": []
-          }
-        }
-      ]
-    },
-    {
-      "id": "scene_death_bad_ending_1",
-      "background_image": "bad_ending_blood",
-      "speaker": "system",
-      "text": "흥분한 그녀에게 이성적인 설득은 통하지 않았다.\n당신이 다가서는 순간, 그녀의 단검이 거침없이 당신의 목동맥을 깊숙히 끊어버린다. 피가 천장까지 치솟고 당신은 쿨럭이며 바닥에 쓰러진다.\n에블린은 무표정하게 치마의 피를 닦아내며 당신을 내려다본다.\n\n[ BAD ENDING - 입막음 당한 탐정 ]",
+      "text": "젖은 외벽 회랑은 위험했지만 시야가 좋았다. 서재 측면 창 하나가 안쪽에서 반쯤 깨져 있었고, 빗물이 실내 바닥까지 흘러들고 있었다. 창턱 아래에는 누군가 급히 발을 디딘 듯한 흙과 긁힘이 남아 있었다.\n\n안쪽에선 가구가 넘어지는 소리가 한 번 더 났다. 더 늦으면 현장을 놓친다.",
+      "next_scene_id": "scene_murder_discovery",
+      "continue_text": "깨진 창으로 안을 확인한다",
       "choices": []
     },
     {
-      "id": "scene_evelyn_leaves",
-      "background_image": "mansion_study_room",
+      "id": "scene_confront_door",
+      "background_image": "door_confrontation",
       "speaker": "system",
-      "text": "원하던 비디오테이프를 찾지 못한 에블린은 신경질적으로 가구를 발로 차더니 서둘러 방을 빠져나갔다.\n긴장감에 다리가 풀려 주저앉으려는 찰나, 그녀가 복도를 지나 불법 약물과 밀회가 이루어지는 '지하 온실' 쪽으로 향하는 소리가 들렸다. 진실이 그곳에 있을지도 모른다.",
-      "choices": [
-        {
-          "text": "위험을 감수하고 에블린의 뒤를 밟아 온실로 몰래 향한다",
-          "next_scene_id": "scene_night_explore",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 1,
-            "add_evidence": []
-          }
-        },
-        {
-          "text": "목숨이 우선이다. 거실로 가서 다른 사람들을 깨운다",
-          "next_scene_id": "scene_richard_suspect",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 0,
-            "add_evidence": []
-          }
-        }
-      ]
+      "text": "서재 문은 안에서 거칠게 부딪힌 흔적이 있었다. 문손잡이를 잡는 순간, 안쪽에서 누군가 급히 뒤로 물러나는 발소리가 났다. 문이 잠겨 있지는 않았지만, 열리기 직전 아주 짧은 망설임이 느껴졌다.\n\n누군가 지금 막 이 방을 빠져나가려 했고, 다른 누군가는 그를 막지 못했다. 당신은 더 이상 시간을 끌지 않았다.",
+      "next_scene_id": "scene_murder_discovery",
+      "continue_text": "문을 열고 안으로 들어간다",
+      "choices": []
     },
     {
-      "id": "scene_richard_suspect",
-      "background_image": "mansion_corridor",
-      "speaker": "리처드",
-      "text": "소란을 듣고 속옷 차림으로 뛰쳐나온 리처드의 몸에는 선명한 주삿바늘 자국이 가득했다. 그의 손은 마약 금단증상인지 공포인지 모르게 덜덜 떨리고 있었다.\n\n\"결국 뒈졌네, 그 역겨운 돼지새끼... 나, 난 아니야! 아버지가 죽혀 마땅한 쓰레기였어도 내가 죽이진 않았어!\"",
-      "choices": [
-        {
-          "text": "그날 밤 영감과 얽힌 당신의 치부를 당장 실토하라고 압박한다",
-          "next_scene_id": "scene_end_day1",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 0,
-            "trust_delta": {"리처드": -20},
-            "add_evidence": ["리처드의 마약 중독과 불안 증세"]
-          }
-        },
-        {
-          "text": "경찰이 올 때까지 그의 곁에서 감시하며 밤을 지새운다",
-          "next_scene_id": "scene_end_day1",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 0,
-            "trust_delta": {"리처드": 10},
-            "add_evidence": []
-          }
-        }
-      ]
+      "id": "scene_hide_curtain",
+      "background_image": "curtain_hide",
+      "speaker": "system",
+      "text": "두꺼운 커튼 뒤에서 숨을 죽이자 발소리가 두 방향으로 갈렸다. 한 사람은 빠르고 짧게, 다른 한 사람은 놀랄 만큼 침착하게 걸었다. 잠시 후 스커트 자락이 스치는 소리와 함께 아주 희미한 향수 냄새가 남았다.\n\n곧이어 누군가 낮게 신음했고, 더 숨어 있을 이유가 사라졌다.",
+      "next_scene_id": "scene_murder_discovery",
+      "continue_text": "곧장 서재 안으로 향한다",
+      "choices": []
     },
     {
-      "id": "scene_night_explore",
+      "id": "scene_murder_discovery",
+      "background_image": "mansion_study_room_blood",
+      "speaker": "system",
+      "text": "아서 블랙우드는 서재 바닥에 쓰러져 있었다. 책상 옆 양탄자에는 피가 번져 있었고, 손끝은 마치 마지막까지 무언가를 잡으려 했던 사람처럼 굳어 있었다. 벽난로 위 시계는 11시 40분에서 멈춰 있었다.\n\n에블린은 문간에 선 채 얼굴빛을 잃고 있었고, 리처드는 믿지 못하겠다는 표정으로 뒤늦게 뛰어들어왔다. 박사는 가장 먼저 무릎을 꿇었지만, 아서의 맥박을 짚는 동작엔 슬픔보다 계산이 먼저 보였다.",
+      "next_scene_id": "scene_first_aftermath",
+      "continue_text": "현장의 첫 반응을 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_first_aftermath",
+      "background_image": "mansion_study_room_blood",
+      "speaker": "도로시 페어뱅크 박사",
+      "text": "\"이미 늦었습니다. 누군가가 너무 오래 방치했어요.\"\n\n박사의 선언이 떨어지자 리처드는 곧바로 에블린을 돌아봤고, 에블린은 박사를 보았다. 서로를 의심하는 방향이 제각각이라는 사실이 오히려 의미심장했다. 당신은 시계, 약 상자, 깨진 창, 바닥의 미세한 진흙 자국을 빠르게 머릿속에 담았다.",
+      "next_scene_id": "scene_day1_close",
+      "continue_text": "밤을 넘기기 위해 모두를 물린다",
+      "choices": []
+    },
+    {
+      "id": "scene_day1_close",
       "background_image": "mansion_corridor",
       "speaker": "system",
-      "text": "어두운 복도를 지나 지하 온실로 향하는 길. 정전 탓에 칠흑 같은 어둠이다.\n벽면에 걸린 오일 파라핀 랜턴을 켜면 시야는 확보되겠지만, 눈치빠르고 독기 오른 에블린에게 내 위치를 들킬 위험이 크다.",
-      "choices": [
-        {
-          "text": "랜턴 없이 어둠 속을 벽만 더듬으며 은밀히 내려간다",
-          "next_scene_id": "scene_greenhouse_dark",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 0,
-            "add_evidence": []
-          }
-        },
-        {
-          "text": "어둠 속 기습을 대비해 오일 랜턴을 켜고 조심스레 진입한다",
-          "next_scene_id": "scene_greenhouse_light",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 1,
-            "add_evidence": []
-          }
-        }
-      ]
-    },
-    {
-      "id": "scene_greenhouse_dark",
-      "background_image": "mansion_corridor",
-      "speaker": "system",
-      "text": "아무것도 보이지 않는 어둠 속을 헤매다 누군가 재배 중이던 대마초 화분을 가차 없이 박살내고 말았다.\n\"거기 누구야!\" 약에 취한 남자의 고함소리가 들려온다. 당신은 진범의 단서를 놓친 채 서둘러 1층 응접실로 도망칠 수밖에 없었다.",
-      "choices": [
-        {
-          "text": "숨을 헐떡이며 몸을 숨기고 끔찍한 첫날을 넘긴다",
-          "next_scene_id": "scene_end_day1",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 0,
-            "add_evidence": []
-          }
-        }
-      ]
-    },
-    {
-      "id": "scene_greenhouse_light",
-      "background_image": "stormy_mansion_exterior",
-      "speaker": "system",
-      "text": "희미한 랜턴 불빛에 의지해 온실 밑 밀회 장소를 비추자, 방금 전 타고 남은 사진들의 잔해들이 보인다.\n불길 속에서 유일하게 타지 않은 조각에는, 오펜하이머 박사와 에블린이 마약을 난교하며 놀아나는 역겨운 불륜 사진이 찍혀 있었다.\n그 조각을 낚아채는 순간, 서늘한 날붙이가 당신의 목을 긋기 위해 다가온다.",
-      "choices": [
-        {
-          "text": "재빨리 랜턴을 던져 화재를 일으키고 등뒤의 암살자를 피해 도주한다",
-          "next_scene_id": "scene_end_day1",
-          "effects": {
-            "time_cost": 1,
-            "danger_delta": 1,
-            "add_evidence": ["의사와 에블린의 마약 난교 사진"]
-          }
-        }
-      ]
-    },
-    {
-      "id": "scene_end_day1",
-      "background_image": "stormy_mansion_exterior",
-      "speaker": "system",
-      "text": "피비린내와 역겨운 욕망으로 점철된 숨막히는 밤이 지나고 날이 밝아오고 있다. 하지만 폭풍우는 잦아들 기미가 없고, 저택 밖 계곡의 다리는 완전히 끊어졌다.\n저택 안의 누군가는 살인마이며, 당신이 입을 열기 전에 당신의 목숨마저 앗아갈지 모른다... \n\n[ CHAPTER 1 완료 - 추악한 밤에서의 생존을 축하합니다 ]",
+      "text": "그 밤 이후 저택의 공기는 완전히 달라졌다. 하인들은 소리를 죽였고, 가족은 서로를 정면으로 바라보지 않았다. 첫 번째 죽음은 시작이었을 뿐, 아직 끝나지 않았다는 예감이 모두의 얼굴 위에 남아 있었다.\n\n당신에게는 이제 두 가지 일이 생겼다. 범인을 찾아야 한다. 그리고 그 범인이 또 움직이기 전에, 이 집의 진짜 질서를 읽어야 한다.",
+      "next_scene_id": "scene_day2_intro",
+      "continue_text": "첫 번째 아침이 밝는다",
       "choices": []
     }
   ]

@@ -48,7 +48,14 @@ class GameStateNotifier extends StateNotifier<GameState> {
     int timeCost = 0,
     int dangerDelta = 0,
     List<String> newEvidence = const [],
+    bool resetGame = false,
   }) {
+    if (resetGame) {
+      state = const GameState();
+      _saveState();
+      return;
+    }
+
     if (state.isDead) return;
 
     final updatedEvidence = List<String>.from(state.evidence);
@@ -62,7 +69,7 @@ class GameStateNotifier extends StateNotifier<GameState> {
     final isNowDead = newDangerLevel >= 3;
 
     state = state.copyWith(
-      currentSceneId: isNowDead ? 'scene_death_bad_ending' : nextSceneId,
+      currentSceneId: isNowDead ? 'scene_death_bad_ending_1' : nextSceneId,
       timeElapsed: state.timeElapsed + timeCost,
       dangerLevel: newDangerLevel,
       evidence: updatedEvidence,

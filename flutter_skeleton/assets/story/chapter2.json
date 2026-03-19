@@ -1,139 +1,766 @@
 {
-  "chapter": "폭풍 저택의 유언 - Day 2 (의심과 기만)",
+  "chapter": "폭풍 저택의 유언 - Day 2 (조사와 두 번째 균열)",
   "scenes": [
+    {
+      "id": "scene_day2_intro",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "아침이 왔지만 안도감은 없었다. 저택은 밤새 단정하게 정리되어 있었고, 그 정돈이 오히려 기이했다. 누군가 죽었는데도 집은 여전히 귀족 저택의 예의를 유지하고 있었다.\n\n창밖으로는 여전히 비가 내렸다. 바다는 한 발짝도 물러나지 않았고, 저택 역시 누구도 쉽게 빠져나갈 수 없는 섬처럼 고립돼 있었다.",
+      "next_scene_id": "scene_day2_servants_murmur",
+      "continue_text": "하인들의 표정을 살핀다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_servants_murmur",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "아침 복도엔 눌린 속삭임이 떠다녔다. 하인들은 서로를 보며 말을 삼켰고, 당신이 가까이 가면 곧장 입을 닫았다. 다만 한 사람이 지나가며 아주 짧게 말했다. \"어젯밤 누군가는 위층으로 올라갔고, 누군가는 아래로 내려갔어요. 한 사람만 움직인 게 아니에요.\"\n\n집 전체가 목격자였지만, 아무도 완전한 진실을 가진 것 같지는 않았다. 파편들만 쌓이고 있었다.",
+      "next_scene_id": "scene_day2_house_map",
+      "continue_text": "하인들의 시선을 따라 저택 구조를 다시 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_house_map",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "첫날에는 낯선 공간이던 저택의 구조가 둘째 날 아침에는 하나의 지도처럼 보이기 시작했다. 만찬장, 서재, 계단, 온실, 객실 복도. 누가 어디에 있어야 자연스러운지 이제는 감이 왔고, 그래서 어젯밤의 비자연스러운 동선이 더 선명해졌다.\n\n이 집은 감정을 숨기기엔 좋지만, 동선을 숨기기엔 완벽하지 않았다. 너무 큰 집일수록 사람은 반드시 흔적을 남긴다.",
+      "next_scene_id": "scene_day2_breakfast",
+      "continue_text": "아침 식탁으로 향한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_breakfast",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "아침 식사는 거의 의례였다. 에블린은 밤새 울지 않은 사람처럼 지나치게 단정했고, 리처드는 숙취와 분노를 함께 견디는 얼굴이었다. 박사는 유족을 위로하는 태도를 취했지만, 실제로는 모두의 발언을 기록하는 서기처럼 침착했다.\n\n식탁 위에 아서의 빈 자리가 남아 있었다. 비워진 의자는 사람보다 더 큰 압박이 된다. 살아 있을 때보다 죽은 뒤가 더 큰 존재도 있다.",
+      "next_scene_id": "scene_day2_breakfast_aftertaste",
+      "continue_text": "식사 뒤 남은 침묵을 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_breakfast_aftertaste",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "아침 식사가 끝나자 모두가 먼저 자리를 뜨려 했다. 누군가는 조사에 협조하겠다고 말했고, 누군가는 결백을 주장했으며, 누군가는 그 둘 사이를 비집고 책임 없는 얼굴을 만들었다.\n\n당신은 저택이 스스로 증거를 감추기 전에 중요한 장소들을 먼저 돌아봐야 한다고 판단했다. 오늘 하루가 사건의 방향을 결정할 것이다.",
+      "next_scene_id": "scene_day2_house_ledger",
+      "continue_text": "하인용 장부와 호출 기록을 먼저 확인한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_house_ledger",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "복도 한쪽 보조 책상에는 하인들이 쓰는 호출 장부가 남아 있었다. 누가 어느 시간에 차를 올렸고, 어느 방에 물을 가져갔는지 정도만 적힌 단순한 기록이었지만, 오히려 그래서 믿을 만했다.\n\n자정 무렵 서재와 온실 쪽 호출이 평소보다 많았다. 아서의 건강 때문이라고 치부할 수도 있었지만, 누군가가 평소보다 분주하게 사람과 물건을 움직였다는 뜻이기도 했다.",
+      "next_scene_id": "scene_day2_arthur_accounts",
+      "continue_text": "아서 개인 장부와 후견 비용 기록을 확인한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_arthur_accounts",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "호출 장부 옆에서 발견한 작은 회계 노트에는 아서 개인 지출과 후견 관련 비용이 따로 적혀 있었다. 의료비와 생활비 사이에 에블린 관련 교육비, 법률 자문료, 그리고 최근의 추가 상담비가 눈에 띄었다.\n\n아서는 단순히 재산을 물려줄 사람을 고르는 수준이 아니라, 누군가의 법적 지위를 다시 설계하려 했던 것처럼 보였다. 유언은 마지막 선언이었을 뿐, 그 전 단계의 준비가 이미 오래 진행 중이었던 셈이다.",
+      "next_scene_id": "scene_day2_hub_morning",
+      "continue_text": "오전 조사 허브로 넘어간다",
+      "choices": []
+    },
     {
       "id": "scene_day2_hub_morning",
       "background_image": "mansion_corridor",
       "speaker": "system",
-      "text": "[ 2일 차 아침 ]\n폭풍우는 조금도 잦아들지 않았다. 다리는 무너졌고 전화선마저 예리한 칼로 깔끔하게 절단된 것을 확인했다.\n어젯밤 영감이 살해당한 뒤, 이 역겨운 욕망의 소굴에는 완전한 고립만이 남았다.\n\n연쇄 살인마가 증거를 모두 없애고 입막음을 위해 다음 타겟을 노리기 전에, 용의자들의 추악한 비밀을 파헤쳐 알리바이를 부수어야 한다. \n가장 먼저 누구의 은밀한 진실을 들춰낼 것인가?",
+      "text": "?? ??? ? ??? ????. ???? ?? ??? ???? ?? ??? ?? ? ???, ???? ??? ??? ?? ?? ?? ?? ??? ??? ? ??. ??? ???? ??? ?? ??? ?? ??, ??? ?? ??? ??? ?? ?? ??? ?? ???.\n\n???? ??? ??? ?? ? ??? ??? ?? ???. ?? ???? ??? ???? ??.",
       "choices": [
         {
-          "text": "[조사] 첫째 아들 리처드의 방 (사채와 마약)",
+          "text": "리처드의 방을 먼저 뒤진다",
           "next_scene_id": "scene_investigate_richard_room",
-          "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         },
         {
-          "text": "[대화] 식당에서 초조하게 땀 흘리는 오펜하이머 박사",
+          "text": "박사를 정면으로 상대한다",
           "next_scene_id": "scene_talk_doctor",
-          "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         },
         {
-          "text": "[위험 탐색] 피비린내가 피어오르는 낡은 온실",
+          "text": "온실과 정원을 조사한다",
           "next_scene_id": "scene_investigate_greenhouse_trap",
-          "effects": { "time_cost": 1, "danger_delta": 1, "add_evidence": [] }
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 1,
+            "add_evidence": []
+          }
         },
         {
-          "text": "[재탐색] 여전히 아몬드 향이 배어 있는 살인 현장(서재)",
+          "text": "서재를 다시 재구성한다",
           "next_scene_id": "scene_investigate_study_day2",
-          "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
-        },
-        {
-          "text": "더 이상 조사할 수 없다 (오후로 시간 강제 경과)",
-          "next_scene_id": "scene_day2_afternoon_event",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         }
       ]
     },
     {
       "id": "scene_investigate_richard_room",
-      "background_image": "mansion_corridor",
+      "background_image": "richard_room_search",
       "speaker": "system",
-      "text": "리처드의 방은 짐승의 우리처럼 악취가 진동했다. 바닥에는 술병과 백색 가루가 어지럽게 널려 있다.\n침대 밑에서 삐져나온 봉투 속에는 갱단이 보낸 잔혹한 협박 편지가 들어있다. '내일까지 빚을 갚지 않으면 네 여동생과 널 토막내어 돼지 먹이로 주겠다.'\n영감이 죽어야만 막대한 유산으로 목숨을 건질 수 있었던 그는 극단적 선택을 할 동기가 차고 넘친다.",
-      "choices": [
-        {
-          "text": "극비 문서인 이 협박 편지를 내 코트 안주머니에 챙긴다",
-          "next_scene_id": "scene_richard_room_steal",
-          "effects": { "time_cost": 0, "danger_delta": 1, "trust_delta": {"리처드": -30}, "add_evidence": ["마피아의 인체 훼손 협박장"] }
-        },
-        {
-          "text": "미치광이를 자극하지 않기 위해 그대로 방을 빠져나온다",
-          "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
-        }
-      ]
+      "text": "리처드의 방은 어젯밤의 감정이 그대로 굳어 있는 공간이었다. 술병이 절반쯤 비어 있었고, 서랍은 닫힌 척만 했을 뿐 하나같이 급히 밀어 넣은 흔적이 남아 있었다. 귀족의 방이라기보다, 체면을 겨우 덮고 있는 파산자의 방에 가까웠다.\n\n책상 위와 벽난로 주변을 살피자 돈과 체면, 가족에 대한 원망이 한꺼번에 모여 있다는 것이 드러났다.",
+      "next_scene_id": "scene_richard_room_memory",
+      "continue_text": "방 안의 기록을 더 자세히 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_richard_room_memory",
+      "background_image": "richard_room_search",
+      "speaker": "system",
+      "text": "서랍 밑바닥에는 어린 시절 가족사진이 구겨진 채 남아 있었다. 사진 속 어린 리처드는 지금보다 훨씬 밝게 웃고 있었지만, 아서의 손은 그의 어깨가 아니라 에블린의 뒤에 놓여 있었다. 같은 가족사진인데도 이미 중심에서 밀려난 아이의 표정이 보였다.\n\n그 아래엔 최근의 빚 독촉 편지가 쌓여 있었다. 금액도 심각했지만 더 중요한 것은 마지막 문장이다. \"당신이 상속권에서 밀리면 우리도 더는 기다리지 않는다.\"",
+      "next_scene_id": "scene_richard_room_letters",
+      "continue_text": "편지 묶음의 내용을 더 세밀히 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_richard_room_letters",
+      "background_image": "richard_room_search",
+      "speaker": "system",
+      "text": "빚 독촉 편지 사이에는 반쯤 찢긴 답장 초안도 끼어 있었다. 리처드는 누군가에게 돈을 구걸하면서도 동시에 자신이 여전히 블랙우드 가문의 적자라는 사실을 강조하고 있었다. 자존심과 공포가 같은 문장 안에서 충돌하고 있었다.\n\n그는 분명 절박했지만, 그 절박함은 계획적 범행보다 즉흥적 파멸에 더 가까워 보였다. 이 차이는 작지 않았다.",
+      "next_scene_id": "scene_richard_room_childhood",
+      "continue_text": "편지와 사진을 함께 놓고 리처드의 상태를 해석한다",
+      "choices": []
+    },
+    {
+      "id": "scene_richard_room_childhood",
+      "background_image": "richard_room_search",
+      "speaker": "system",
+      "text": "이 방은 단순히 타락한 상속자의 방이 아니었다. 인정받지 못한 아들의 방이었다. 분노는 분명 진짜였지만, 그 분노가 곧 살인의 증거가 되지는 않는다. 오히려 그는 너무 노골적이고, 너무 서툴렀다.\n\n책장 뒤쪽 좁은 틈에는 젖은 장화 한 켤레가 밀어 넣어져 있었다. 진흙이 아직 완전히 마르지 않았다.",
+      "next_scene_id": "scene_richard_room_steal",
+      "continue_text": "숨겨 둔 물건을 꺼내 확인한다",
+      "choices": []
     },
     {
       "id": "scene_richard_room_steal",
-      "background_image": "mansion_corridor",
+      "background_image": "richard_room_caught",
       "speaker": "system",
-      "text": "결정적인 동기를 확보했다. 편지를 챙기던 순간, 등 뒤에서 침대 매트리스가 삐걱거린다.\n시체처럼 잠들어 있던 리처드의 핏발 선 눈이 번쩍 떠져 당신의 뒷모습을 노려보기 시작했다.\n당신은 숨을 죽인 채 다급히 방을 빠져나와 복도의 짙은 그림자 속으로 도망쳤다.",
+      "text": "장화를 들어 올리는 순간 문밖 복도에서 바닥판이 삐걱거렸다. 누군가가 이 방을 확인하러 오고 있었다. 당신은 급히 장화 밑창과 편지의 일부를 확인한 뒤 제자리에 가까스로 밀어 넣었다.\n\n위험한 타이밍이었지만 수확은 있었다. 리처드는 확실히 밤중에 밖으로 나간 적이 있었고, 그는 심각한 빚 압박을 받고 있었다.",
       "choices": [
         {
-          "text": "거친 숨을 고르며 다음 장소를 탐색한다",
-          "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "text": "확인한 단서를 정리한다",
+          "next_scene_id": "scene_day2_midday_reflection",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "리처드 방의 빚 독촉 편지",
+              "리처드의 진흙 묻은 장화"
+            ]
+          }
         }
       ]
     },
     {
       "id": "scene_talk_doctor",
-      "background_image": "mansion_study_room",
-      "speaker": "오펜하이머 박사",
-      "text": "\"탐정 양반, 뭔가 오해가 있는 것 같소만.\"\n오펜하이머는 손수건으로 창백한 목덜미의 식은땀을 닦으며 입술을 씹었다. 그의 목에는 누군가 격정적으로 할퀸 생채기가 붉게 부어올라 있었다. 어젯밤 온실에서 벌어진 밀회, 영감의 시신에 발라져 있던 독이 들어간 최음제... 모든 정황이 그의 변태적 지식과 연결된다.",
+      "background_image": "doctor_interrogation",
+      "speaker": "system",
+      "text": "박사는 응접실에서 당신을 기다리고 있었다. 기다렸다는 사실 자체가 의도적으로 느껴졌다. 그는 조사 협조를 말했지만, 실제 태도는 협조보다 교정에 가까웠다. 당신이 어떤 질문을 던질지 미리 계산하고, 그 범위 안에서만 대답하려는 사람의 침착함이었다.\n\n무엇보다 이상했던 것은 그가 아서의 건강 상태를 설명하면서도 감정보다 절차를 강조했다는 점이다. 오랫동안 돌본 환자를 잃은 사람이라기보다, 기록이 들킬까 경계하는 사람에 가까웠다.",
+      "next_scene_id": "scene_doctor_professional_mask",
+      "continue_text": "박사의 말투와 기록을 더 파고든다",
+      "choices": []
+    },
+    {
+      "id": "scene_doctor_professional_mask",
+      "background_image": "doctor_interrogation",
+      "speaker": "system",
+      "text": "박사는 아서의 심장 상태가 불안정했고, 어젯밤 충격만으로도 사망할 수 있었다고 말했다. 하지만 약 복용 시간에 대한 답변은 지나치게 매끄러웠다. 준비된 진술처럼 한 치의 흔들림도 없었다.\n\n탁자 위 진료 가방에는 최근 작성된 차트가 있었고, 일부 날짜가 다른 잉크로 고쳐져 있었다. 의료인은 날짜를 이렇게 다루지 않는다. 누군가 과거를 다시 쓰고 있었다.",
+      "next_scene_id": "scene_doctor_casebook",
+      "continue_text": "진료 가방과 차트 묶음을 더 자세히 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_doctor_casebook",
+      "background_image": "doctor_interrogation",
+      "speaker": "system",
+      "text": "차트 아래쪽에는 오래된 진료 메모가 몇 장 더 끼워져 있었다. 아서의 상태 변화보다도 가족 구성원의 스트레스 반응과 복용 협조 여부 같은 항목이 유난히 세밀했다. 환자 개인보다 집 전체를 관리 대상으로 본 사람의 기록이었다.\n\n의료의 언어로 권력을 행사하는 사람은 드물지 않다. 문제는 그 권력이 너무 오래 지속되면, 본인이 그 집의 질서 일부라고 착각하게 된다는 점이다.",
+      "next_scene_id": "scene_doctor_domination",
+      "continue_text": "기록의 모순을 정면으로 문제 삼는다",
+      "choices": []
+    },
+    {
+      "id": "scene_doctor_domination",
+      "background_image": "doctor_interrogation",
+      "speaker": "system",
+      "text": "박사는 처음으로 미소를 거뒀다. 그 짧은 변화만으로도, 당신이 이제 표면이 아니라 핵심을 건드렸다는 것이 드러났다. 여기서 물러서면 그는 다시 완벽한 전문가의 얼굴을 회복할 것이다. 밀어붙이면 균열이 생길 수 있다.",
       "choices": [
         {
-          "text": "어젯밤 에블린과의 난교와 불법 약물 조제에 대해 매섭게 추궁한다",
+          "text": "수정된 날짜와 약 기록의 모순을 끝까지 추궁한다",
           "next_scene_id": "scene_doctor_hostile",
-          "effects": { "time_cost": 0, "danger_delta": 0, "trust_delta": {"오펜하이머": -30, "에블린": -20}, "add_evidence": [] }
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "박사의 위조 진단 기록"
+            ],
+            "trust_delta": {
+              "도로시 페어뱅크 박사": -30
+            }
+          }
         },
         {
-          "text": "목덜미의 상처를 쳐다보며 비웃음만 남기고 돌아선다",
-          "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "trust_delta": {"오펜하이머": 0}, "add_evidence": ["비밀을 감추고 떠는 주치의"] }
+          "text": "지금은 물러서고 발언만 기록해 둔다",
+          "next_scene_id": "scene_day2_midday_reflection",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "박사는 약 복용 기록 질문에 과하게 방어적이었다"
+            ]
+          }
         }
       ]
     },
     {
       "id": "scene_doctor_hostile",
-      "background_image": "mansion_study_room",
-      "speaker": "오펜하이머 박사",
-      "text": "\"이, 이 버러지 같은 자식이! 영감도 자업자득이야! 그 노친네가 에블린에게 무슨 짓을 했는지 안다면 너도 그런 소리는 못 할 거다!\"\n박사는 눈을 희번덕거리며 식당 나이프를 집어들더니 테이블을 쾅 내리쳤다. 그의 반응은 명백한 살해 동기를 자백한 것이나 마찬가지였다.",
-      "choices": [
-        {
-          "text": "나이프를 든 광인을 피해 재빨리 거실로 대피한다",
-          "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["독약 조제를 자백할 뻔한 박사"] }
-        }
-      ]
+      "background_image": "doctor_hostile",
+      "speaker": "도로시 페어뱅크 박사",
+      "text": "\"탐정은 의학을 모릅니다. 기록은 제가 판단합니다.\"\n\n박사는 차트를 낚아채듯 접어 넣었다. 단 한순간이었지만, 그 반응은 자백보다 더 솔직했다. 그는 아서의 병을 알고 있었을 뿐 아니라, 그 병을 둘러싼 기록을 마음대로 다룰 권리가 자신에게 있다고 믿고 있었다.",
+      "next_scene_id": "scene_day2_midday_reflection",
+      "continue_text": "적의를 감수하고 물러난다",
+      "choices": []
     },
     {
       "id": "scene_investigate_greenhouse_trap",
       "background_image": "greenhouse_bloody_trap",
       "speaker": "system",
-      "text": "[ 꽝! 끔찍한 함정 발동 ]\n온실 문을 여는 순간, 환각 작용을 일으키는 독성 식물의 포자와 달콤한 핏내음에 정신이 아득해진다.\n비틀거리며 안으로 들어선 당신의 발목을 향해, 숨겨져 있던 날카로운 불법 사냥용 덫이 무자비하게 닫힌다.\n'아아아악!' 뼈가 부서지는 고통 속에 당신은 피를 흘리며 덫을 비틀어 빼낸다. 과다 출혈로 귀중한 시간과 체력을 심각하게 낭비했다.",
+      "text": "온실로 이어지는 길은 빗물과 흙탕물로 뒤섞여 있었다. 유리 지붕 일부는 금이 가 있었고, 안쪽 공기는 축축한 식물 냄새와 철 냄새가 섞여 이상할 정도로 무거웠다.\n\n밤에 누군가 급히 드나든 흔적이 남아 있었지만, 발자국은 고의로 흐트러뜨린 듯했다. 이곳은 단순한 산책로가 아니라 은밀한 대화와 은폐가 벌어지기 좋은 장소였다.",
+      "next_scene_id": "scene_greenhouse_dark",
+      "continue_text": "어두운 안쪽으로 더 들어간다",
+      "choices": []
+    },
+    {
+      "id": "scene_greenhouse_dark",
+      "background_image": "greenhouse_dark_whispers",
+      "speaker": "system",
+      "text": "온실 깊숙한 곳은 거의 밤과 다름없었다. 식물 그림자가 사람 형체처럼 겹쳤고, 깨진 화분 아래에는 누군가 허겁지겁 파헤친 흙이 남아 있었다. 그 한가운데서 접힌 종이 조각 하나가 젖은 채 붙어 있었다.\n\n종이를 펴 보니 상속 결격 조항 일부였다. 입양 사실 자체가 아니라, 특정 조건을 충족하지 못하면 상속권이 사라진다는 문장. 누군가 이 문서를 일부러 떼어 내 숨긴 것이 분명했다.",
+      "next_scene_id": "scene_greenhouse_bench",
+      "continue_text": "온실 벤치와 바닥의 흔적을 더 뒤진다",
+      "choices": []
+    },
+    {
+      "id": "scene_greenhouse_bench",
+      "background_image": "greenhouse_dark_whispers",
+      "speaker": "system",
+      "text": "온실 벤치 표면에는 젖은 장갑 자국이 남아 있었다. 벤치 아래 철제 선반에는 작은 정원용 가위와 잘린 리본 조각이 놓여 있었다. 문서를 찢거나 묶음을 해체하는 데 쓰였을 법한 도구였다.\n\n누군가는 이곳에서 급히 문서를 숨겼고, 누군가는 그 사실을 알고 있었을 가능성이 높았다. 온실은 비밀의 보관소이면서 동시에 공모의 접점이었다.",
+      "next_scene_id": "scene_greenhouse_light",
+      "continue_text": "문서 조각의 의미를 더 넓게 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_greenhouse_light",
+      "background_image": "greenhouse_evidence_reveal",
+      "speaker": "system",
+      "text": "햇빛 대신 번개가 온실을 비출 때마다 숨겨진 것들이 잠깐씩 드러났다. 벤치 아래에는 태운 편지 재가, 화분 밑에는 문서 조각을 감쌌던 리본이 남아 있었다. 리본은 에블린이 전날 저녁 머리에 묶고 있던 것과 같은 짙은 청록색이었다.\n\n하지만 그 사실만으로 곧장 그녀를 범인이라 단정할 수는 없었다. 에블린이 무언가를 숨긴 것은 맞지만, 숨긴 이유가 살인과 같다는 뜻은 아니다.",
       "choices": [
         {
-          "text": "핏자국을 질질 끌며 간신히 안전지대로 피신한다",
-          "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "text": "문서 조각을 확보한다",
+          "next_scene_id": "scene_day2_midday_reflection",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "에블린의 유산 결격 문서 조각"
+            ]
+          }
         }
       ]
     },
     {
       "id": "scene_investigate_study_day2",
+      "background_image": "study_hidden_evidence",
+      "speaker": "system",
+      "text": "서재는 밤보다 더 정숙해 보였지만, 죽음 이후의 방은 언제나 말을 한다. 책상 위 문장 배열, 쓰러진 의자의 각도, 벽난로로부터의 거리. 누군가 충동적으로 덮친 것이 아니라, 아서가 믿고 가까이 둔 사람의 틈을 타 공격이 이뤄졌다는 인상이 강했다.\n\n책상 서랍은 비어 있었지만 완전히 비어 있지는 않았다. 비운 사람 특유의 성급함이 남아 있었다.",
+      "next_scene_id": "scene_study_reconstruction",
+      "continue_text": "아서가 마지막으로 무엇을 하려 했는지 재구성한다",
+      "choices": []
+    },
+    {
+      "id": "scene_study_reconstruction",
+      "background_image": "mansion_study_room_blood",
+      "speaker": "system",
+      "text": "당신은 아서가 앉았던 위치에서 다시 방을 보았다. 창문 쪽에서 접근한 사람은 서류보다 탈출을 우선했을 것이고, 문 쪽에서 다가온 사람은 대면을 감수했을 것이다. 그런데 책상 아래에는 그 둘과 다른 종류의 흔적이 있었다. 약병 하나가 카펫 틈으로 밀려 들어가 있었던 것이다.\n\n병의 라벨은 떼어냈지만 냄새와 잔량으로 보아 심장약 계열이었다. 더욱 중요한 것은 복용량 표기가 기존 처방과 다르다는 점이었다.",
+      "next_scene_id": "scene_study_letter",
+      "continue_text": "책상 주변에 남은 문장과 서신을 더 복원한다",
+      "choices": []
+    },
+    {
+      "id": "scene_study_letter",
+      "background_image": "mansion_study_room_blood",
+      "speaker": "system",
+      "text": "책상 서랍 뒤 판자를 들어 올리자 미완성 서신 한 장이 끼어 있었다. 수신인은 적혀 있지 않았지만 문장은 분명했다. \"내일은 더는 미룰 수 없다. 약과 후견 문제를 함께 정리하겠다.\" 후견 문제라는 표현이 새로웠다.\n\n유언만이 아니라 법적 보호와 권한 배분까지 바꾸려 했다면, 위협을 느낀 사람은 한 명이 아닐 수 있다. 아서는 죽기 직전 집의 구조 전체를 흔들려 했다.",
+      "next_scene_id": "scene_arthur_profile",
+      "continue_text": "아서가 마지막으로 무엇을 정리하려 했는지 묶어 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_arthur_profile",
       "background_image": "mansion_study_room",
       "speaker": "system",
-      "text": "서재 바닥에는 아직 치우지 못한 검붉은 핏자국이 점점이 이어져 있었다. 어둠 속에선 보이지 않았던 단서다.\n핏자국은 아서 영감의 시신에서 시작해 벽난로 앞 두꺼운 융단 구석으로 향해 있다. 그곳을 들추자, 핏물이 말라붙어 뻣뻣해진 가죽 장갑 한 짝이 버려져 있다.\n장갑 안쪽에는 촘촘하게 'E'라는 이니셜이 금실로 자수 놓여 있다.",
+      "text": "서재 선반에는 아서가 직접 남긴 메모들이 있었다. 짧고 건조한 문장이었지만, 그는 최근 몇 주 사이 가족에 대한 평가를 다시 쓰고 있었다. \"리처드는 준비되지 않았다.\" \"에블린은 비밀이 많다.\" \"박사는 너무 많은 것을 안다.\"\n\n그리고 가장 마지막 메모엔 이런 문장이 있었다. \"내일은 약과 유언을 함께 정리한다.\" 약과 유언. 두 문제는 따로가 아니었다.",
       "choices": [
         {
-          "text": "피 묻은 장갑을 중요한 증거물로 주머니에 숨긴다",
-          "next_scene_id": "scene_day2_hub_morning",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["피 묻은 가죽 장갑(E)"] }
+          "text": "약병과 메모를 확보한다",
+          "next_scene_id": "scene_day2_midday_reflection",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "결정적 심장약 병",
+              "아서는 유언과 약 기록을 함께 정리하려 했다"
+            ]
+          }
         }
       ]
     },
     {
-      "id": "scene_day2_afternoon_event",
-      "background_image": "stormy_mansion_exterior",
+      "id": "scene_day2_midday_reflection",
+      "background_image": "mansion_corridor",
       "speaker": "system",
-      "text": "[ 2일 차 오후 - 가학적인 메인 이벤트 ]\n당신이 머리를 식히려던 찰나, 2층 복도에서 뼈를 긁어내는 듯한 처절하고 기괴한 비명 소리가 진동했다.\n\n\"살려줘!! 내 눈, 내 눈이이이이이!!\"\n단순히 단서를 수집하며 여유를 부릴 시간은 끝났다. 폭풍 저택의 미치광이가 두 번째 제물을 완전히 파괴하기 시작한 것이다.",
+      "text": "?? ??? ??? ?? ??? ??? ? ?????. ???? ????? ??? ? ?? ???? ???, ???? ??? ?? ????? ?? ?? ??? ?? ???? ????, ??? ??? ?? ??? ?? ???? ???? ???. ??? ? ?? ??? ??? ?? ?? ???? ???.\n\n????? ??? ? ??? ???, ?? ?? ???? ?? ?? ????? ??? ??.",
+      "next_scene_id": "scene_day2_restudy_people",
+      "continue_text": "단서뿐 아니라 사람 자체를 다시 분류한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_restudy_people",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "?? ??? ?? ? ??? ???? ??? ??? ?? ????. ???? ??? ??? ??? ??, ???? ??? ??? ?? ?? ? ?? ??, ??? ??? ??? ???? ??? ???? ???.\n\n??? ?? ?? ??? ?? ? ?????. ??? ??? ??? ?? ???, ??? ?? ?? ???? ?? ??? ???? ??? ?? ? ????.",
+      "next_scene_id": "scene_day2_restudy_motives",
+      "continue_text": "세 사람의 동기와 수단을 따로 떼어 다시 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_restudy_motives",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "??? ? ??? ??? ?? ?? ???. ??? ??. ???? ?? ? ??? ?? ????, ??? ??? ??? ?? ?????, ???? ?? ??? ???? ?? ? ??? ?? ???.\n\n?? ?? ?? ?????, ?? ??? ??? ??? ??? ???? ? ????? ?????. ??? ?? ??? ???? ??? ????? ?????.",
+      "next_scene_id": "scene_day2_evidence_sort",
+      "continue_text": "이제 단서와 사람을 한 표 위에 함께 올린다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_evidence_sort",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "당신은 메모를 세 갈래로 나눴다. 상속 문제, 의료 기록, 야간 동선. 세 갈래는 따로 놀지 않았다. 오히려 하나가 다른 둘을 설명하기 시작했다. 누가 유산에서 밀려나는지에 따라 살인의 필요가 생기고, 그 살인을 자연사처럼 보이게 하려면 약 기록이 필요하며, 그 사이를 메우기 위해 밤의 동선이 존재한다.\n\n결국 인물들을 다시 만나야 했다. 이번에는 사건 이후의 말이 아니라, 무너진 뒤의 본성을 보기 위해.",
+      "next_scene_id": "scene_day2_logic_gap",
+      "continue_text": "아직 남아 있는 마지막 빈칸이 무엇인지 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_logic_gap",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "단서가 충분히 쌓였는데도 아직 사건이 완전히 닫히지 않는 이유는, 사람과 문서와 약물이 정확히 어느 순서로 만났는지 마지막 고리가 비어 있기 때문이었다. 누군가의 동기는 드러났고, 누군가의 수단도 드러났다. 하지만 둘이 언제 같은 방향으로 결합했는지를 말해 줄 결정적 감각은 아직 부족했다.\n\n바로 그 부족함 때문에 당신은 문서를 다시 시간순으로 엮어 보려 했다. 사건은 사실의 양이 아니라 배열의 정확도에서 닫히는 경우가 더 많다.",
+      "next_scene_id": "scene_day2_document_bundle",
+      "continue_text": "문서와 증언을 사건 순서대로 다시 묶어 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_document_bundle",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "문서 조각과 메모, 차트 기록을 시간순으로 늘어놓자 흐름이 조금 더 또렷해졌다. 아서는 유언만 고치려 한 것이 아니라, 자신의 건강 정보와 후견 구조를 다시 정리하려 했다. 그 사실이 누군가에겐 상속 문제보다 더 급한 위험이었을 수도 있다.\n\n특히 박사의 기록 조작과 에블린의 문서 은닉은 서로 다른 비밀처럼 보이면서도 결국 같은 아침을 두려워하고 있었다. 둘은 적어도 같은 위기 앞에 서 있었다.",
+      "next_scene_id": "scene_day2_document_pattern",
+      "continue_text": "문서들 사이에 반복되는 표현과 패턴을 더 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_document_pattern",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "문서들을 더 오래 들여다보자 반복되는 표현이 보였다. '정리', '재검토', '적절한 보호', '필요한 통제'. 겉으로는 책임감 있는 단어들인데, 함께 놓고 보니 누군가의 삶을 계속 외부에서 규정하려는 문장처럼 읽혔다.\n\n그 점이 중요했다. 이번 사건은 누가 돈을 더 가지려 했는가만으로는 닫히지 않는다. 누가 누구의 삶을 계속 정의할 권리를 잃게 되는가를 함께 보아야만 닫힌다.",
+      "next_scene_id": "scene_day2_arthur_margin_note",
+      "continue_text": "반복되는 표현 뒤에 숨은 손메모를 확인한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_arthur_margin_note",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "문서 사이사이에는 아서 특유의 짧은 손메모가 끼어 있었다. \"에블린, 설명 필요.\" \"리처드, 더는 유예하지 말 것.\" \"박사와 약 목록 대조.\" 메모는 명령문처럼 짧았지만, 그 짧음 때문에 오히려 더 불안했다.\n\n아서는 무언가를 알아냈고, 다음 날 아침까지 미루지 않으려 했다. 사건의 기점이 유언 자체라기보다, 그가 갑자기 동시에 여러 사람을 재평가하기 시작한 시점일 수 있었다.",
+      "next_scene_id": "scene_day2_arthur_filebox",
+      "continue_text": "아서의 서류 상자 전체를 열어 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_arthur_filebox",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "서재 한쪽 낮은 선반에는 아서가 직접 관리한 서류 상자가 남아 있었다. 제목만 봐도 성격이 드러났다. 후견, 교육, 의료, 신탁, 유언 수정안. 한 가족의 삶이 아니라 하나의 운영 체계를 다룬 문서 보관함 같았다.\n\n상자 속 종이들은 재산 분배보다 통제 권한의 배분에 더 민감하게 반응하고 있었다. 누가 돈을 얼마나 받는지 못지않게, 누가 누구의 결정권을 갖는지가 핵심이었다.",
+      "next_scene_id": "scene_day2_arthur_letter_series",
+      "continue_text": "문서 묶음 중 중요한 편지들을 차례로 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_arthur_letter_series",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "편지는 세 묶음으로 나뉘어 있었다. 변호사에게 보내는 서신, 박사에게 전달된 건강 관련 확인서, 그리고 에블린에게 전달하지 않은 초안 메모. 특이한 점은 리처드에게 직접 보낸 문서가 거의 없다는 사실이었다.\n\n아서는 아들을 설득하거나 회복시키기보다 관리 대상에서 사실상 제외하고 있었는지도 몰랐다. 그 배제가 리처드를 망가뜨렸고, 동시에 사건의 좋은 미끼로 만들었을 가능성이 컸다.",
+      "next_scene_id": "scene_day2_arthur_guardianship",
+      "continue_text": "후견 문서가 뜻하는 바를 더 해석한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_arthur_guardianship",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "후견 관련 초안에는 단순한 법률 언어보다 감정적인 문장이 더 자주 섞여 있었다. 아서는 에블린을 지키고 싶어 하면서도 신뢰하지 않았고, 리처드를 포기하면서도 완전히 손을 놓지는 못했다. 그는 사랑과 통제를 구분하지 못한 채 늙은 사람처럼 보였다.\n\n이 문서를 읽고 나자 살인의 동기는 더 입체적으로 변했다. 누군가는 재산을 잃을까 두려워했을 것이고, 누군가는 자신을 계속 관리 대상으로 묶어 두려는 결정을 두려워했을 수 있다.",
+      "next_scene_id": "scene_day2_arthur_unsent_letter",
+      "continue_text": "끝내 보내지지 않은 편지 초안을 더 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_arthur_unsent_letter",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "상자 맨 아래에는 보내지지 않은 편지 초안이 한 장 더 숨어 있었다. 수신자는 적혀 있지 않았지만, 내용은 누군가를 보호하면서도 동시에 자격을 재심사하겠다는 모순된 태도로 가득했다. 아서는 끝까지 돌보는 사람의 말투로 누군가의 자유를 제한하려 했다.\n\n그것은 특히 에블린에게 치명적이었을 가능성이 컸다. 양육과 관리의 경계가 무너질 때, 사랑받던 사람은 가장 먼저 자신이 소유물이었는지 의심하게 된다.",
+      "next_scene_id": "scene_day2_filebox_index",
+      "continue_text": "서류 상자의 분류 방식 자체를 다시 해석한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_filebox_index",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "아서의 서류 상자는 내용만이 아니라 분류 방식도 의미심장했다. 가족 이름보다 항목이 먼저였다. 건강, 후견, 교육, 평판, 정산. 사람을 사람으로 기록했다기보다 관리 대상의 묶음으로 기록한 셈이다.\n\n이 방식은 가주의 냉정함을 보여 주는 동시에 사건의 정서를 설명한다. 누군가는 그 질서 안에서 안전을 얻었고, 누군가는 같은 질서 안에서 질식했을 것이다.",
+      "next_scene_id": "scene_day2_interview_evelyn",
+      "continue_text": "아서의 시선을 이해한 채 에블린과 다시 마주한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_interview_evelyn",
+      "background_image": "evelyn_portrait",
+      "speaker": "에블린 블랙우드",
+      "text": "\"아버지는 늘 마지막 순간에 사람을 시험했어요. 사랑이 아니라 충성으로요.\"\n\n에블린은 처음으로 피로를 드러냈다. 그러나 무너지는 방식마저 정교했다. 그녀는 리처드의 폭발을 경멸하면서도 불쌍해했고, 아서의 권위를 증오하면서도 끝내 인정받고 싶어 했다. 무엇보다 그녀는 박사를 믿지 않았다. 그 불신은 본능적인 것이 아니라, 오래 지켜본 사람이 가진 확신처럼 들렸다.",
+      "next_scene_id": "scene_day2_evelyn_memory",
+      "continue_text": "에블린의 말 속에서 과거의 흔적을 더 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_evelyn_memory",
+      "background_image": "evelyn_portrait",
+      "speaker": "system",
+      "text": "에블린은 직접 과거를 길게 말하지 않았지만, 문장 사이에는 어린 시절의 습관이 남아 있었다. 실수하면 곧장 고쳐야 하고, 감정은 상대가 원할 때만 보여야 하며, 사랑은 조건을 충족했을 때 주어진다는 식의 학습 말이다.\n\n그녀는 리처드보다 훨씬 성숙했지만, 그 성숙함은 안전하게 자란 사람의 것이 아니었다. 오래 시험당한 사람이 만들어 낸 표정이었다.",
+      "next_scene_id": "scene_day2_interview_richard",
+      "continue_text": "이제 리처드의 속내를 직접 듣는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_interview_richard",
+      "background_image": "richard_room_search",
+      "speaker": "리처드 블랙우드",
+      "text": "\"다들 내가 했다고 생각하겠지. 그래, 내가 가장 형편없는 놈처럼 보일 테니까.\"\n\n리처드는 예상과 달리 곧바로 화를 내지 않았다. 대신 체념과 억울함이 뒤섞인 얼굴로 웃었다. 그는 아버지를 증오했지만 두려워하기도 했다. 아서가 유언을 바꿀 때마다 자신이 더 작아졌다고 말했다. 그러나 살인을 할 만큼 치밀하냐고 묻는다면, 당신은 쉽게 고개를 끄덕일 수 없었다.",
+      "next_scene_id": "scene_day2_richard_memory",
+      "continue_text": "리처드의 체념 뒤에 깔린 과거를 더 짚는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_richard_memory",
+      "background_image": "richard_room_search",
+      "speaker": "system",
+      "text": "리처드의 말은 거칠었지만 중간중간 뜻밖의 진심이 섞여 있었다. 그는 아서에게 혼나는 것보다 에블린과 비교당하는 것을 더 견디지 못했다고 했다. 실패한 아들이 되는 것보다 대체 가능한 아들이 되는 편이 더 비참했기 때문이다.\n\n그는 분명 상속을 원했지만, 동시에 이미 자신이 탈락자라는 사실도 어렴풋이 알고 있었다. 그래서 그의 분노는 욕망과 패배감이 한꺼번에 뒤엉킨 형태를 띠고 있었다.",
+      "next_scene_id": "scene_day2_interview_doctor",
+      "continue_text": "마지막으로 박사의 얼굴을 다시 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_interview_doctor",
+      "background_image": "doctor_interrogation",
+      "speaker": "도로시 페어뱅크 박사",
+      "text": "\"가문이 오래 버틴 이유는 질서가 있었기 때문입니다. 모두가 자기 자리를 지켰기 때문이죠.\"\n\n그 말은 의사보다 관리자에게 어울렸다. 그는 환자의 건강보다 집안의 구조를 더 중시했다. 그리고 그 구조 안에서 자신도 예외가 아니라고 여기는 듯했다. 누군가의 비밀을 지켜 주며 권력을 나눠 가진 사람의 안정감이 있었다.",
+      "next_scene_id": "scene_day2_doctor_memory",
+      "continue_text": "박사의 말투 속 권력 의식을 더 해석한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_doctor_memory",
+      "background_image": "doctor_interrogation",
+      "speaker": "system",
+      "text": "박사의 발언에는 늘 돌봄의 언어와 통제의 언어가 뒤섞여 있었다. 그는 누가 약을 잘 먹는지, 누가 감정적으로 불안정한지, 누가 어떤 충격에 약한지 오래 관찰해 온 사람처럼 말했다. 가족을 치료했다기보다 가족 체계를 관리해 온 사람의 어조였다.\n\n의사가 집의 비밀을 오래 쥐면 언젠가 스스로를 외부인이 아니라 공동 관리자라고 착각하게 된다. 박사는 이미 그 선을 넘어선 듯했다.",
+      "next_scene_id": "scene_day2_private_interviews",
+      "continue_text": "세 사람의 본성을 한데 놓고 비교한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_private_interviews",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "세 사람은 모두 서로를 경계했지만, 경계의 방향이 달랐다. 리처드는 아버지의 평가에 짓눌린 아들이었고, 에블린은 조건부로 사랑받은 상속자였으며, 박사는 그 틈을 오랫동안 관리해 온 외부자였다.\n\n누가 범인이든, 이 살인은 하루아침에 만들어진 것이 아니다. 오랜 구조 위에 마지막 자극이 얹힌 결과다.",
+      "next_scene_id": "scene_day2_servant_interview",
+      "continue_text": "하인 한 명의 마지막 목격 진술을 듣는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_servant_interview",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "끝까지 입을 닫던 하녀 하나가 마침내 짧게 진술했다. 그녀는 첫날 밤 서재 앞 복도에서 박사의 그림자를 보았고, 그 직후 에블린이 반대편 방향에서 돌아오는 것을 보았다고 했다. 다만 정확한 시간은 확신하지 못했다.\n\n불완전한 증언이었지만 의미는 컸다. 둘의 이름이 같은 밤, 같은 축에 묶이기 시작했다.",
+      "next_scene_id": "scene_day2_triangle",
+      "continue_text": "세 사람의 관계를 삼각 구도로 다시 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_triangle",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "???? ???? ??? ?? ????? ??? ?? ??? ??? ????. ??? ?? ??? ???? ???, ?? ??? ?? ? ?? ???? ???? ??? ???. ??? ? ?? ??? ?? ?? ???, ??? ? ?? ??? ?? ?? ?? ?? ??.\n\n?? ???? ??? ?? ??? ??? ??? ???? ????. ?? ??? ? ??? ?? ??? ???. ?? ??? ????, ?? ??? ??????? ??? ??? ??.",
+      "next_scene_id": "scene_day2_hub_second_pass",
+      "continue_text": "남은 사소한 장소를 한 번 더 훑어 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_hub_second_pass",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "굵직한 조사만으로는 아직 부족했다. 큰 증거는 확보했지만, 마지막 결론을 밀어 줄 사소한 생활 흔적이 더 필요했다. 당신은 둘째 날 저녁 전, 다시 한 번 저택의 주변부를 짧게 훑기로 했다.\n\n주방 뒤편 하인 통로, 계단 밑 잡동사니장, 만찬장 옆 찻장. 범죄의 진실은 종종 중심이 아니라 주변부의 정리 습관에 남는다.",
       "choices": [
         {
-          "text": "권총을 빼어들고 2층 소리가 나는 곳으로 전속력으로 질주한다",
-          "next_scene_id": "scene_day2_second_murder",
-          "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
+          "text": "하인 통로의 젖은 우산과 장화를 살핀다",
+          "next_scene_id": "scene_day2_service_corridor",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
+        },
+        {
+          "text": "계단 밑 잡동사니장에서 버려진 약 포장을 찾는다",
+          "next_scene_id": "scene_day2_storage_clue",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
+        },
+        {
+          "text": "만찬장 옆 찻장에서 식기 호출 흔적을 확인한다",
+          "next_scene_id": "scene_day2_teacup_clue",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
+        },
+        {
+          "text": "서재 옆 작은 서고에서 후견 관련 참고서와 판례를 본다",
+          "next_scene_id": "scene_day2_side_library",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
+        },
+        {
+          "text": "주방 뒤편 준비실에서 하인들의 저녁 준비 흔적을 본다",
+          "next_scene_id": "scene_day2_pantry_clue",
+          "effects": {
+            "time_cost": 1,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         }
       ]
+    },
+    {
+      "id": "scene_day2_pantry_clue",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "주방 뒤편 준비실은 저택 안에서 가장 솔직한 공간처럼 보였다. 겉치레 없이 일의 순서만 남는 장소이기 때문이다. 찻주전자 배치와 약병 크기의 작은 유리병 몇 개, 그리고 급히 비워 둔 은쟁반의 위치를 보면 저녁 준비가 평소보다 더 자주 끊겼던 흔적이 읽혔다.\n\n누군가가 식기와 음료 동선을 이용해 사람을 따로 만나거나 물건을 옮겼을 가능성은 점점 더 현실적으로 보였다. 살인은 서재에서 벌어졌을지 몰라도, 준비는 더 넓은 공간에서 진행됐을 수 있다.",
+      "choices": [
+        {
+          "text": "준비실 동선 메모를 남기고 원래 흐름으로 돌아간다",
+          "next_scene_id": "scene_day2_after_hub_notes",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "주방 준비실에서 식기와 음료 동선이 평소보다 자주 끊긴 흔적"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_day2_side_library",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "서재 옆 작은 서고에는 가문의 취미를 드러내는 장서보다 법률 참고서와 의료 지침서가 더 많았다. 특히 후견, 상속 제한, 정신적 무능력 판정 관련 책에 최근 접은 자국이 남아 있었다.\n\n아서는 단순히 유언만 바꾸려 한 것이 아니라, 누군가의 법적 판단 능력과 관리 권한까지 다시 정리하려 했던 것처럼 보였다. 그것이 사실이라면 박사에게는 직업적 문제이자 권력의 문제였고, 에블린에게는 삶 전체가 다시 규정되는 문제였을 수 있다.",
+      "choices": [
+        {
+          "text": "참고서의 접힌 페이지를 메모한다",
+          "next_scene_id": "scene_day2_false_calm",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "후견과 판단 능력 재심사 관련 참고서가 최근 읽혀 있었다"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_day2_service_corridor",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "하인 통로 벽면에는 젖은 우산과 망토가 정리돼 있었지만, 장화 한 켤레만 유독 대충 밀어 넣은 채 남아 있었다. 사이즈는 여성용에 가까웠고, 밑창에는 온실 흙과 복도 카펫 먼지가 함께 붙어 있었다.\n\n누군가 밤중에 바깥과 안쪽을 모두 오간 흔적이었다. 그것이 곧 범행을 뜻하지는 않더라도, 에블린의 비밀 동선이 우연이 아니라는 쪽에 무게를 더했다.",
+      "choices": [
+        {
+          "text": "본 흔적을 메모하고 원래 흐름으로 돌아간다",
+          "next_scene_id": "scene_day2_false_calm",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "여성용 장화에 온실 흙과 복도 먼지가 함께 묻어 있었다"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_day2_storage_clue",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "계단 밑 좁은 잡동사니장에서는 빈 약 포장지와 낡은 붕대가 나왔다. 대부분 쓸모없는 물건이었지만, 한 장의 약 포장에는 최근 떼어 낸 듯한 접착 흔적이 남아 있었다. 누군가 기존 병의 라벨을 바꾸거나 덮는 데 썼을 법한 종류였다.\n\n서재에서 찾은 약병과 연결하면 작지 않은 조각이다. 약은 단지 도구가 아니라, 누군가가 의도적으로 서류와 물건을 함께 조작했다는 증거가 된다.",
+      "choices": [
+        {
+          "text": "약 포장 흔적을 증거로 확보한다",
+          "next_scene_id": "scene_day2_false_calm",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "약병 라벨을 바꾼 듯한 빈 포장지"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_day2_teacup_clue",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "만찬장 옆 찻장에는 첫날 밤 쓰인 찻잔 일부가 아직 분류되지 않은 채 남아 있었다. 대부분 평범했지만, 하나의 잔 가장자리에는 약 냄새와 비슷한 쓴 향이 아주 희미하게 남아 있었다. 차에 섞였는지, 약을 만진 손이 닿았는지는 단정할 수 없었다.\n\n그래도 분명한 것은 누군가가 공식적인 약 시간 외에도 식기와 음료 동선을 이용했을 가능성이 생겼다는 점이다.",
+      "choices": [
+        {
+          "text": "찻잔의 이상한 쓴 향을 기록한다",
+          "next_scene_id": "scene_day2_false_calm",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [
+              "찻잔 하나에 약 냄새와 닮은 쓴 향이 남아 있었다"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_day2_false_calm",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "해가 기울 무렵 저택은 잠깐 평온해 보였다. 하인들은 등불을 밝혔고, 식기 소리가 멀리서 작게 들렸다. 그러나 모두가 그 평온이 오래가지 않을 것을 알고 있었다.\n\n당신 역시 직감했다. 범인은 첫 번째 밤에 끝내지 못한 무언가를 아직 마무리하지 못했다. 증인이든 문서든, 아니면 공범이든.",
+      "next_scene_id": "scene_day2_after_hub_notes",
+      "continue_text": "2차 조사에서 얻은 생활 흔적을 따로 묶어 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_after_hub_notes",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "두 번째 조사에서 얻은 것은 화려한 증거보다 생활의 흔적들이었다. 젖은 장화, 약 포장지, 쓴 향이 남은 찻잔, 접힌 법률서. 이런 사소한 것들은 단독으로는 약하지만, 사람의 습관과 거짓말을 연결할 때 강해진다.\n\n사건은 누군가의 큰 결심으로만 일어나지 않는다. 매일 반복되던 생활 동선과 익숙한 관리 방식 위에서 비로소 실행된다.",
+      "next_scene_id": "scene_day2_after_hub_implication",
+      "continue_text": "생활 흔적이 무엇을 뜻하는지 한 번 더 해석한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_after_hub_implication",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "생활 흔적을 모아 놓고 보면 하나의 결론이 떠올랐다. 이 집의 범인은 단순히 한 번 살인하고 끝난 사람이 아니라, 평소에도 물건과 시간표와 사람을 조용히 움직이는 데 익숙한 사람일 가능성이 크다.\n\n장화와 약 포장, 찻잔과 참고서의 조합은 충동보다 습관을 가리켰다. 그리고 그런 습관은 늘 혼자보다 구조 안에서 더 쉽게 작동한다.",
+      "next_scene_id": "scene_day2_twilight_notes",
+      "continue_text": "해질 무렵 최종 노트를 다시 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_twilight_notes",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "해질 무렵 당신은 난간 옆 작은 탁자에 기대 사건 노트를 다시 정리했다. 리처드는 동기가 너무 선명했고, 그래서 오히려 누군가 그 선명함을 이용하기 쉽다는 생각이 들었다. 에블린은 비밀을 숨겼고, 박사는 구조를 관리했다. 둘의 조합은 점점 우연처럼 보이지 않았다.\n\n바로 그때 위층 어딘가에서 급히 뛰는 발소리가 한 번, 이어서 숨 막힌 비명이 터졌다.",
+      "next_scene_id": "scene_day2_before_scream",
+      "continue_text": "비명 직전 머릿속을 스친 마지막 결론을 붙잡는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_before_scream",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "그 비명은 전혀 예상 밖의 소리는 아니었다. 오히려 너무 늦게 왔다고 느껴질 정도였다. 오늘 하루 내내 쌓인 단서들은 누군가가 더 입을 막으려 들 것이라고 말하고 있었다. 문제는 그 대상이 누구인지, 그리고 범인이 얼마나 빠르게 움직일 수 있는지를 아직 정확히 붙잡지 못했다는 점이었다.\n\n당신은 수첩을 덮으며 한 가지를 확신했다. 다음에 벌어지는 일은 첫 번째 살인의 반복이 아니라, 첫 번째 살인을 지키기 위한 행위일 것이다.",
+      "next_scene_id": "scene_day2_last_calm",
+      "continue_text": "그 확신을 안은 채 마지막 평온의 가면을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_last_calm",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "비명이 터지기 직전의 몇 분은 지나치게 평온했다. 하인 하나가 등불 심지를 자르고, 멀리서 식기 하나가 닿는 소리가 들리고, 누군가 계단을 천천히 내려오는 발소리가 있었다. 그 모든 일상성이 오히려 더 불길했다.\n\n사람이 정말 위험할 때는 주변이 갑자기 비일상적으로 변하는 것이 아니라, 너무 일상적인 척 굴 때가 많다. 저택 전체가 두 번째 사건 직전, 숨을 참고 평소인 척하고 있었다.",
+      "next_scene_id": "scene_day2_afternoon_event",
+      "continue_text": "그 가짜 평온을 찢고 들어온 비명으로 달려간다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_afternoon_event",
+      "background_image": "second_murder_prelude",
+      "speaker": "system",
+      "text": "2층 복도 끝에서 비명이 찢어졌다. 이번에는 짧지도, 애매하지도 않았다. 사람들은 거의 동시에 문을 열고 뛰쳐나왔고, 누군가는 당신보다 먼저 그 방향으로 달리고 있었다.\n\n당신이 계단을 오르는 동안 샹들리에가 흔들렸고, 불빛이 붉은 카펫 위를 불안하게 쓸고 지나갔다. 두 번째 사건은 첫 번째보다 더 노골적일 가능성이 컸다.",
+      "next_scene_id": "scene_day2_second_murder",
+      "continue_text": "현장으로 달려간다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_second_murder",
+      "background_image": "second_murder_scene",
+      "speaker": "system",
+      "text": "복도 바닥에는 집사가 쓰러져 있었다. 그는 완전히 죽어 가는 중이었고, 마지막 힘으로 당신의 소매를 붙잡았다. 입술이 몇 번 떨린 뒤 겨우 한 단어가 흘러나왔다. \"약...\"\n\n그 한마디를 남긴 채 손이 풀렸다. 첫 번째 살인이 상속을 둘러싼 침묵이라면, 두 번째 살인은 그 침묵을 지키기 위한 봉인이었다. 누군가가 너무 많은 것을 본 사람을 제거한 것이다.",
+      "next_scene_id": "scene_day2_after_second_murder",
+      "continue_text": "두 번째 죽음 직후 저택 전체가 어떻게 얼어붙는지 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_after_second_murder",
+      "background_image": "second_murder_scene",
+      "speaker": "system",
+      "text": "두 번째 죽음 이후 저택은 더 이상 애써 품위를 유지하지 못했다. 하인들은 노골적으로 겁먹은 얼굴을 했고, 남은 가족은 서로를 똑바로 보지도 못했다. 첫 번째 밤엔 충격이 질서 아래 숨었지만, 두 번째 밤엔 그 질서 자체가 금이 갔다.\n\n당신은 그 틈이야말로 마지막 기회라고 느꼈다. 이제 누군가를 한 방에 모아 진실을 재구성하지 않으면, 저택은 아침이 오기 전에 또 다른 방식으로 사실을 덮어 버릴 것이다.",
+      "next_scene_id": "scene_day2_midnight_resolve",
+      "continue_text": "?? ??? ? ??? ?? ??? ??? ???",
+      "choices": []
+    },
+    {
+      "id": "scene_day2_midnight_resolve",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "당신은 사람들을 각자 방으로 돌려보낸 뒤 한동안 불 꺼진 복도에 홀로 남아 있었다. 저택 전체가 조용했지만, 그 조용함은 평온이 아니라 이미 두 번의 죽음을 목격한 집이 겨우 무너지지 않으려고 버티는 소리 없는 긴장이었다.\n\n수첩을 다시 펼치자 이제 남은 일은 분명해졌다. 더 많은 단서를 모으는 일이 아니라, 이미 손에 쥔 단서들을 한 문장으로 묶어 모두가 부정할 수 없는 형태로 내놓는 일. 이번 밤의 마지막은 수사가 아니라 선언이 될 것이었다.",
+      "next_scene_id": "scene_day3_morning",
+      "continue_text": "새벽의 차가운 판단으로 넘어간다",
+      "choices": []
     }
   ]
 }

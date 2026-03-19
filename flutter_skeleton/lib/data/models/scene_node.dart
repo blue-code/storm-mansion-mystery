@@ -3,6 +3,8 @@ class SceneNode {
   final String backgroundImageUrl;
   final String speaker;
   final String text;
+  final String? nextSceneId;
+  final String? continueText;
   final String? bgm;
   final String? sfx;
   final List<ChoiceNode> choices;
@@ -12,6 +14,8 @@ class SceneNode {
     required this.backgroundImageUrl,
     required this.speaker,
     required this.text,
+    this.nextSceneId,
+    this.continueText,
     this.bgm,
     this.sfx,
     required this.choices,
@@ -23,6 +27,8 @@ class SceneNode {
       backgroundImageUrl: json['background_image'] as String? ?? '',
       speaker: json['speaker'] as String? ?? 'system',
       text: json['text'] as String,
+      nextSceneId: json['next_scene_id'] as String?,
+      continueText: json['continue_text'] as String?,
       bgm: json['bgm'] as String?,
       sfx: json['sfx'] as String?,
       choices: (json['choices'] as List<dynamic>)
@@ -38,6 +44,8 @@ class ChoiceNode {
   final int timeCost;
   final int dangerDelta;
   final List<String> addEvidence;
+  final List<String> requiredEvidence;
+  final bool resetGame;
   final Map<String, int> trustDelta;
 
   ChoiceNode({
@@ -46,12 +54,16 @@ class ChoiceNode {
     this.timeCost = 0,
     this.dangerDelta = 0,
     this.addEvidence = const [],
+    this.requiredEvidence = const [],
+    this.resetGame = false,
     this.trustDelta = const {},
   });
 
   factory ChoiceNode.fromJson(Map<String, dynamic> json) {
     final effects = json['effects'] as Map<String, dynamic>? ?? {};
+    final conditions = json['conditions'] as Map<String, dynamic>? ?? {};
     final evidenceList = effects['add_evidence'] as List<dynamic>? ?? [];
+    final requiredEvidence = conditions['required_evidence'] as List<dynamic>? ?? [];
     final trustMap = effects['trust_delta'] as Map<String, dynamic>? ?? {};
 
     return ChoiceNode(
@@ -60,6 +72,8 @@ class ChoiceNode {
       timeCost: effects['time_cost'] as int? ?? 0,
       dangerDelta: effects['danger_delta'] as int? ?? 0,
       addEvidence: evidenceList.map((e) => e.toString()).toList(),
+      requiredEvidence: requiredEvidence.map((e) => e.toString()).toList(),
+      resetGame: effects['reset_game'] as bool? ?? false,
       trustDelta: trustMap.map((key, value) => MapEntry(key, value as int)),
     );
   }

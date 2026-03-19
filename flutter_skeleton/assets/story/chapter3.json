@@ -1,107 +1,733 @@
 {
-  "chapter": "폭풍 저택의 유언 - Day 3 (마지막 재판)",
+  "chapter": "폭풍 저택의 유언 - Day 3 (재구성과 결말)",
   "scenes": [
     {
       "id": "scene_day3_morning",
       "background_image": "mansion_study_room",
       "speaker": "system",
-      "text": "[ 3일 차 아침 ]\n끝나지 않을 것 같던 폭풍우가 멎고, 저 멀리 임시 다리를 복구하며 경찰차의 사이렌 소리가 들려온다.\n\n살아남은 자들은 무거운 침묵 속에서 메인 응접실에 모여 있다. 누군가는 두려움에, 누군가는 자신의 비밀이 들통날까 봐 떨고 있다.\n당신은 그간 수집한 단서와 사람들의 표정을 떠올린다. 이 비극의 마침표를 찍고 범인을 지목할 시간이다.",
+      "text": "둘째 날 밤이 지나자 더는 우연이나 감정 폭발로 설명할 수 없는 지점에 도달했다. 첫 번째 살인과 두 번째 살인은 같은 중심을 공유했다. 약, 유언, 그리고 그 둘 사이를 알고 있던 사람들.\n\n당신은 남은 이들을 다시 서재로 모았다. 죽은 사람의 방에서만, 살아 있는 사람들의 거짓말이 서로를 밀어내기 시작한다.",
+      "next_scene_id": "scene_day3_before_gathering",
+      "continue_text": "사람들을 부르기 전 서재를 마지막으로 훑는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_before_gathering",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "사람들을 다시 모으기 전, 당신은 일부러 몇 분간 서재에 혼자 남아 있었다. 죽은 사람의 책상, 멈춘 시계, 바닥을 새로 닦았는데도 지워지지 않은 얼룩. 사건은 이미 지나갔지만 방은 여전히 가장 많은 것을 기억하고 있었다.\n\n이 장면을 오래 보는 이유는 단순한 감상이 아니다. 누가 무엇을 잃었고, 누가 무엇을 지키려 했는지를 다시 감각으로 확인하는 일이다. 추리는 사실만이 아니라 압력의 방향을 읽는 일이기도 하다.",
+      "next_scene_id": "scene_day3_recap_documents",
+      "continue_text": "문서와 메모를 차례대로 다시 늘어놓는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_recap_documents",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "서재 책상 위에는 사건의 파편들이 조용히 놓여 있었다. 상속 결격 문서 조각, 수정된 진단 기록, 숨겨져 있던 약병, 하인들의 호출 장부. 각기 따로 보면 불완전했지만, 함께 놓으면 누가 무엇을 두려워했는지 윤곽이 잡혔다.\n\n진실은 이제 증거의 양보다 배열의 문제였다. 무엇을 먼저 말하느냐에 따라, 이 방의 침묵은 무너질 수도 다시 굳어질 수도 있다.",
+      "next_scene_id": "scene_day3_gathering_arrivals",
+      "continue_text": "각 인물이 서재에 들어오는 순간의 표정을 읽는다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_gathering_arrivals",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "사람들이 하나씩 서재로 들어올 때마다 방의 공기가 조금씩 달라졌다. 리처드는 이미 자신이 의심받는 데 익숙한 사람의 얼굴을 하고 있었고, 에블린은 무너지지 않기 위해 더 곧게 서 있었다. 박사는 가장 늦게 들어왔고, 가장 자연스럽게 자리를 잡았다.\n\n그 차이가 중요했다. 결백한 사람도 침착할 수 있지만, 통제권을 오래 쥔 사람만이 위기 속에서 자기 자리를 먼저 계산한다.",
+      "next_scene_id": "scene_day3_tableau",
+      "continue_text": "마지막 대면의 자리를 정식으로 연다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_tableau",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "에블린은 피곤하지만 무너지지 않은 얼굴로 앉아 있었고, 리처드는 이미 패배를 예상한 사람처럼 턱을 굳히고 있었다. 박사는 여전히 가장 침착했지만, 그 침착함이 오히려 이질적이었다. 두 번의 죽음 앞에서 가장 덜 흔들리는 사람이 있다는 것은 그 자체로 정보다.\n\n당신은 누구를 먼저 압박할지보다, 어떤 논리의 순서로 이 방을 닫아야 할지 생각했다.",
+      "next_scene_id": "scene_day3_servant_statement",
+      "continue_text": "하인들의 마지막 진술을 머릿속에서 다시 맞춘다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_servant_statement",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "마지막으로 떠올린 것은 거창한 증거가 아니라 하인들의 자잘한 진술이었다. 누가 차를 올렸는지, 누가 계단에서 스쳤는지, 어느 쪽 복도에 젖은 자국이 남았는지. 큰 집의 진실은 의외로 작은 노동의 기록에 남는다.\n\n그 조각들을 맞추자 첫째 날 밤과 둘째 날 밤 모두, 박사와 에블린이 완전히 분리된 적이 없다는 결론이 점점 단단해졌다.",
+      "next_scene_id": "scene_day3_arthur_will_voice",
+      "continue_text": "아서가 남긴 문장의 어조를 다시 떠올린다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_arthur_will_voice",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "당신은 미완성 서신과 메모를 다시 읽으며 아서의 문장 습관을 떠올렸다. 그는 감정을 거의 쓰지 않았고, 늘 조치와 판단, 순서의 언어를 남겼다. 그런 사람이 죽기 직전 \"약과 후견 문제를 함께 정리한다\"고 적었다는 것은 단순한 건강 관리가 아니라 권한 구조의 변경을 의미한다.\n\n결국 이번 사건은 누가 재산을 더 갖느냐의 문제가 아니라, 누가 더 이상 누군가의 관리 대상이 되지 않느냐의 문제이기도 했다.",
+      "next_scene_id": "scene_day3_inner_caseboard",
+      "continue_text": "그 문장이 왜 살인의 계기가 됐는지 연결한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_inner_caseboard",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "첫 번째 죽음은 아서가 유언과 약 기록을 정리하기 직전에 일어났다. 두 번째 죽음은 그 사실을 본 집사를 제거하기 위해 일어났다. 리처드의 동기는 거칠고, 에블린의 비밀은 분명하지만, 약을 다루고 기록을 손볼 수 있는 사람은 훨씬 제한적이다.\n\n그렇다고 박사 한 사람만의 범행으로도 설명이 완전해지지 않는다. 상속 문서 조각은 에블린에게 닿아 있고, 밤의 동선도 그녀를 완전히 지워 주지 않는다. 이 사건의 핵심은 단독 범인보다 협력과 은폐의 구조에 더 가까웠다.",
+      "next_scene_id": "scene_day3_two_nights",
+      "continue_text": "두 번의 밤이 어떻게 이어지는지 더 길게 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_two_nights",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "첫째 날 밤의 핵심은 선제 타격이었다. 아서는 다음 날 아침까지 살아 있으면 누군가의 비밀을 문서로 남길 수 있었다. 둘째 날 밤의 핵심은 사후 봉인이었다. 집사는 그 비밀의 물적 흔적을 봤고, 그래서 지워져야 했다.\n\n한 번의 살인은 충동으로도 설명할 수 있지만, 두 번째 살인까지 이어지면 구조가 보인다. 준비, 실행, 은폐. 그리고 그 셋을 모두 다룰 수 있는 사람은 생각보다 많지 않다.",
+      "next_scene_id": "scene_day3_threshold",
+      "continue_text": "최종 선언 직전의 망설임을 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_threshold",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "이쯤 되면 정답은 중요하지만, 정답에 이르는 방식은 더 중요해진다. 섣부르게 밀어붙이면 리처드 같은 쉬운 대상에게 사건이 다시 흘러갈 수 있다. 반대로 지나치게 신중하면 공모는 침묵 속으로 도망친다.\n\n당신은 방 안의 얼굴을 한 번 더 훑었다. 누구의 눈이 논리보다 감정에 먼저 반응하는지를 보는 일도, 마지막 추리의 일부였다.",
+      "next_scene_id": "scene_day3_emotional_trigger",
+      "continue_text": "논리뿐 아니라 감정의 폭발 지점도 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_emotional_trigger",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "증거만으로 사건을 설명할 수는 있어도, 사람을 끝내 움직인 감정까지 설명하지 못하면 결말은 얇아진다. 에블린은 상실될 지위를 두려워했고, 리처드는 이미 잃어버린 지위를 증오했으며, 박사는 자신의 통제권이 사라지는 것을 견딜 수 없었다.\n\n아서는 끝까지 그 셋을 한 장의 평가표처럼 다뤘고, 그 오래된 방식이 결국 두 번의 죽음을 낳았다. 당신은 이제 논리와 감정을 함께 묶어 말할 준비가 되었다.",
+      "next_scene_id": "scene_day3_reconstruction_table",
+      "continue_text": "첫째 날 밤과 둘째 날 밤의 동선을 한 표로 다시 세운다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_reconstruction_table",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "당신은 머릿속에서 사건을 시간표처럼 다시 세웠다. 첫째 날 밤, 유언 발표 직후 각 인물의 동선. 자정 무렵 서재로 모인 흔적. 둘째 날 저녁, 집사가 무엇을 봤기에 죽어야 했는지. 사건을 서사로 읽을 때보다 시간표로 읽을 때 더 선명해지는 부분이 있었다.\n\n첫째 날은 준비와 실행의 밤이었고, 둘째 날은 은폐와 봉인의 밤이었다. 두 밤을 함께 설명할 수 있는 결론만이 진실에 가깝다.",
+      "next_scene_id": "scene_day3_emotional_cost",
+      "continue_text": "이 결론이 각자에게 어떤 대가를 남기는지도 생각한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_emotional_cost",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "진실은 밝혀내는 순간보다, 그것이 누구를 어떻게 무너뜨리는지까지 감당해야 할 때 더 무거워진다. 에블린을 지목하면 한때 보호받던 사람이 공모자로 드러나고, 리처드를 지목하면 이미 망가진 사람을 더 쉽게 희생양으로 밀어 넣게 된다. 물러서면 모두가 반쯤 살아남고 반쯤 썩는다.\n\n당신은 이제 추리뿐 아니라 결말의 무게까지 선택해야 했다.",
+      "next_scene_id": "scene_day3_last_balance",
+      "continue_text": "마지막으로 논리와 감정의 균형을 다시 맞춘다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_last_balance",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "좋은 결말은 단지 정답을 맞히는 결말이 아니다. 누가 왜 그렇게까지 갔는지, 그 과정을 설득력 있게 묶어 낼 수 있을 때 비로소 사건은 사람의 형태를 얻는다. 블랙우드 저택의 비극은 욕망만으로 설명되지 않는다. 오래된 통제, 조건부 애정, 누적된 열등감, 익숙한 관리가 함께 쌓여 마지막 밤을 만든 것이다.\n\n당신은 이제 어떤 이름을 부를지보다, 그 이름 뒤에 어떤 구조를 함께 드러낼지가 더 중요하다고 판단했다.",
+      "next_scene_id": "scene_day3_room_breath",
+      "continue_text": "결론을 말하기 직전, 방 안 공기가 어떻게 숨을 죽이는지 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_room_breath",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "당신이 입을 열기 직전, 방 안의 공기가 아주 짧게 멎는 듯했다. 누구도 아직 이름을 듣지 않았는데도, 모두가 이미 자신만의 결론을 한 번쯤은 세워 본 얼굴이었다. 어떤 이는 두려워했고, 어떤 이는 대비했고, 어떤 이는 끝까지 스스로를 설명할 문장을 고르고 있었다.\n\n그 짧은 정적은 중요했다. 추리는 언제나 증거 위에서 이뤄지지만, 결말은 결국 사람들 앞에서 선언되어야 한다. 그리고 사람들은 선언 직전의 침묵에서 이미 절반쯤 진실을 알아차리곤 한다.",
+      "next_scene_id": "scene_day3_final_weighing",
+      "continue_text": "그 침묵을 가르기 전 마지막 판단을 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_day3_final_weighing",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "이제 남은 것은 정답을 맞히는 기술이 아니라, 어떤 진실을 어떤 방식으로 꺼내야 이 방 전체가 다시 거짓말 속으로 숨어 버리지 못하게 할지를 정하는 일이었다. 에블린을 향한 결론은 구조와 공모를 끝까지 밀어붙여야만 완성되고, 리처드를 향한 결론은 가장 쉬운 오해가 얼마나 빠르게 한 사람을 삼키는지 보여 준다.\n\n당신은 다시 한 번 단서와 표정과 침묵의 순서를 머릿속에서 정렬했다. 지금부터의 선택은 단지 범인을 고르는 일이 아니라, 이 저택을 어떤 문장으로 기억하게 만들 것인가를 고르는 일이었다.",
+      "next_scene_id": "scene_final_reflection",
+      "continue_text": "마침내 최종 결론을 선택한다",
+      "choices": []
+    },
+    {
+      "id": "scene_final_reflection",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "이제 선택은 단순한 용의자 지목이 아니다. 어떤 결론을 채택하느냐에 따라, 진실은 밝혀질 수도 있고 절반만 남을 수도 있다. 증거가 충분하다면 에블린과 박사의 공모 구조를 드러낼 수 있다. 증거가 부족하다면 가장 보기 쉬운 거짓 결론에 끌려갈 위험이 있다.",
       "choices": [
         {
-          "text": "[지목] 에블린 (조카딸)",
+          "text": "에블린을 중심으로 사건을 재구성한다",
           "next_scene_id": "scene_accuse_evelyn",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         },
         {
-          "text": "[지목] 리처드 (첫째 아들)",
+          "text": "리처드를 주범으로 몰아붙인다",
           "next_scene_id": "scene_accuse_richard",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         },
         {
-          "text": "[포기] 단서가 부족하다. 함구한다.",
+          "text": "증거가 부족하다고 선언하고 물러선다",
           "next_scene_id": "scene_ending_unsolved",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         }
       ]
     },
     {
       "id": "scene_accuse_evelyn",
-      "background_image": "evelyn_portrait",
-      "speaker": "에블린",
-      "text": "\"제가 범인이라고요? 맙소사, 비서님. 실성하셨군요.\n제가 대체 왜 심장마비로 쓰러지신 큰아버지를 독살하겠어요? 상속인인 저에게 무슨 이득이 있다고!\"\n\n그녀는 여유롭게 웃으며 반론한다. 그녀의 완벽한 논리를 부술 결정적인 동기(증거)가 필요하다.",
+      "background_image": "accuse_evelyn",
+      "speaker": "탐정",
+      "text": "\"이 사건의 시작은 감정이 아니라 자격입니다. 누가 상속을 잃을 수 있었는지, 그리고 누가 그 사실을 먼저 알았는지가 핵심이죠.\"\n\n당신이 그렇게 말하자 에블린의 시선이 아주 작게 흔들렸다. 리처드는 곧장 그녀를 보았고, 박사는 처음으로 시선을 내렸다. 방 안의 균형이 미세하게 움직였다.",
+      "next_scene_id": "scene_accuse_evelyn_bridge",
+      "continue_text": "상속 문제와 첫 번째 밤의 행동을 함께 묶는다",
+      "choices": []
+    },
+    {
+      "id": "scene_accuse_evelyn_bridge",
+      "background_image": "accuse_evelyn",
+      "speaker": "system",
+      "text": "당신은 에블린을 바로 살인자로 부르지 않았다. 대신 상속 박탈 가능성을 먼저 꺼냈고, 그녀가 첫째 날 밤 왜 온실 쪽으로 향했는지 묻는 식으로 천천히 좁혀 갔다. 직접적인 비난보다 더 견디기 어려운 방식이었다.\n\n에블린은 한동안 아무 말도 하지 않았지만, 그 침묵은 부정의 침묵이 아니었다. 어떤 설명부터 막아야 할지 계산하는 침묵에 가까웠다.",
+      "next_scene_id": "scene_accuse_evelyn_pressure",
+      "continue_text": "숨긴 문서와 공모 가능성을 정면으로 제시한다",
+      "choices": []
+    },
+    {
+      "id": "scene_accuse_evelyn_pressure",
+      "background_image": "accuse_evelyn",
+      "speaker": "system",
+      "text": "에블린은 끝까지 침착하려 했지만, 온실에서 찾은 문서 조각 이야기가 나오자 손가락 끝이 하얗게 질렸다. 문제는 그 문서만으로는 살인을 입증할 수 없다는 점이다. 그것은 동기를 설명할 뿐, 실행과 은폐를 설명하지는 못한다.\n\n여기서 한 단계 더 나아가려면, 그녀가 무엇을 두려워해 누구와 손을 잡았는지까지 밝혀야 한다.",
       "choices": [
         {
-          "text": "에블린의 유산 결격 증서 조각을 제시한다",
+          "text": "온실의 문서 조각을 근거로 상속 박탈 가능성을 제시한다",
           "next_scene_id": "scene_evelyn_evidence_1",
-          "conditions": { "required_evidence": ["에블린의 유산 결격 증서 조각"] },
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": []
+          },
+          "conditions": {
+            "required_evidence": [
+              "에블린의 유산 결격 문서 조각"
+            ]
+          }
         },
         {
-          "text": "에블린이 심장약을 훔쳐갔다는 정황을 내세운다",
+          "text": "핵심 증거 없이 압박만 이어 간다",
           "next_scene_id": "scene_ending_evelyn_escape",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         }
       ]
     },
     {
       "id": "scene_evelyn_evidence_1",
-      "background_image": "evelyn_portrait",
-      "speaker": "에블린",
-      "text": "당신이 내민 불탄 문서 조각을 본 에블린의 여유로운 미소가 산산조각 났다.\n[...입양아인 에블린에게는 한 푼의 재산도 상속할 수 없음...]\n\n\"이건... 어디서...!\"\n그녀는 떨리는 목소리로 반문했다. 하지만 심장마비로 위장한 '독살'의 물적 증거가 없다면 그녀는 또 빠져나갈 것이다.",
+      "background_image": "accuse_evelyn",
+      "speaker": "탐정",
+      "text": "\"당신은 아서가 유언을 바꾸기 전에 이미 자신이 상속권을 잃을 수 있다는 사실을 알았습니다. 그래서 문서를 온실에 숨겼죠. 하지만 혼자서는 약 기록까지 손댈 수 없었습니다.\"\n\n그 말에 박사가 즉시 고개를 들었다. 반응이 너무 빨랐다. 에블린은 그제야 처음으로 침묵을 방어로 쓰지 못했다.",
+      "next_scene_id": "scene_evelyn_reaction_gap",
+      "continue_text": "에블린과 박사의 반응이 서로 어떻게 어긋나는지 더 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_evelyn_reaction_gap",
+      "background_image": "accuse_evelyn",
+      "speaker": "system",
+      "text": "에블린은 아무 말도 하지 않았지만, 그 침묵의 방향은 분명했다. 그것은 부정의 침묵이 아니라, 어디까지 말해야 박사가 먼저 무너질지를 재고 있는 침묵이었다. 반면 박사는 순간적으로 지나치게 빠른 반응을 보인 뒤, 곧장 전문가의 무표정으로 돌아가려 했다.\n\n두 사람의 균열은 같은 쪽을 향하지 않았다. 바로 그 어긋남이 오히려 공모의 흔적처럼 보였다. 완전히 같은 진술을 준비한 사람들이 아니라, 같은 비밀을 다른 이유로 숨기고 있는 사람들처럼.",
+      "next_scene_id": "scene_evelyn_crack",
+      "continue_text": "이제 약 기록과 두 번째 살인을 함께 묶는다",
+      "choices": []
+    },
+    {
+      "id": "scene_evelyn_crack",
+      "background_image": "accuse_evelyn",
+      "speaker": "system",
+      "text": "이제 남은 것은 마지막 고리였다. 아서의 심장약, 박사의 위조 기록, 집사가 남긴 마지막 단어. 이 세 가지가 연결되면 사건은 감정적 살해가 아니라 계획된 은폐로 재구성된다.\n\n반대로 이 고리가 빠지면 에블린은 비밀을 숨긴 상속자일 뿐이고, 박사는 그저 불쾌한 전문가로 남는다.",
       "choices": [
         {
-          "text": "치명적인 심장약 병(바꿔치기된 약)을 제시한다",
+          "text": "심장약 병과 위조 기록을 함께 제시해 공모를 밝힌다",
           "next_scene_id": "scene_ending_true",
-          "conditions": { "required_evidence": ["치명적인 심장약 병"] },
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": []
+          },
+          "conditions": {
+            "required_evidence": [
+              "결정적 심장약 병",
+              "박사의 위조 진단 기록"
+            ]
+          }
         },
         {
-          "text": "동기가 충분하다며 무작정 몰아붙인다",
+          "text": "확정적인 고리 없이 자백을 유도한다",
           "next_scene_id": "scene_ending_evelyn_escape",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": []
+          }
         }
       ]
     },
     {
       "id": "scene_accuse_richard",
-      "background_image": "mansion_corridor",
-      "speaker": "리처드",
-      "text": "\"나? 내가 내 아버지를 죽였다고?! 말도 안 되는 소리 작작 해!\"\n리처드가 분노하며 소리쳤다. \n당신은 그의 방에서 발견한 도박 빚과 서재 창틀에 남은 진흙 묻은 알리바이를 폭로했다.",
+      "background_image": "accuse_richard",
+      "speaker": "탐정",
+      "text": "당신은 리처드의 빚과 분노, 젖은 장화를 차례로 꺼내 놓았다. 리처드는 처음엔 이를 악물고 버텼지만, 자신에게 가장 불리한 증거가 차곡차곡 쌓이자 결국 폭발했다.\n\n문제는 그의 폭발이 범행의 증거라기보다, 오랫동안 쌓인 열등감의 결과처럼 보인다는 점이다. 하지만 방 안의 사람들은 이미 가장 쉬운 결론을 원하고 있었다.",
+      "next_scene_id": "scene_accuse_richard_bridge",
+      "continue_text": "분노와 증거를 같은 선상에 두고 리처드를 압박한다",
+      "choices": []
+    },
+    {
+      "id": "scene_accuse_richard_bridge",
+      "background_image": "accuse_richard",
+      "speaker": "system",
+      "text": "리처드는 누구보다 쉬운 표적이었다. 빚, 열등감, 술, 젖은 장화. 당신이 그 조각들을 차례로 늘어놓을수록 방 안 사람들의 표정은 오히려 편안해졌다. 너무 많은 사람이 너무 빨리 납득하는 결론은 늘 의심해야 한다.\n\n그럼에도 리처드를 몰아붙이는 일은 어렵지 않았다. 그는 스스로를 지키는 말보다 스스로를 파괴하는 말을 더 빨리 꺼내는 사람이었기 때문이다.",
+      "next_scene_id": "scene_richard_breakdown",
+      "continue_text": "리처드가 감정적으로 무너지는 순간을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_richard_breakdown",
+      "background_image": "accuse_richard",
+      "speaker": "리처드 블랙우드",
+      "text": "\"그래, 다들 내가 했다고 말하면 편하겠지. 아버지도, 그녀도, 의사도 전부 깨끗해질 테니까.\"\n\n그 말은 부정이면서 동시에 항복이었다. 그는 무고를 완전히 증명할 언어를 갖고 있지 못했다. 그리고 그 빈틈을 방 안의 공기가 곧장 죄로 채우기 시작했다.",
+      "next_scene_id": "scene_ending_bad_richard",
+      "continue_text": "잘못된 결론이 굳어진다",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_true",
+      "background_image": "ending_true_reveal",
+      "speaker": "system",
+      "text": "박사는 결국 먼저 무너졌다. 심장약 병과 수정된 진단 기록이 동시에 제시되자 그는 더 이상 의료적 설명 뒤에 숨을 수 없었다. 아서는 유언 변경과 함께 약 기록까지 재검토하려 했고, 그 순간 박사의 조작이 드러날 위험이 생겼다.\n\n에블린은 상속 박탈 가능성을 알게 된 뒤 박사와 손을 잡았다. 첫 번째 밤엔 아서를 죽이고 자연사처럼 보이게 하려 했고, 둘째 날 밤엔 집사가 약병을 봤다는 사실이 드러나자 다시 입을 막았다. 둘의 이해관계는 완벽한 사랑이 아니라, 서로가 서로를 필요로 하는 공모였다.",
+      "next_scene_id": "scene_true_confession_gap",
+      "continue_text": "폭로 뒤 서로가 서로를 어떻게 바라보는지 지켜본다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_confession_gap",
+      "background_image": "ending_true_reveal",
+      "speaker": "system",
+      "text": "완전한 자백은 없었다. 대신 두 사람이 서로를 보는 방식이 많은 것을 대신했다. 에블린은 박사를 배신자처럼 보았고, 박사는 에블린을 감정에 휘말린 공모자처럼 보았다. 공모는 언제나 균열이 생길 때 가장 솔직해진다.\n\n당신은 오히려 그 틈에서 확신을 얻었다. 진실은 반드시 입으로만 말해지지 않는다. 무너지는 눈빛과 끊어진 계산이 때로는 가장 정확한 진술이 된다.",
+      "next_scene_id": "scene_true_police_arrival",
+      "continue_text": "외부의 기록과 체포가 방 안으로 들어온다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_police_arrival",
+      "background_image": "ending_true_reveal",
+      "speaker": "system",
+      "text": "진실이 구조를 갖추는 순간, 방 안의 공기도 즉시 달라졌다. 리처드는 처음으로 고개를 들었고, 에블린은 말을 잃었다. 박사는 끝까지 반박하려 했지만, 더 이상 그는 설명의 주인이 아니었다.\n\n마침 폭풍이 약해지며 외부 연락이 닿았고, 저택 밖에서 경찰 마차의 소리가 들려왔다. 블랙우드 저택은 이제 내부의 질서가 아니라 외부의 기록으로 넘어가고 있었다.",
+      "next_scene_id": "scene_ending_true_epilogue",
+      "continue_text": "무너진 뒤의 사람들을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_true_epilogue",
+      "background_image": "ending_true_reveal",
+      "speaker": "system",
+      "text": "에블린은 마지막까지 품위를 잃지 않으려 했지만, 결국 자신의 계산이 얼마나 오래전부터 박사의 손에 얽혀 있었는지를 깨닫는 순간 무너졌다. 박사는 끝까지 자신이 질서를 지키려 했다고 주장했다. 그 말이 틀린 것은 아니다. 다만 그 질서는 살아 있는 사람을 위한 것이 아니었다.\n\n폭풍이 잦아들 무렵, 저택은 처음으로 진짜 침묵을 맞았다. 거짓을 유지하기 위해 애쓰던 긴장 대신, 끝내 붕괴한 집안의 허무가 남았다.",
+      "next_scene_id": "scene_true_family_aftermath",
+      "continue_text": "진실이 밝혀진 뒤 남은 가족의 표정을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_family_aftermath",
+      "background_image": "ending_true_reveal",
+      "speaker": "system",
+      "text": "진실이 밝혀진 뒤에도 저택은 곧장 해방되지 않았다. 리처드는 구원받은 사람이 아니라 뒤늦게 자신이 얼마나 쉽게 버려질 수 있었는지 확인한 사람의 얼굴을 하고 있었다. 에블린은 무너졌지만 동시에 아주 잠깐, 더는 시험당하지 않아도 된다는 기묘한 안도도 비쳤다.\n\n사건은 끝났지만 상처의 질서는 곧장 정리되지 않는다. 오래된 집안일수록 그 잔여 시간이 더 길다.",
+      "next_scene_id": "scene_true_house_future",
+      "continue_text": "사건 이후 저택이 어떻게 남을지 생각한다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_house_future",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "저택은 사건 하나로 곧장 끝나지 않는다. 법적 정리와 유산 분배, 신문 기사와 재판, 하인들의 이탈과 남겨진 방의 처리까지 수많은 시간이 더 필요할 것이다. 그러나 그 모든 미래보다 먼저 오는 것은, 더는 예전 방식으로는 아무도 이 집을 운영할 수 없다는 사실이다.\n\n블랙우드 저택은 살아남더라도 다른 집이 될 것이다. 그 변화는 비극의 대가이면서 동시에, 처음으로 정직해지는 과정일지도 모른다.",
+      "next_scene_id": "scene_ending_true_afterglow",
+      "continue_text": "새벽 바깥 공기 속에서 마지막 여운을 마주한다",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_true_afterglow",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "새벽의 해안은 밤보다 더 차갑게 느껴졌다. 그러나 적어도 이제는 무엇이 누구를 죽였는지 설명할 수 있었다. 블랙우드 저택의 비극은 단순한 욕망이 아니라, 조건부 애정과 관리된 질서가 얼마나 쉽게 폭력으로 변하는지를 보여 준 사례로 남았다.\n\n당신은 젖은 정문을 지나며 뒤를 한 번만 돌아봤다. 저택은 여전히 거대했지만, 이제는 더 이상 무너지지 않은 척할 수 없는 집이 되어 있었다.",
+      "next_scene_id": "scene_ending_evelyn_escape_aftermath",
+      "continue_text": "놓쳐 버린 뒤의 정적을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_evelyn_escape_aftermath",
+      "background_image": "ending_evelyn_escape",
+      "speaker": "system",
+      "text": "에블린이 빠져나간 뒤 저택에는 이상할 만큼 얇은 침묵이 남았다. 모두가 당신의 추리가 거의 맞았다는 사실은 알고 있었지만, 법과 기록은 거의 맞은 진실을 받아들이지 않는다. 박사는 그 틈을 끝까지 이용했고, 리처드는 또 한 번 설명되지 못한 분노만 남겼다.\n\n해결되지 않은 사건은 사람을 지치게 한다. 그러나 거의 풀린 사건은 사람을 더 오래 괴롭힌다.",
+      "next_scene_id": "scene_true_departure_platform",
+      "continue_text": "사건을 마친 뒤 떠나는 순간까지 따라간다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_departure_platform",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "저택을 떠나는 순간에도 해안의 바람은 차가웠다. 하지만 처음 도착했을 때와는 결이 달랐다. 그때의 바람이 경고처럼 느껴졌다면, 지금의 바람은 끝내 드러난 진실의 뒤처리를 재촉하는 공기처럼 느껴졌다.\n\n당신은 이 사건이 단순한 성공으로 남지 않으리라는 것을 알고 있었다. 해결은 끝이 아니라, 누군가에게는 처음으로 현실을 견디는 시작이기도 하다.",
+      "next_scene_id": "scene_true_aftertaste_memory",
+      "continue_text": "이 사건이 앞으로 어떤 기억으로 남을지 더 생각한다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_aftertaste_memory",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "진엔딩은 승리처럼 보이지만, 좋은 기억으로만 남지는 않는다. 당신은 훗날 다른 사건을 다룰 때도 블랙우드 저택의 식탁과 서재를 떠올리게 될 것이다. 사랑과 보호, 후견과 통제, 돌봄과 권력이 어떻게 같은 문장 안에서 뒤틀릴 수 있는지를 이 사건만큼 선명하게 보여 주는 사례는 드물기 때문이다.\n\n해결된 사건이 항상 가벼운 것은 아니다. 때로는 정확히 해결됐기 때문에 더 오래 남는다.",
+      "next_scene_id": "scene_true_after_case_note",
+      "continue_text": "사건을 기록으로 남길 때의 감각까지 따라간다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_after_case_note",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "당신은 이 사건을 언젠가 기록으로 남기게 될 것이다. 하지만 그 기록은 단순히 범인과 동기만 적는 문서로는 부족할 것이다. 블랙우드 저택 사건은 인간관계와 권력, 보호와 소유의 경계가 어떻게 뒤틀리는지까지 함께 적혀야만 겨우 온전해진다.\n\n좋은 해결은 사건을 닫는 동시에, 다시는 같은 구조를 쉽게 믿지 못하게 만든다. 이 사건은 분명 당신에게 그런 종류의 기준점으로 남을 것이다.",
+      "next_scene_id": "scene_true_legacy",
+      "continue_text": "이 사건이 남기는 더 긴 유산을 생각한다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_legacy",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "이 사건의 가장 긴 여운은 범인 체포보다도, 블랙우드 저택이라는 구조 자체가 더는 예전 얼굴로는 존속할 수 없다는 사실일 것이다. 앞으로 이 집이 어떻게 정리되든, 적어도 누군가를 사랑한다는 명목으로 관리하고 통제하는 방식만은 더 쉽게 미화되기 어려울 것이다.\n\n당신에게도 이 사건은 단순한 성공 사례가 아니라 기준점으로 남는다. 사람을 보호한다는 말이 언제 소유의 말로 뒤집히는지, 그 경계는 생각보다 훨씬 가까이에 있다는 사실과 함께.",
+      "next_scene_id": "scene_true_last_echo",
+      "continue_text": "사건이 남긴 가장 마지막 울림까지 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_true_last_echo",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "사건이 마무리된 뒤에도 블랙우드 저택은 쉽게 뒤로 밀려나지 않는다. 이곳이 오래 남는 이유는 비밀의 양이 아니라, 보호와 지배가 얼마나 자연스럽게 같은 얼굴을 하고 있었는지를 너무 선명하게 보여 주었기 때문이다.\n\n그래서 당신에게 이 사건은 단순한 해결 사례가 아니라 이후의 판단을 재는 기준으로 남는다. 누군가를 지킨다는 말이 언제 구원이 되고, 언제 더 세련된 감금이 되는지를 다시 의심하게 만드는 기준으로.",
+      "choices": [],
+      "next_scene_id": "scene_true_final_coda",
+      "continue_text": "사건이 남긴 마지막 문장까지 본다"
+    },
+    {
+      "id": "scene_true_final_coda",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "기록을 덮고 나서도 당신은 이 사건을 오래 잊지 못할 것이다. 진실을 밝혀냈다는 안도보다, 그렇게 오래 지연된 진실이 결국 얼마나 많은 사람의 삶을 비틀어 놓았는지가 더 오래 남기 때문이다.\n\n해피엔딩이라 불러도 되는 결말은 맞다. 그러나 이 저택의 해피엔딩은 상처가 없다는 뜻이 아니라, 끝내 상처를 거짓말로 덮지 않았다는 뜻에 더 가깝다.",
       "choices": [
         {
-          "text": "당신이 빛 때문에 아버지를 살해했소!",
-          "next_scene_id": "scene_ending_bad_richard",
-          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+          "text": "처음부터 다시 읽는다",
+          "next_scene_id": "scene_101",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [],
+            "reset_game": true
+          }
         }
       ]
     },
     {
-      "id": "scene_ending_true",
-      "background_image": "mansion_study_room",
+      "id": "scene_ending_evelyn_escape",
+      "background_image": "ending_evelyn_escape",
       "speaker": "system",
-      "text": "[ 진엔딩: 폭풍 속의 진실 ]\n\n결정적인 약병이 테이블 위에 올려지자, 에블린은 털썩 주저앉았다. \n\"그래... 당신 말이 맞아. 그 늙은이는 진짜 핏줄이 아니란 이유로 날 저택에서 내쫓으려 했어. 차라리 모두 다 폭풍우 속에 묻혀버리는 게 나았을 텐데.\"\n\n경찰이 들이닥치고, 에블린의 손에 수갑이 채워졌다. 당신의 추리로 인해 저택의 오랜 저주와 끔찍한 살인 사건은 막을 내렸다.",
+      "text": "에블린은 결정적인 순간에 침묵을 회복했다. 당신의 논리는 상당 부분 맞았지만, 마지막 고리가 빠진 추리는 사람을 묶지 못한다. 박사는 끝까지 전문적 회피로 시간을 벌었고, 그 사이 에블린은 법적으로도 감정적으로도 빠져나갈 틈을 만들었다.\n\n사건은 반쯤 밝혀졌고, 그래서 더 씁쓸했다. 진실에 거의 닿았는데도 끝내 닫히지 않는 문이 있다.",
+      "next_scene_id": "scene_ending_evelyn_escape_future",
+      "continue_text": "도망친 진실이 이후 어떻게 남는지 본다",
       "choices": []
     },
     {
-      "id": "scene_ending_evelyn_escape",
-      "background_image": "mansion_corridor",
+      "id": "scene_ending_evelyn_escape_future",
+      "background_image": "ending_evelyn_escape",
       "speaker": "system",
-      "text": "[ 노멀 엔딩: 공범의 도주 ]\n\n에블린은 당신의 논리에 구멍이 있음을 날카롭게 지적했다.\n동기나 정황은 있었지만 '결정적인 흉기(약병)'를 확인하지 못한 당신은 수세에 몰렸다. 그 틈을 타 에블린의 명령을 듣던 정원사 토마스가 거짓 자백을 하며 뛰어들었다.\n수사가 혼선에 빠진 사이 경찰이 들이닥쳤고, 진짜 흑막인 에블린은 눈물을 흘리는 슬픈 상속녀 연기를 하며 저택을 유유히 빠져나갔다.",
+      "text": "에블린이 빠져나간 뒤 사건은 법적으로도 서사적으로도 어정쩡한 모양을 갖게 된다. 박사는 끝까지 스스로를 정당화할 틈을 얻고, 리처드는 또 한 번 의심의 그림자 속에 남는다. 무엇보다 당신 자신에게 가장 불편한 것은, 진실이 거의 완성됐는데도 마지막 문장을 닫지 못했다는 사실이다.\n\n이런 실패는 큰 소리로 남지 않는다. 대신 훨씬 조용하게 오래 남는다.",
+      "next_scene_id": "scene_ending_evelyn_escape_regret",
+      "continue_text": "놓친 마지막 고리가 왜 그렇게 오래 남는지 곱씹는다",
       "choices": []
+    },
+    {
+      "id": "scene_ending_evelyn_escape_regret",
+      "background_image": "ending_evelyn_escape",
+      "speaker": "system",
+      "text": "도망친 진실은 단순한 실패보다 더 집요하다. 어디까지는 맞았고, 어느 지점에서만 닫히지 않았는지가 너무 분명하기 때문이다. 당신은 나중에도 이 사건을 떠올릴 때마다, 심장약 병과 문서 조각 사이에 한 번 더 머무르지 않은 순간을 반복해서 생각하게 될 것이다.\n\n추리의 실패는 무지에서 오기도 하지만, 때로는 조급함에서 온다. 그리고 후자는 훨씬 더 오래 사람을 붙든다.",
+      "next_scene_id": "scene_ending_evelyn_escape_coda",
+      "continue_text": "거의 밝혀졌던 사건의 마침표가 왜 끝내 찍히지 않았는지 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_evelyn_escape_coda",
+      "background_image": "ending_evelyn_escape",
+      "speaker": "system",
+      "text": "노멀엔딩의 씁쓸함은 모른 채 끝난 사건과 다르다. 이 경우엔 모두가 무언가를 알고 있었고, 그래서 오히려 더 완벽하게 모른 척할 수 있었다. 에블린이 사라진 뒤 저택에 남는 침묵은 무지의 침묵이 아니라 합의된 회피의 침묵에 가깝다.\n\n당신은 그런 침묵을 오래 좋아하지 못할 것이다. 진실에 거의 닿았던 사건일수록, 조용한 결말이 더 큰 소음처럼 남기 때문이다.",
+      "next_scene_id": "scene_ending_evelyn_escape_shadow",
+      "continue_text": "도망친 사건이 남긴 그림자가 어떻게 이어지는지 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_evelyn_escape_shadow",
+      "background_image": "ending_evelyn_escape",
+      "speaker": "system",
+      "text": "진실이 도망친 사건은 종종 관계 속에 더 오래 남는다. 블랙우드 저택에서도 앞으로 누군가는 에블린을 동정할 것이고, 누군가는 더 깊이 두려워할 것이다. 그리고 박사는 여전히 자신이 질서를 지키려 했다고 믿으며 남은 해석의 틈을 점유하려 들 것이다.\n\n당신은 이 사건을 완전히 놓지 못하겠지만, 바로 그래서 다음 번에는 마지막 한 걸음을 더 늦추지 않게 될지도 모른다.",
+      "next_scene_id": "scene_escape_last_echo",
+      "continue_text": "도망친 진실이 남긴 마지막 그림자를 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_escape_last_echo",
+      "background_image": "ending_evelyn_escape",
+      "speaker": "system",
+      "text": "도망친 사건은 종결보다 중단에 가깝다. 문을 닫지 못한 채 복도를 빠져나오는 감각, 손에 닿았던 결론을 끝내 고정하지 못한 감각이 사건 전체를 다시 덮어 버린다.\n\n이 결말이 씁쓸한 이유는 진실이 없어서가 아니다. 진실이 분명히 있었는데도 마지막 한 걸음에서 손안에 남는 형태로 붙들지 못했다는 점 때문이다.",
+      "choices": [],
+      "next_scene_id": "scene_escape_final_coda",
+      "continue_text": "끝내 붙잡지 못한 진실의 잔여를 더 본다"
+    },
+    {
+      "id": "scene_escape_final_coda",
+      "background_image": "ending_evelyn_escape",
+      "speaker": "system",
+      "text": "시간이 지나면 사건은 해결과 미해결로 나뉘어 기록되지만, 당신은 그 사이에 놓인 제3의 상태를 기억하게 된다. 거의 손에 닿았고, 거의 끝냈고, 거의 막을 수 있었지만 끝내 마지막 한 걸음을 놓친 상태 말이다.\n\n그래서 이 결말은 실패라기보다 공백이다. 그 공백은 언젠가 다시 같은 실수를 하지 않기 위해 오래 붙들어야 하는 종류의 공백이다.",
+      "choices": [
+        {
+          "text": "처음부터 다시 읽는다",
+          "next_scene_id": "scene_101",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [],
+            "reset_game": true
+          }
+        }
+      ]
     },
     {
       "id": "scene_ending_bad_richard",
-      "background_image": "mansion_corridor",
+      "background_image": "ending_false_accusation",
       "speaker": "system",
-      "text": "[ 배드 엔딩: 엉뚱한 희생양 ]\n\n리처드의 도박 빚은 사실이었지만, 그는 살인을 저지를 만큼 대담하지 못했다. 당신의 고발에 에블린이 교묘하게 맞장구를 치면서 모든 정황 증거가 리처드를 향해버렸다.\n울붗짖는 리처드가 경찰에 끌려가고, 뒤돌아선 에블린은 당신을 향해 작고 섬뜩한 미소를 지어 보였다.\n살인마는 여전히 등 뒤에 살아있다.",
+      "text": "리처드는 가장 이해하기 쉬운 범인이었다. 돈이 필요했고, 아버지를 미워했고, 밤에 밖으로 나간 흔적도 있었다. 그 모든 사실은 진실의 일부였지만, 전체는 아니었다.\n\n그를 범인으로 결론 내리는 순간 방 안의 사람들은 안도했다. 너무 빠른 안도는 대개 틀린 결론의 신호다. 그러나 이미 늦었다.",
+      "next_scene_id": "scene_bad_richard_silence",
+      "continue_text": "잘못된 결론 뒤에 남은 침묵을 본다",
       "choices": []
     },
     {
-      "id": "scene_ending_unsolved",
-      "background_image": "mansion_study_room",
+      "id": "scene_bad_richard_silence",
+      "background_image": "ending_false_accusation",
       "speaker": "system",
-      "text": "[ 미해결 엔딩: 침묵의 저택 ]\n\n당신은 증거의 부족을 통감하고 끝내 입을 열지 못했다.\n사건은 단순 심장마비 혹은 신원 미상의 침입자에 의한 강도 사건으로 흐지부지 종결 조치되었다.\n누가 범인인지 모른 채 모두가 서로를 평생 의심하고 두려워해야 하는 끔찍한 지옥만이 남았다.",
+      "text": "리처드가 끌려가듯 방에서 밀려난 뒤에도 누구 하나 진심으로 안심하지는 못했다. 에블린은 살아남은 사람의 표정을 지었고, 박사는 정리된 사안처럼 고개를 숙였다. 그러나 그 둘의 평정은 해결 뒤의 것이 아니라 연기된 위기 뒤의 것이었다.\n\n당신은 이미 늦었다는 감각을 떨칠 수 없었다. 범인을 정한 순간 사건은 끝났지만, 진실은 그때부터 더 깊이 가라앉았다.",
+      "next_scene_id": "scene_bad_richard_future",
+      "continue_text": "잘못된 결론이 이후 사람들을 어떻게 망치는지 본다",
       "choices": []
+    },
+    {
+      "id": "scene_bad_richard_future",
+      "background_image": "ending_false_accusation",
+      "speaker": "system",
+      "text": "리처드를 범인으로 결론 내리면 사건은 빠르게 정리될 수 있다. 신문은 단순한 이야기로 쓰기 쉬워지고, 저택은 부끄러운 가족사를 한 사람의 타락으로 축소할 수 있다. 그래서 이런 결론은 틀렸더라도 오래 살아남는다.\n\n하지만 잘못된 결말은 다른 삶들을 조용히 망친다. 살아남은 사람들은 더 깊은 거짓말 속에서 남은 생을 버티게 되고, 진실을 놓친 사람은 훨씬 늦은 밤마다 같은 장면을 다시 떠올리게 된다.",
+      "next_scene_id": "scene_ending_bad_richard_aftertaste",
+      "continue_text": "오판의 후유증을 정리한다",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_bad_richard_aftertaste",
+      "background_image": "ending_false_accusation",
+      "speaker": "system",
+      "text": "리처드는 끝까지 자신이 죽이지는 않았다고 말했다. 하지만 그의 말은 분노와 자기연민에 자꾸 섞여 설득력을 잃었다. 반면 진짜 핵심에 있었던 사람들은 조용히 살아남았다.\n\n당신은 사건을 마무리했지만 해결하지는 못했다. 잘못된 결말은 미완보다 오래 남는다.",
+      "next_scene_id": "scene_bad_richard_memory",
+      "continue_text": "잘못된 결론이 오래 남기는 기억을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_bad_richard_memory",
+      "background_image": "ending_false_accusation",
+      "speaker": "system",
+      "text": "리처드를 범인으로 닫아 버린 사건은 훗날에도 자꾸 되돌아오게 될 것이다. 너무 정리된 결론, 너무 빨리 납득한 사람들, 너무 조용히 살아남은 자들. 진실을 놓친 사건은 시간이 지날수록 오히려 특정 장면만 더 또렷해진다.\n\n당신은 나중에도 가끔 첫째 날 식탁과 둘째 날 복도를 함께 떠올리게 될 것이다. 그 둘을 동시에 놓고 봤더라면, 결말은 달라졌을지 모른다.",
+      "next_scene_id": "scene_bad_richard_after_history",
+      "continue_text": "잘못된 결론이 훗날 어떤 기록으로 남는지도 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_bad_richard_after_history",
+      "background_image": "ending_false_accusation",
+      "speaker": "system",
+      "text": "시간이 지나면 사람들은 복잡한 진실보다 정리된 거짓을 더 잘 기억한다. 리처드는 기록 속에서 '몰락한 상속자'라는 쉬운 문장으로 남을 것이고, 블랙우드 저택의 다른 비밀은 그 한 줄 뒤로 숨을 것이다.\n\n그 점이야말로 오판 엔딩의 가장 잔인한 부분이다. 틀린 결론은 단순히 그날만 망치는 것이 아니라, 이후의 기억 방식까지 왜곡한다.",
+      "next_scene_id": "scene_bad_richard_coda",
+      "continue_text": "오판이 남긴 왜곡된 기억의 끝을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_bad_richard_coda",
+      "background_image": "ending_false_accusation",
+      "speaker": "system",
+      "text": "오판 엔딩에서 가장 오래 남는 것은 죄책감만이 아니다. 사람과 사건을 읽는 자기 방식 전체가 흔들린다는 점이 더 치명적이다. 너무 쉬운 설명을 경계해야 한다는 교훈은 사건 하나로 끝나지 않고, 이후의 모든 판단에 그림자를 드리운다.\n\n블랙우드 저택은 틀린 결론이 얼마나 정교한 거짓 기억을 만드는지 보여 주는 사례로 남을 것이다.",
+      "next_scene_id": "scene_bad_richard_epitaph",
+      "continue_text": "잘못 남은 이름과 기록의 씁쓸함을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_bad_richard_epitaph",
+      "background_image": "ending_false_accusation",
+      "speaker": "system",
+      "text": "한 번 굳어진 평판은 진실보다 오래간다. 리처드는 어쩌면 끝까지 '그럴 법한 사람'으로만 기억될 것이고, 진짜 핵심에 있었던 사람들은 그 쉬운 서사 뒤에 몸을 숨길 것이다.\n\n이 엔딩이 쓰라린 이유는 단순히 틀려서가 아니다. 틀린 이야기가 가장 그럴듯한 이야기처럼 남는 순간을 보여 주기 때문이다.",
+      "next_scene_id": "scene_bad_richard_last_echo",
+      "continue_text": "그 잘못된 기억이 얼마나 오래 남는지 끝까지 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_bad_richard_last_echo",
+      "background_image": "ending_false_accusation",
+      "speaker": "system",
+      "text": "오판의 가장 무서운 결과는 죄책감만이 아니다. 한 번 잘못 고정된 인물상은 이후의 모든 기억을 왜곡하고, 사람들은 그 잘못된 첫 문장을 끝내 진실처럼 반복하게 된다.\n\n블랙우드 저택 역시 많은 이들에게는 단순한 몰락담으로 남겠지만, 당신은 그 단순함이야말로 가장 치밀한 거짓이라는 사실을 알고 살아가게 된다. 그래서 이 엔딩은 실패이면서 동시에 오래 남는 경고다.",
+      "choices": [],
+      "next_scene_id": "scene_bad_richard_final_coda",
+      "continue_text": "그 잘못된 결론이 남긴 후유증을 더 본다"
+    },
+    {
+      "id": "scene_bad_richard_final_coda",
+      "background_image": "ending_false_accusation",
+      "speaker": "system",
+      "text": "리처드에 대한 기억은 앞으로도 쉽게 정정되지 않을 것이다. 사람들은 가장 먼저 들은 설명을 오래 믿고, 특히 그 설명이 한 사람의 약함과 분노를 그럴듯하게 묶어 줄 때 더 그렇다.\n\n당신이 이 결말을 오래 무겁게 안고 가게 되는 이유도 거기에 있다. 틀린 추리는 단지 사건을 망치는 것이 아니라, 살아남은 사람의 남은 생까지 다른 문장으로 고정해 버린다.",
+      "choices": [
+        {
+          "text": "처음부터 다시 읽는다",
+          "next_scene_id": "scene_101",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [],
+            "reset_game": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_ending_unsolved",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "당신은 증거가 아직 부족하다고 선언했다. 그것은 신중한 판단이었지만, 동시에 범인에게는 가장 유리한 시간이었다. 방 안의 사람들은 각자 안도하거나 절망했고, 누구도 진실에 닿지 못한 채 흩어졌다.\n\n모든 단서가 있었는데도 하나의 문장으로 묶이지 못하면, 사건은 스스로를 다시 어둠 속에 감춘다.",
+      "next_scene_id": "scene_unsolved_ledger",
+      "continue_text": "남겨진 문서와 침묵의 무게를 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_unsolved_ledger",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "사람들이 흩어진 뒤에도 서재 책상 위 문서들은 치워지지 않았다. 조각난 증거는 여전히 거기에 있었고, 누군가 조금만 더 밀어붙였다면 닿을 수 있었던 진실의 형태도 그대로 남아 있었다.\n\n미해결 사건의 가장 잔인한 점은 단서가 없어서가 아니라, 단서가 있었는데도 서로를 끝내 증명하지 못했다는 사실이다.",
+      "next_scene_id": "scene_unsolved_departure",
+      "continue_text": "해결하지 못한 채 저택을 떠나는 준비를 한다",
+      "choices": []
+    },
+    {
+      "id": "scene_unsolved_departure",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "미해결로 남긴 채 떠나려면 이상한 종류의 피로가 남는다. 정답을 틀린 사람보다, 정답에 닿지 못한 채 발을 떼는 사람이 더 오래 스스로를 의심한다. 당신은 짐을 정리하며 서재의 문장들과 집사의 마지막 단어를 몇 번이고 다시 떠올렸다.\n\n사건은 닫혔지만 머릿속 사건은 닫히지 않았다. 진실을 거의 본 사람만이 겪는 종류의 불면이 있다.",
+      "next_scene_id": "scene_ending_unsolved_aftertaste",
+      "continue_text": "미해결의 잔향을 끝까지 따라간다",
+      "choices": []
+    },
+    {
+      "id": "scene_ending_unsolved_aftertaste",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "저택은 얼마 뒤 겉보기에 평온을 되찾았다. 그러나 그것은 정리된 것이 아니라 덮인 것이었다. 누가 무엇을 숨겼는지는 여전히 방 안 구석에 남아 있었고, 두 번의 죽음은 영원히 절반짜리 기록이 되었다.\n\n당신은 언젠가 다시 이 집을 떠올릴 것이다. 가장 아쉬운 사건은 틀린 사건보다, 바로 앞에서 놓친 사건이다.",
+      "next_scene_id": "scene_unsolved_long_night",
+      "continue_text": "미해결 사건이 남기는 더 긴 밤을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_unsolved_long_night",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "미해결 사건은 그날로 끝나지 않는다. 특히 거의 풀린 사건일수록, 그날 밤 이후의 밤들이 더 길어진다. 당신은 떠난 뒤에도 블랙우드 저택의 복도 구조와 창문 위치, 집사가 마지막으로 남긴 단어를 반복해서 떠올릴 것이다.\n\n정답이 없어서가 아니라, 정답에 너무 가까이 갔다가 놓쳤기 때문이다. 그런 사건은 사람의 기억 속에서 쉽게 닳지 않는다.",
+      "next_scene_id": "scene_unsolved_after_years",
+      "continue_text": "미해결 사건이 시간이 지나도 왜 사라지지 않는지 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_unsolved_after_years",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "미해결 사건은 보통 시간이 지나며 흐려진다. 그러나 어떤 사건은 반대로 더 선명해진다. 블랙우드 저택 사건이 그렇다. 구조가 너무 분명했고, 사람들의 동기가 너무 서로를 향하고 있었으며, 결정적 조각들이 너무 가까이에 있었다.\n\n그래서 이 사건은 끝내 풀리지 않았더라도 오래 남는다. 풀리지 않은 퍼즐이라기보다, 거의 완성된 채 마지막 한 조각만 비어 있는 그림처럼.",
+      "next_scene_id": "scene_unsolved_coda",
+      "continue_text": "미해결 사건이 끝내 사라지지 않는 이유를 마지막으로 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_unsolved_coda",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "미해결 엔딩은 단순히 빈칸으로 끝나는 결말이 아니다. 모든 조각이 충분히 가까이 있었기에, 오히려 비어 있는 마지막 칸이 더 또렷하게 보이는 결말이다. 사람은 완전히 모르는 일보다, 거의 알았던 일을 더 오래 놓지 못한다.\n\n그래서 블랙우드 저택은 시간이 지나도 기억 속에서 자꾸 다시 조립된다. 사건은 끝났지만 추리는 끝나지 않은 채 남는다.",
+      "next_scene_id": "scene_unsolved_residue",
+      "continue_text": "끝내 남아 버린 사건의 찌꺼기를 마지막으로 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_unsolved_residue",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "미해결 사건의 잔여물은 늘 사람보다 공간에 먼저 남는다. 비어 있는 서재, 정리된 듯 보이지만 여전히 어딘가 어긋난 복도, 말하지 않은 사람들의 표정. 블랙우드 저택은 앞으로도 한동안 그런 어긋남을 숨기지 못할 것이다.\n\n당신 역시 마찬가지다. 사건을 떠나도, 완전히 떠난 것은 아니다. 어떤 장소는 해결되지 않은 채 오래 따라온다.",
+      "next_scene_id": "scene_unsolved_last_echo",
+      "continue_text": "끝내 사라지지 않는 사건의 마지막 잔향을 본다",
+      "choices": []
+    },
+    {
+      "id": "scene_unsolved_last_echo",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "미해결 사건은 대개 시간이 지나며 닳지만, 거의 풀렸던 사건은 오히려 더 집요해진다. 블랙우드 저택 사건이 바로 그런 종류다. 너무 가까이 갔고, 그래서 놓친 자리가 더 또렷하게 남는다.\n\n끝나지 않은 추리는 기록보다 기억 안에서 더 오래 살아남는다. 그래서 이 저택의 복도와 서재, 멈춘 시계의 감각은 앞으로도 사건의 결론보다 먼저 떠오르게 될 것이다.",
+      "choices": [],
+      "next_scene_id": "scene_unsolved_final_coda",
+      "continue_text": "끝내 닫히지 않은 사건의 마지막 문단을 본다"
+    },
+    {
+      "id": "scene_unsolved_final_coda",
+      "background_image": "ending_unsolved_case",
+      "speaker": "system",
+      "text": "당신은 훗날 다른 사건을 해결하면서도 가끔 이 저택의 밤을 떠올리게 될 것이다. 조금만 더 오래 붙들었더라면, 조금만 더 단호했더라면, 혹은 조금만 더 늦게 포기했더라면 달라졌을지 모른다는 가정이 오랫동안 사라지지 않기 때문이다.\n\n미해결 엔딩의 여운은 단순한 실패감보다 더 질기다. 끝내 말해지지 못한 진실이 살아남은 사람보다 오래 방 안에 머문다는 사실을, 이 결말은 마지막까지 남겨 둔다.",
+      "choices": [
+        {
+          "text": "처음부터 다시 읽는다",
+          "next_scene_id": "scene_101",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [],
+            "reset_game": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_death_bad_ending_1",
+      "background_image": "bad_ending_blood",
+      "speaker": "system",
+      "text": "당신은 너무 서둘렀고, 저택은 그 성급함을 용서하지 않았다. 누군가보다 먼저 진실에 다가갔지만, 끝까지 살아남아 말할 만큼 충분히 조심하지는 못했다.\n\n폭풍우가 창을 때리는 소리만이 마지막으로 남았다. 블랙우드 저택은 또 하나의 침묵을 먹었다.",
+      "choices": [
+        {
+          "text": "처음부터 다시 읽는다",
+          "next_scene_id": "scene_101",
+          "effects": {
+            "time_cost": 0,
+            "danger_delta": 0,
+            "add_evidence": [],
+            "reset_game": true
+          }
+        }
+      ]
     }
   ]
 }
