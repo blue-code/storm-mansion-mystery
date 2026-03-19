@@ -1,0 +1,121 @@
+{
+  "chapter": "폭풍 저택의 유언 - Day 2 (의심과 파편)",
+  "scenes": [
+    {
+      "id": "scene_day2_hub_morning",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "[ 2일 차 아침 ]\n폭풍우는 조금도 잦아들지 않았다. 전화선은 먹통이고 계곡을 잇는 단 하나뿐인 다리는 완전히 끊어져 버렸다. 경찰이 오려면 적어도 이틀은 걸린다.\n\n범인이 증거를 인멸하기 전에 서둘러 남은 6명의 유력 용의자들의 알리바이를 깨고 방 안을 샅샅이 뒤져야 한다.\n당신은 아침나절 동안(Time 2 소모 전까지) 흩어진 인물들과 장소를 먼저 수색하기로 한다. 어디부터 시작할까?",
+      "choices": [
+        {
+          "text": "[조사] 첫째 아들 리처드의 방 (오만과 낭비벽)",
+          "next_scene_id": "scene_investigate_richard_room",
+          "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
+        },
+        {
+          "text": "[대화] 식당에서 혼자 식사 중인 오펜하이머 박사",
+          "next_scene_id": "scene_talk_doctor",
+          "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
+        },
+        {
+          "text": "[탐색] 낮에 다시 살펴본 사건 현장(서재)",
+          "next_scene_id": "scene_investigate_study_day2",
+          "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
+        },
+        {
+          "text": "더 이상 조사할 것이 없다 (시간 경과 - 오후로 진행)",
+          "next_scene_id": "scene_day2_afternoon_event",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        }
+      ]
+    },
+    {
+      "id": "scene_investigate_richard_room",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "리처드의 방 문은 살짝 열려 있었다. 테이블 위에는 막대한 금액의 독촉장이 어지럽게 널려 있다.\n그는 영감이 어젯밤 유언장을 고치겠다고 선언한 직후 살의를 품었을 가능성이 가장 높다.\n\n주위를 살피던 중 리처드의 자켓 주머니 밖으로 튀어나온 수상한 쪽지를 발견한다.",
+      "choices": [
+        {
+          "text": "쪽지를 훔친다 (위험도 증가)",
+          "next_scene_id": "scene_richard_room_steal",
+          "effects": { "time_cost": 0, "danger_delta": 1, "trust_delta": {"리처드": -30}, "add_evidence": ["리처드의 도박 빚 독촉장"] }
+        },
+        {
+          "text": "건드리지 않고 그대로 돌아온다 (Hub로 이동)",
+          "next_scene_id": "scene_day2_hub_morning",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        }
+      ]
+    },
+    {
+      "id": "scene_richard_room_steal",
+      "background_image": "mansion_corridor",
+      "speaker": "system",
+      "text": "쪽지는 지역 지하 도박장 마피아의 살해 협박 편지였다.\n만약 영감이 죽고 유산을 물려받는다면 그는 당장 목숨을 건질 수 있었던 것이다. 엄청난 동기를 확보했다!\n\n당신은 다급히 쪽지를 챙겨 복도로 몰래 빠져나왔다.",
+      "choices": [
+        {
+          "text": "다른 곳을 조사하러 간다 (Hub로 이동)",
+          "next_scene_id": "scene_day2_hub_morning",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": [] }
+        }
+      ]
+    },
+    {
+      "id": "scene_talk_doctor",
+      "background_image": "mansion_study_room",
+      "speaker": "오펜하이머 박사",
+      "text": "\"오, 탐정 양반 푹 주무셨소?\n영감님의 시신을 간이 부검해 보았소만... 사인은 명확한 '청산가리 중독'이더군. 하지만 내가 알기론 저택에 그따위 맹독은 없었소.\"\n\n그는 불안한 듯 시선을 피하며 커피를 홀짝이고 있었다. 온실 지하실에서 가끔 그가 독자적인 약물 실험(아마도 청산염)을 했다는 사실을 당신은 알고 있다.",
+      "choices": [
+        {
+          "text": "온실에서 들었던 이상한 냄새를 넌지시 언급한다",
+          "next_scene_id": "scene_doctor_hostile",
+          "effects": { "time_cost": 0, "danger_delta": 0, "trust_delta": {"오펜하이머": -20}, "add_evidence": [] }
+        },
+        {
+          "text": "수고 많으셨다며 다른 곳으로 이동한다 (Hub로 이동)",
+          "next_scene_id": "scene_day2_hub_morning",
+          "effects": { "time_cost": 0, "danger_delta": 0, "trust_delta": {"오펜하이머": 10}, "add_evidence": [] }
+        }
+      ]
+    },
+    {
+      "id": "scene_doctor_hostile",
+      "background_image": "mansion_study_room",
+      "speaker": "오펜하이머 박사",
+      "text": "\"온... 온실이 뭐 어쨌다는 거요! 난 영감의 주치의일 뿐 아무 짓도 안 했어!\"\n박사는 얼굴이 붉으락푸르락해지더니 다짜고짜 식당을 빠져나가 버렸다. 그가 무언가를 숨기고 있는 것은 부인할 수 없는 사실이다.",
+      "choices": [
+        {
+          "text": "거실로 돌아간다. (Hub로 이동)",
+          "next_scene_id": "scene_day2_hub_morning",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["반응이 격렬한 주치의"] }
+        }
+      ]
+    },
+    {
+      "id": "scene_investigate_study_day2",
+      "background_image": "mansion_study_room",
+      "speaker": "system",
+      "text": "낮에 다시 확인한 서재는 어제의 혼란과는 사뭇 달랐다.\n밝은 햇빛에 비친 바닥 한구석에서 반짝이는 것을 발견했다. 어젯밤 혼란 속에 진범이 미처 수습하지 못하고 떨어뜨린 작은 금속 조각이다.\n온실 자물쇠를 여는 마스터키의 부러진 끄트머리로 보인다.",
+      "choices": [
+        {
+          "text": "조각을 주머니에 챙기고 복도로 돌아간다 (Hub로 이동)",
+          "next_scene_id": "scene_day2_hub_morning",
+          "effects": { "time_cost": 0, "danger_delta": 0, "add_evidence": ["부러진 온실 열쇠 조각"] }
+        }
+      ]
+    },
+    {
+      "id": "scene_day2_afternoon_event",
+      "background_image": "stormy_mansion_exterior",
+      "speaker": "system",
+      "text": "[ 2일 차 오후 - 메인 이벤트 ]\n당신이 서재를 나오자, 2층에서 찢어지는 듯한 비명 소리가 들려왔다.\n\n\"꺄아아아아악!!\"\n단순히 단서를 수집하는 시간은 끝났다. 폭풍 저택의 살인마가 두 번째 타겟을 사냥한 것이다.",
+      "choices": [
+        {
+          "text": "2층으로 전속력으로 뛰어 올라간다 (계속)",
+          "next_scene_id": "scene_day2_second_murder",
+          "effects": { "time_cost": 1, "danger_delta": 0, "add_evidence": [] }
+        }
+      ]
+    }
+  ]
+}
