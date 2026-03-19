@@ -98,7 +98,7 @@
     },
     {
       "id": "scene_investigate_greenhouse_trap",
-      "background_image": "mansion_corridor",
+      "background_image": "greenhouse_bloody_trap",
       "speaker": "system",
       "text": "[ 꽝! 끔찍한 함정 발동 ]\n온실 문을 여는 순간, 환각 작용을 일으키는 독성 식물의 포자와 달콤한 핏내음에 정신이 아득해진다.\n비틀거리며 안으로 들어선 당신의 발목을 향해, 숨겨져 있던 날카로운 불법 사냥용 덫이 무자비하게 닫힌다.\n'아아아악!' 뼈가 부서지는 고통 속에 당신은 피를 흘리며 덫을 비틀어 빼낸다. 과다 출혈로 귀중한 시간과 체력을 심각하게 낭비했다.",
       "choices": [
