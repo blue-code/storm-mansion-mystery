@@ -33,7 +33,7 @@
     },
     {
       "id": "scene_day2_breakfast",
-      "background_image": "mansion_study_room",
+      "background_image": "mansion_dining_room",
       "speaker": "system",
       "text": "아침 식사는 거의 의례였다. 에블린은 밤새 울지 않은 사람처럼 지나치게 단정했고, 리처드는 숙취와 분노를 함께 견디는 얼굴이었다. 박사는 유족을 위로하는 태도를 취했지만, 실제로는 모두의 발언을 기록하는 서기처럼 침착했다.\n\n식탁 위에 아서의 빈 자리가 남아 있었다. 비워진 의자는 사람보다 더 큰 압박이 된다. 살아 있을 때보다 죽은 뒤가 더 큰 존재도 있다.",
       "next_scene_id": "scene_day2_breakfast_aftertaste",

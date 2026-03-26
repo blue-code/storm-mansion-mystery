@@ -1063,7 +1063,89 @@ function Apply-CinematicFinish {
   $mistBrush.Dispose()
 }
 
+function Draw-DetectiveOffice {
+  param([System.Drawing.Graphics]$Graphics)
+  Fill-Gradient -Graphics $Graphics -Rect ([System.Drawing.RectangleF]::new(0, 0, $width, $height)) `
+    -TopColor ([System.Drawing.Color]::FromArgb(255, 32, 28, 24)) `
+    -BottomColor ([System.Drawing.Color]::FromArgb(255, 12, 10, 8))
+  
+  $deskBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(255, 64, 42, 32))
+  $paperBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(220, 225, 218, 195))
+  $lampGlow = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(70, 255, 200, 100))
+  
+  $Graphics.FillRectangle($deskBrush, 200, 600, 1200, 300)
+  $Graphics.FillRectangle($paperBrush, 450, 550, 200, 250)
+  $Graphics.FillRectangle($paperBrush, 700, 580, 220, 180)
+  $Graphics.FillEllipse($lampGlow, 850, 300, 400, 400)
+  
+  Add-StarsOrDust -Graphics $Graphics -Width $width -Height $height -Count 150 -Color ([System.Drawing.Color]::FromArgb(40, 200, 190, 160))
+  Add-Vignette -Graphics $Graphics -Width $width -Height $height
+  $deskBrush.Dispose(); $paperBrush.Dispose(); $lampGlow.Dispose()
+}
+
+function Draw-TrainStation {
+  param([System.Drawing.Graphics]$Graphics)
+  Fill-Gradient -Graphics $Graphics -Rect ([System.Drawing.RectangleF]::new(0, 0, $width, $height)) `
+    -TopColor ([System.Drawing.Color]::FromArgb(255, 20, 22, 28)) `
+    -BottomColor ([System.Drawing.Color]::FromArgb(255, 45, 48, 55))
+  
+  $platformBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(255, 40, 40, 45))
+  $pillarBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(255, 25, 25, 30))
+  $Graphics.FillRectangle($platformBrush, 0, 700, $width, 200)
+  for ($i = 0; $i -lt 5; $i++) {
+    $Graphics.FillRectangle($pillarBrush, 100 + ($i * 350), 0, 60, 700)
+  }
+  
+  Add-FogBands -Graphics $Graphics -Width $width -Height $height -Count 8
+  Add-Rain -Graphics $Graphics -Width $width -Height $height -Count 300
+  Add-Vignette -Graphics $Graphics -Width $width -Height $height
+  $platformBrush.Dispose(); $pillarBrush.Dispose()
+}
+
+function Draw-DiningRoom {
+  param([System.Drawing.Graphics]$Graphics)
+  Fill-Gradient -Graphics $Graphics -Rect ([System.Drawing.RectangleF]::new(0, 0, $width, $height)) `
+    -TopColor ([System.Drawing.Color]::FromArgb(255, 45, 30, 25)) `
+    -BottomColor ([System.Drawing.Color]::FromArgb(255, 20, 15, 12))
+  
+  $tableBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(255, 80, 50, 40))
+  $chairBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(255, 30, 20, 15))
+  $Graphics.FillRectangle($tableBrush, 200, 550, 1200, 150)
+  for ($i = 0; $i -lt 6; $i++) {
+    $Graphics.FillRectangle($chairBrush, 250 + ($i * 200), 450, 80, 250)
+  }
+  
+  $candleGlow = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(60, 255, 180, 100))
+  $Graphics.FillEllipse($candleGlow, 700, 350, 200, 300)
+  
+  Add-Vignette -Graphics $Graphics -Width $width -Height $height
+  $tableBrush.Dispose(); $chairBrush.Dispose(); $candleGlow.Dispose()
+}
+
+function Draw-TrainInterior {
+  param([System.Drawing.Graphics]$Graphics)
+  Fill-Gradient -Graphics $Graphics -Rect ([System.Drawing.RectangleF]::new(0, 0, $width, $height)) `
+    -TopColor ([System.Drawing.Color]::FromArgb(255, 28, 24, 20)) `
+    -BottomColor ([System.Drawing.Color]::FromArgb(255, 45, 35, 30))
+  
+  $windowBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(255, 30, 45, 60))
+  $seatBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(255, 60, 20, 15))
+  
+  $Graphics.FillRectangle($windowBrush, 300, 150, 1000, 400)
+  Add-Rain -Graphics $Graphics -Width 1000 -Height 400
+  
+  $Graphics.FillRectangle($seatBrush, 0, 600, $width, 300)
+  $Graphics.FillRectangle($seatBrush, 200, 450, 250, 150)
+  
+  Add-Vignette -Graphics $Graphics -Width $width -Height $height
+  $windowBrush.Dispose(); $seatBrush.Dispose()
+}
+
 $scenes = @(
+  @{ Name = 'detective_office.png'; Painter = { param($g) Draw-DetectiveOffice -Graphics $g } },
+  @{ Name = 'train_station_platform.png'; Painter = { param($g) Draw-TrainStation -Graphics $g } },
+  @{ Name = 'train_interior.png'; Painter = { param($g) Draw-TrainInterior -Graphics $g } },
+  @{ Name = 'mansion_dining_room.png'; Painter = { param($g) Draw-DiningRoom -Graphics $g } },
   @{ Name = 'stormy_mansion_exterior.png'; Painter = { param($g) Draw-Exterior -Graphics $g } },
   @{ Name = 'mansion_corridor.png'; Painter = { param($g) Draw-Corridor -Graphics $g } },
   @{ Name = 'mansion_study_room.png'; Painter = { param($g) Draw-StudyRoom -Graphics $g } },

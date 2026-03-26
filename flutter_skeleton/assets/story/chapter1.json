@@ -13,7 +13,7 @@
     },
     {
       "id": "scene_day0_office",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "detective_office",
       "speaker": "system",
       "bgm": "clock_ticking_office",
       "text": "출발 전 사무실은 이미 어두워져 있었다. 창문 밖에는 비가 내리기 시작했고, 책상 위엔 미처 정리하지 못한 다른 의뢰 서류가 남아 있었다. 그러나 이번 초대장은 그 모든 일을 뒤로 밀어낼 만큼 묘하게 사람을 붙들었다.\n\n당신은 권총보다 수첩을, 망토보다 여분의 심지와 성냥을 먼저 챙겼다. 출발 전 남은 시간은 한정되어 있었다. 무엇을 먼저 확인할지 정해야 했다.",
@@ -45,7 +45,7 @@
     },
     {
       "id": "scene_day0_archive_clipping",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "detective_office",
       "speaker": "system",
       "text": "사무실 선반 가장 아래에는 오래된 스크랩 상자가 있었다. 블랙우드 가문에 대한 기사들은 대체로 두 부류였다. 하나는 자선 행사와 후원 기사, 다른 하나는 사교계의 소문과 후계 문제를 다룬 짧은 칼럼이었다.\n\n흥미로운 점은 두 부류의 문장이 서로 전혀 다른 집안을 말하는 것처럼 보인다는 것이다. 공공의 얼굴로서의 블랙우드와, 집 안에서 서로를 시험하는 블랙우드. 이번 의뢰는 아마 후자의 얼굴과 만나게 될 일에 더 가까워 보였다.",
       "next_scene_id": "scene_day0_client_memory",
@@ -54,7 +54,7 @@
     },
     {
       "id": "scene_day0_desk_memo",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "detective_office",
       "speaker": "system",
       "text": "책상 서랍 안쪽에는 이전 변호사가 남긴 짧은 메모가 끼워져 있었다. \"블랙우드 씨는 가족이 자신 없이도 작동하는지 확인하려 한다. 하지만 실제로는 아무도 독립하지 못하게 만드는 구조를 먼저 짠다.\" 그 아래에는 직접 쓴 듯한 글씨로 \"세 번째 외부 증인\"이라는 메모가 있었다.\n\n당신이 처음이 아니라는 뜻이었다. 이전에도 외부인이 불렸고, 그들은 무엇을 보고 돌아갔을까. 아니면 돌아가지 못했을까.",
       "next_scene_id": "scene_day0_client_memory",
@@ -63,7 +63,7 @@
     },
     {
       "id": "scene_day0_client_memory",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "detective_office",
       "speaker": "system",
       "text": "아서 블랙우드라는 이름은 처음 듣는 것이 아니었다. 그는 자선 후원과 냉정한 사업 판단으로 동시에 유명한 사람이었다. 누구에게는 은인이고, 누구에게는 끝까지 마음을 열지 않는 후원자였다.\n\n흥미로운 점은 그가 늘 사람을 돕되 완전히 자유롭게 두지는 않았다는 평판이었다. 지원과 통제가 한 몸인 사람. 그런 인물이 죽음을 앞두고 외부 탐정을 부른 이유는 단순한 상속 확인 이상일 가능성이 컸다.",
       "next_scene_id": "scene_day0_journey_note",
@@ -72,7 +72,7 @@
     },
     {
       "id": "scene_day0_journey_note",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "detective_office",
       "speaker": "system",
       "text": "당신은 수첩 첫 장에 단 세 줄만 적었다. \"유언 변경 전날 호출.\" \"외부 탐정만 지목.\" \"죽기 전 말을 바꾸기 전에.\" 사건은 늘 처음 문장에서 방향이 드러난다.\n\n이 의뢰가 특히 불길한 이유는, 의뢰인 스스로도 자신이 무슨 말을 완전히 끝내지 못할 수 있다고 예상한 흔적이 있기 때문이다. 구조 요청이면서 유언장 같은 문장이었다.",
       "next_scene_id": "scene_day0_station_departure",
@@ -81,7 +81,7 @@
     },
     {
       "id": "scene_day0_station_departure",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_station_platform",
       "speaker": "system",
       "text": "역 플랫폼은 비 냄새와 석탄 냄새가 뒤섞여 있었다. 야간 열차를 기다리는 사람들은 대개 말이 적고, 그런 장소에선 떠나는 사람의 결심이 더 또렷해 보인다.\n\n탐정에게 중요한 것은 호기심이 아니라 끝까지 보는 습관이다. 열차가 오기 전, 짧은 시간을 어떻게 쓸지 판단해야 했다.",
       "choices": [
@@ -111,7 +111,7 @@
     },
     {
       "id": "scene_day0_platform_observer",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_station_platform",
       "speaker": "system",
       "text": "플랫폼 끝에는 우산도 없이 빗속에 서 있는 역무원이 있었다. 그는 출발 종을 치기 전 잠깐 당신 쪽을 보더니, 블랙우드 행 열차라는 말에만 유독 고개를 느리게 끄덕였다. 이 노선에서 그 이름이 갖는 무게를 오래 본 사람의 반응 같았다.\n\n낯선 집으로 향할 때는 의뢰인보다도 주변 사람들의 짧은 반응이 더 많은 것을 말해 준다. 블랙우드 저택은 이미 이 지역 사람들 사이에서 설명 없이도 긴장을 부르는 이름인 듯했다.",
       "next_scene_id": "scene_day0_ticket_inspection",
@@ -120,7 +120,7 @@
     },
     {
       "id": "scene_day0_station_notice",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_station_platform",
       "speaker": "system",
       "text": "대합실 게시판에는 낡은 현상 수배지와 지역 행사 안내가 섞여 있었다. 그 가운데 한 장이 눈에 걸렸다. 블랙우드 저택 인근에서 정원사 보조가 두 달 전 사라졌다는 실종 신고였다. 가출로 처리되어 있었지만, 날짜가 공교롭게도 아서의 병세가 악화된 시기와 겹쳤다.\n\n우연의 일치일 수 있었다. 하지만 이런 종류의 우연은 탐정의 수첩에 먼저 적어 두는 것이 좋다.",
       "next_scene_id": "scene_day0_ticket_inspection",
@@ -129,7 +129,7 @@
     },
     {
       "id": "scene_day0_ticket_inspection",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_station_platform",
       "speaker": "system",
       "text": "검표원은 표를 확인하며 목적지를 한 번 더 읽었다. 그 짧은 침묵 뒤 그는 형식적인 미소를 지었지만, 시선은 아주 잠깐 당신 얼굴에 머물렀다. 낯선 사람을 걱정하는 눈빛이라기보다, 이미 여러 이야기를 들은 장소로 누군가 떠나는 것을 보는 사람의 눈빛에 가까웠다.\n\n사건은 현장에 도착한 뒤에만 시작되지 않는다. 현장에 도착하기 전, 이미 주변 사람들이 공유하는 공기의 밀도에서도 절반쯤 시작된다.",
       "next_scene_id": "scene_day0_train",
@@ -138,7 +138,7 @@
     },
     {
       "id": "scene_day0_train",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_interior",
       "speaker": "system",
       "text": "해안선으로 향하는 열차는 저녁이 깊어질수록 더 느려졌다. 객실 창에 빗물이 겹겹이 흐르자 바깥 풍경은 물감처럼 번졌다. 당신은 블랙우드 가문에 대한 신문 스크랩을 다시 펼쳤다.\n\n가주는 냉정하고 완고한 후원자였다. 양녀 에블린은 교양 있고 침착한 인물로, 사교계에서는 흠 없는 상속 후보로 알려져 있었다. 친아들 리처드는 도박과 빚, 성급한 분노로 이름이 오르내렸고, 주치의 도로시 페어뱅크 박사는 가족이 아닌데도 이상할 만큼 오래 가문 안에 머물렀다.",
       "next_scene_id": "scene_day0_train_reflection",
@@ -147,7 +147,7 @@
     },
     {
       "id": "scene_day0_train_reflection",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_interior",
       "speaker": "system",
       "text": "신문은 언제나 사람을 두 겹으로 쓴다. 바깥에 보이는 이름과 안에서 실제로 작동하는 관계는 거의 다르다. 이 집안은 언제나 사실보다 분위기가 먼저 사건을 움직였기 때문이다.\n\n그때 같은 객실 끝자리의 노인이 당신 쪽을 물끄러미 보고 있었다. 블랙우드 가문 이름이 적힌 봉투를 본 듯했다.",
       "choices": [
@@ -177,7 +177,7 @@
     },
     {
       "id": "scene_day0_fellow_passenger",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_interior",
       "speaker": "system",
       "text": "같은 객실 끝자리에는 지방 신문을 읽는 노인이 앉아 있었다. 그는 당신이 블랙우드 가문 이름이 적힌 봉투를 접는 것을 보자, 대단한 호기심 없이 한 마디만 던졌다. \"그 집은 바깥에선 존경받고, 안에선 오래 아픈 집이라더군요.\"\n\n뜬소문처럼 들릴 수도 있었지만, 오래된 지방 사람의 말에는 대개 과장보다 축약이 많다. 당신은 그 짧은 표현을 기억해 두었다. 오래 아픈 집. 병이 사람에게만 생기지 않는다면, 가문에도 그런 병은 있을 수 있다.",
       "next_scene_id": "scene_day0_case_notes",
@@ -186,7 +186,7 @@
     },
     {
       "id": "scene_day0_solo_notes",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_interior",
       "speaker": "system",
       "text": "당신은 대화 대신 혼자만의 정리를 택했다. 수첩에 세 인물의 이름을 적고, 각각의 관계 화살표를 그렸다. 에블린은 아서에게 길러진 양녀이면서 가장 유력한 상속 후보. 리처드는 친아들이지만 빚과 평판 문제로 신뢰를 잃은 상태. 박사는 외부인이면서도 가장 오래 내부에 머문 사람.\n\n세 사람 모두 아서에게 의존하면서 동시에 그를 두려워하고 있다는 구조가 보였다. 그리고 그 구조의 중심이 흔들리면, 세 사람 모두 동시에 움직일 수밖에 없다.",
       "next_scene_id": "scene_day0_case_notes",
@@ -195,7 +195,7 @@
     },
     {
       "id": "scene_day0_case_notes",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_interior",
       "speaker": "system",
       "text": "열차가 터널에 들어가자 창밖이 잠시 완전히 어두워졌다. 당신은 그 짧은 어둠을 틈타 수첩을 꺼냈다. 블랙우드 가문 사건 노트에는 사람 이름보다 성격에 대한 메모가 더 많았다. 이 집안은 언제나 사실보다 분위기가 먼저 사건을 움직였기 때문이다.\n\n아서는 후계자를 길러 낸다기보다 시험하는 사람으로 보였고, 에블린은 순종보다 적응에 능한 인물로 기록돼 있었다. 리처드는 결함이 많은 사람이었지만, 동시에 모두가 너무 쉽게 희생양으로 삼을 수 있는 사람이기도 했다.",
       "next_scene_id": "scene_day0_blackwood_ledger",
@@ -204,7 +204,7 @@
     },
     {
       "id": "scene_day0_blackwood_ledger",
-      "background_image": "stormy_mansion_exterior",
+      "background_image": "train_interior",
       "speaker": "system",
       "text": "가계 기록 한 귀퉁이에는 유독 덧칠된 흔적이 많았다. 입양과 후견, 요양과 유학, 병환과 장기 체류 같은 단어들이 자주 등장했다. 단정한 기록일수록 감추는 것이 많다.\n\n당신은 특히 최근 1년의 지출 메모에 눈을 멈췄다. 서재 수리, 온실 보수, 주치의 특별 자문료. 누군가의 건강과 누군가의 자격이 이미 오래전부터 같은 장부 위에 적혀 있었다.",
       "next_scene_id": "scene_day0_carriage",
