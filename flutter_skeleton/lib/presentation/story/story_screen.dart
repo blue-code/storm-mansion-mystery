@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -595,22 +596,25 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                           child: SingleChildScrollView(
                             controller: _textScrollController,
                             padding: const EdgeInsets.only(right: 8),
-                            child: AnimatedSwitcher(
-                              duration: 250.ms,
-                              child: Text(
-                                currentNode.text,
-                                key: ValueKey(currentNode.id),
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  height: 1.8,
-                                  letterSpacing: 0.2,
-                                  shadows: [
-                                    Shadow(
-                                        color: Colors.black87, blurRadius: 8),
-                                  ],
+                            child: AnimatedTextKit(
+                              key: ValueKey(currentNode.id),
+                              animatedTexts: [
+                                TyperAnimatedText(
+                                  currentNode.text,
+                                  speed: const Duration(milliseconds: 30),
+                                  textStyle: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    height: 1.8,
+                                    letterSpacing: 0.2,
+                                    shadows: [
+                                      Shadow(color: Colors.black87, blurRadius: 8),
+                                    ],
+                                  ),
                                 ),
-                              ),
+                              ],
+                              isRepeatingAnimation: false,
+                              displayFullTextOnTap: true,
                             ),
                           ),
                         ),

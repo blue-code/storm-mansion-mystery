@@ -1,7 +1,14 @@
-import 'dart:convert';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/services.dart';
 import '../../core/models/game_state.dart';
+import '../../data/models/character.dart';
+
+/// 캐릭터 프로필 데이터를 로드하는 프로바이더
+final charactersProvider = FutureProvider<List<CharacterProfile>>((ref) async {
+  final jsonString = await rootBundle.loadString('assets/story/characters.json');
+  final jsonMap = json.decode(jsonString) as Map<String, dynamic>;
+  final charactersRaw = jsonMap['characters'] as List<dynamic>;
+  return charactersRaw.map((e) => CharacterProfile.fromJson(e as Map<String, dynamic>)).toList();
+});
 
 /// SharedPreferences 인스턴스를 제공하는 프로바이더
 final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
