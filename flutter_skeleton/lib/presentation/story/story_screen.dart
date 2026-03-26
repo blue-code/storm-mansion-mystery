@@ -98,18 +98,37 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
     super.dispose();
   }
 
-  void _handleSound(SceneNode node) {
+  Future<void> _handleSound(SceneNode node) async {
+    // BGM 처리
     if (node.bgm != _currentBgm) {
       _currentBgm = node.bgm;
+      await bgmPlayer.stop();
       if (_currentBgm != null && _currentBgm!.isNotEmpty) {
-        bgmPlayer.play(AssetSource('audio/$_currentBgm.mp3'));
-      } else {
-        bgmPlayer.stop();
+        try {
+          // mp3 우선 시도 후 wav 시도 (플레이스홀더 대응)
+          await bgmPlayer.play(AssetSource('audio/$_currentBgm.mp3'));
+        } catch (_) {
+          try {
+            await bgmPlayer.play(AssetSource('audio/$_currentBgm.wav'));
+          } catch (e) {
+            debugPrint('BGM 재생 실패: $_currentBgm ($e)');
+          }
+        }
       }
     }
 
+    // SFX 처리
     if (node.sfx != null && node.sfx!.isNotEmpty) {
-      sfxPlayer.play(AssetSource('audio/${node.sfx}.mp3'));
+      try {
+        await sfxPlayer.stop(); // 이전 SFX 중지
+        await sfxPlayer.play(AssetSource('audio/${node.sfx}.mp3'));
+      } catch (_) {
+        try {
+          await sfxPlayer.play(AssetSource('audio/${node.sfx}.wav'));
+        } catch (e) {
+          debugPrint('SFX 재생 실패: ${node.sfx} ($e)');
+        }
+      }
     }
   }
 
