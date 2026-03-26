@@ -5,11 +5,13 @@
       "id": "scene_day3_morning",
       "background_image": "mansion_study_room",
       "speaker": "system",
+      "bgm": "mansion_morning_last_day",
       "text": "둘째 날 밤이 지나자 더는 우연이나 감정 폭발로 설명할 수 없는 지점에 도달했다. 첫 번째 살인과 두 번째 살인은 같은 중심을 공유했다. 약, 유언, 그리고 그 둘 사이를 알고 있던 사람들.\n\n당신은 남은 이들을 다시 서재로 모았다. 죽은 사람의 방에서만, 살아 있는 사람들의 거짓말이 서로를 밀어내기 시작한다.",
       "next_scene_id": "scene_day3_before_gathering",
       "continue_text": "사람들을 부르기 전 서재를 마지막으로 훑는다",
       "choices": []
     },
+
     {
       "id": "scene_day3_before_gathering",
       "background_image": "mansion_study_room",

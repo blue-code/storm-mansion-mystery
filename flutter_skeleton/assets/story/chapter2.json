@@ -5,6 +5,7 @@
       "id": "scene_day2_intro",
       "background_image": "mansion_corridor",
       "speaker": "system",
+      "bgm": "mansion_morning_eerie",
       "text": "아침이 왔지만 안도감은 없었다. 저택은 밤새 단정하게 정리되어 있었고, 그 정돈이 오히려 기이했다. 누군가 죽었는데도 집은 여전히 귀족 저택의 예의를 유지하고 있었다.\n\n창밖으로는 여전히 비가 내렸다. 바다는 한 발짝도 물러나지 않았고, 저택 역시 누구도 쉽게 빠져나갈 수 없는 섬처럼 고립돼 있었다.",
       "next_scene_id": "scene_day2_servants_murmur",
       "continue_text": "하인들의 표정을 살핀다",
@@ -14,11 +15,13 @@
       "id": "scene_day2_servants_murmur",
       "background_image": "mansion_corridor",
       "speaker": "system",
+      "bgm": "suspicious_whispers",
       "text": "아침 복도엔 눌린 속삭임이 떠다녔다. 하인들은 서로를 보며 말을 삼켰고, 당신이 가까이 가면 곧장 입을 닫았다. 다만 한 사람이 지나가며 아주 짧게 말했다. \"어젯밤 누군가는 위층으로 올라갔고, 누군가는 아래로 내려갔어요. 한 사람만 움직인 게 아니에요.\"\n\n집 전체가 목격자였지만, 아무도 완전한 진실을 가진 것 같지는 않았다. 파편들만 쌓이고 있었다.",
       "next_scene_id": "scene_day2_house_map",
       "continue_text": "하인들의 시선을 따라 저택 구조를 다시 읽는다",
       "choices": []
     },
+
     {
       "id": "scene_day2_house_map",
       "background_image": "mansion_corridor",

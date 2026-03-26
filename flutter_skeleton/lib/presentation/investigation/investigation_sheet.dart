@@ -7,83 +7,47 @@ class InvestigationSheet extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // GameState를 관찰하여 변경사항 즉시 반영
     final gameState = ref.watch(gameStateProvider);
 
     return Container(
-      height: MediaQuery.of(context).size.height * 0.6,
+      height: MediaQuery.of(context).size.height * 0.72,
       decoration: BoxDecoration(
-        color: const Color(0xFF1E1E1E),
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-        border: Border.all(color: Colors.white24, width: 1),
+        color: const Color(0xFF121417),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        border: Border.all(color: const Color(0xFFD4A76A).withOpacity(0.2), width: 1.5),
       ),
       child: DefaultTabController(
         length: 2,
         child: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.only(top: 8.0),
+              padding: EdgeInsets.symmetric(vertical: 12.0),
               child: Center(
-                child: Container(width: 40, height: 4, decoration: BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.all(Radius.circular(10)))),
+                child: Container(
+                  width: 36,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.white24,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                ),
               ),
             ),
-            const TabBar(
-              indicatorColor: Colors.redAccent,
-              labelColor: Colors.redAccent,
-              unselectedLabelColor: Colors.white70,
-              tabs: [
-                Tab(icon: Icon(Icons.search), text: '수집한 단서 (Evidence)'),
-                Tab(icon: Icon(Icons.people), text: '인물 파일 (Trust)'),
+            TabBar(
+              indicatorColor: const Color(0xFFD4A76A),
+              indicatorWeight: 3,
+              labelColor: const Color(0xFFD4A76A),
+              unselectedLabelColor: Colors.white38,
+              tabs: const [
+                Tab(icon: Icon(Icons.menu_book, size: 18), text: '증거 목록'),
+                Tab(icon: Icon(Icons.assignment_ind, size: 18), text: '인물 정보'),
               ],
             ),
             Expanded(
               child: TabBarView(
                 children: [
-                  // 증거물 탭
-                  ListView.builder(
-                    padding: const EdgeInsets.all(16),
-                    itemCount: gameState.evidence.length,
-                    itemBuilder: (context, index) {
-                      final item = gameState.evidence[index];
-                      return Card(
-                        color: Colors.black45,
-                        margin: const EdgeInsets.only(bottom: 8),
-                        child: ListTile(
-                          leading: const Icon(Icons.vpn_key, color: Colors.amber),
-                          title: Text(item, style: const TextStyle(color: Colors.white)),
-                        ),
-                      );
-                    },
-                  ),
-                  // 인물 신뢰도 탭
-                  ListView.builder(
-                    padding: const EdgeInsets.all(16),
-                    itemCount: gameState.trustMap.keys.length,
-                    itemBuilder: (context, index) {
-                      final charName = gameState.trustMap.keys.elementAt(index);
-                      final trustValue = gameState.trustMap[charName]!;
-                      
-                      Color statusColor = Colors.grey;
-                      if (trustValue > 10) statusColor = Colors.green;
-                      if (trustValue < 0) statusColor = Colors.red;
-
-                      return Card(
-                        color: Colors.black45,
-                        margin: const EdgeInsets.only(bottom: 8),
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: statusColor,
-                            child: const Icon(Icons.person, color: Colors.white),
-                          ),
-                          title: Text(charName, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                          trailing: Text(
-                            trustValue > 0 ? "호의적" : (trustValue < 0 ? "경계함" : "중립"),
-                            style: TextStyle(color: statusColor, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                  _buildEvidenceTab(gameState.evidence),
+                  _buildSuspectTab(gameState.trustMap),
                 ],
               ),
             ),
@@ -92,7 +56,65 @@ class InvestigationSheet extends ConsumerWidget {
       ),
     );
   }
+
+  Widget _buildEvidenceTab(List<String> evidence) {
+    if (evidence.isEmpty) {
+      return const Center(child: Text('아직 발견된 단서가 없습니다.', style: TextStyle(color: Colors.white24)));
+    }
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: evidence.length,
+      itemBuilder: (context, index) {
+        final item = evidence[index];
+        return Container(
+          margin: const EdgeInsets.only(bottom: 12),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.04),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.white12),
+          ),
+          child: ListTile(
+            leading: const Icon(Icons.fingerprint, color: Color(0xFFD4A76A)),
+            title: Text(item, style: const TextStyle(color: Colors.white70)),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildSuspectTab(Map<String, int> trustMap) {
+    if (trustMap.isEmpty) {
+      return const Center(child: Text('조사된 인물이 없습니다.', style: TextStyle(color: Colors.white24)));
+    }
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: trustMap.length,
+      itemBuilder: (context, index) {
+        final charName = trustMap.keys.elementAt(index);
+        final trustValue = trustMap[charName]!;
+        final statusColor = trustValue >= 10 ? const Color(0xFF7EB8C9) : (trustValue <= -10 ? const Color(0xFFB4122D) : Colors.white60);
+
+        return Container(
+          margin: const EdgeInsets.only(bottom: 12),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.04),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.white10),
+          ),
+          child: ListTile(
+            leading: CircleAvatar(backgroundColor: statusColor.withOpacity(0.1), child: Icon(Icons.person, color: statusColor, size: 18)),
+            title: Text(charName, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
+            trailing: Text(
+              trustValue >= 10 ? "우호적" : (trustValue <= -10 ? "적대적" : "중립"),
+              style: TextStyle(color: statusColor, fontWeight: FontWeight.bold, fontSize: 12),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
+
 
 // 사용 예시 (스토리 스크린에서 FloatingActionButton 등으로 호출)
 void showInvestigationMenu(BuildContext context) {
