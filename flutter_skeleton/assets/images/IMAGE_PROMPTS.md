@@ -208,7 +208,14 @@ victorian era train compartment interior at night, plush upholstered seats, rain
 victorian era train station platform at night, rain falling, gas lamp posts casting warm pools of light on wet platform, steam from train, departure board, lone figure waiting atmosphere, cobblestone platform, iron and glass canopy overhead, melancholy departure feeling
 ```
 
-## 31. evelyn_knife_attack
+## 31. title_screen
+**Scene**: 타이틀 화면 (세로 9:16, 720x1280)
+```
+dark gothic victorian mansion title screen art, dramatic full view of a massive haunted victorian mansion on a cliff edge overlooking a stormy sea, multiple lightning bolts striking behind the mansion illuminating its silhouette, torrential rain, iron gates in foreground partially open inviting the viewer in, winding stone path leading to the mansion entrance with warm amber light glowing from doorway, dead twisted trees on both sides, crashing waves against cliff base, ominous swirling dark storm clouds, ravens flying in the sky, mysterious fog rolling in from the sea, cinematic wide angle dramatic composition, dark moody color palette with deep blues blacks and warm amber accents, concept art quality, extremely detailed architecture with gothic spires towers and gargoyles, volumetric god rays through storm clouds, atmospheric perspective, epic scale
+```
+**Negative**: `text, watermark, signature, logo, people, characters, faces, hands, anime, cartoon, 3d render, low quality, blurry, deformed, ugly, bright cheerful colors, daytime, sunny, modern buildings`
+
+## 32. evelyn_knife_attack
 **Scene**: 칼 공격 장면
 ```
 dramatic close-up of ornate victorian knife on dark floor, glinting blade reflecting lamplight, blood drops on persian rug, hand shadow reaching toward knife, tense moment of violence, dark moody lighting, thriller atmosphere
