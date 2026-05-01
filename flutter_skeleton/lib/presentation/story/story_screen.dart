@@ -8,8 +8,13 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/models/game_state.dart';
+import '../../core/services/ad_service.dart';
 import '../../data/models/scene_node.dart';
+import '../investigation/investigation_sheet.dart';
 import '../providers/game_provider.dart';
+
+const bool _kScreenshotMode =
+    bool.fromEnvironment('SCREENSHOT_MODE', defaultValue: false);
 
 final storyNodesProvider = FutureProvider<Map<String, SceneNode>>((ref) async {
   final sceneMap = <String, SceneNode>{};
@@ -48,6 +53,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
   final ScrollController _textScrollController = ScrollController();
   String? _currentBgm;
   String? _lastPlayedSceneId;
+  int? _hintChoiceIndex;
+  bool _showingHintAd = false;
 
   static const Set<String> _impactSceneIds = {
     'scene_murder_discovery',
@@ -421,12 +428,15 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
     int index,
     bool isAvailable,
     SceneNode currentNode,
-    Set<String> currentEvidence,
-  ) {
+    Set<String> currentEvidence, {
+    bool isHinted = false,
+  }) {
     final isImpact = _isImpactScene(currentNode);
-    final borderColor = isImpact
-        ? const Color(0xFFD4A76A).withOpacity(0.4)
-        : Colors.white.withOpacity(0.18);
+    final borderColor = isHinted
+        ? const Color(0xFFD4A76A).withOpacity(0.9)
+        : isImpact
+            ? const Color(0xFFD4A76A).withOpacity(0.4)
+            : Colors.white.withOpacity(0.18);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
@@ -509,6 +519,119 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                       color: Colors.redAccent.withOpacity(0.7),
                     ),
                   ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _requestHint(List<ChoiceNode> choices) {
+    if (_showingHintAd) return;
+    final evidence = ref.read(gameStateProvider).evidence.toSet();
+
+    int? safestIndex;
+    int minDanger = 999;
+    for (int i = 0; i < choices.length; i++) {
+      final c = choices[i];
+      if (!c.requiredEvidence.every(evidence.contains)) continue;
+      if (c.dangerDelta < minDanger) {
+        minDanger = c.dangerDelta;
+        safestIndex = i;
+      }
+    }
+
+    setState(() => _showingHintAd = true);
+    AdService.instance.showRewardedAd(
+      onRewarded: () {
+        if (!mounted) return;
+        setState(() {
+          _hintChoiceIndex = safestIndex;
+          _showingHintAd = false;
+        });
+        Future.delayed(const Duration(seconds: 5), () {
+          if (mounted) setState(() => _hintChoiceIndex = null);
+        });
+      },
+    ).then((_) {
+      if (mounted) setState(() => _showingHintAd = false);
+    });
+  }
+
+  Widget _buildDeathOverlay() {
+    return Container(
+      color: Colors.black.withOpacity(0.88),
+      child: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.dangerous_outlined, color: Color(0xFFB4122D), size: 56),
+                const SizedBox(height: 16),
+                const Text(
+                  '탐정 사망',
+                  style: TextStyle(
+                    color: Color(0xFFB4122D),
+                    fontSize: 26,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 4,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  '잘못된 선택이 당신의 목숨을 앗아갔습니다.',
+                  style: TextStyle(color: Colors.white.withOpacity(0.55), fontSize: 14, height: 1.5),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 40),
+                SizedBox(
+                  width: double.infinity,
+                  child: FilledButton.icon(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: const Color(0xFFD4A76A),
+                      foregroundColor: const Color(0xFF1A1008),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    onPressed: () {
+                      AdService.instance.showRewardedAd(
+                        onRewarded: () {
+                          if (!mounted) return;
+                          ref.read(gameStateProvider.notifier).reviveGame();
+                        },
+                      );
+                    },
+                    icon: const Icon(Icons.play_circle_outline, size: 20),
+                    label: const Text(
+                      '광고 시청 후 이어하기',
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(color: Colors.white.withOpacity(0.2)),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    onPressed: () {
+                      ref.read(gameStateProvider.notifier).resetGame();
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (_) => const StoryScreen()),
+                      );
+                    },
+                    child: Text(
+                      '처음부터 시작',
+                      style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 14),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -615,26 +738,43 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                           child: SingleChildScrollView(
                             controller: _textScrollController,
                             padding: const EdgeInsets.only(right: 8),
-                            child: AnimatedTextKit(
-                              key: ValueKey(currentNode.id),
-                              animatedTexts: [
-                                TyperAnimatedText(
-                                  currentNode.text,
-                                  speed: const Duration(milliseconds: 30),
-                                  textStyle: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    height: 1.8,
-                                    letterSpacing: 0.2,
-                                    shadows: [
-                                      Shadow(color: Colors.black87, blurRadius: 8),
+                            child: _kScreenshotMode
+                                ? Text(
+                                    currentNode.text,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      height: 1.8,
+                                      letterSpacing: 0.2,
+                                      shadows: [
+                                        Shadow(
+                                            color: Colors.black87,
+                                            blurRadius: 8),
+                                      ],
+                                    ),
+                                  )
+                                : AnimatedTextKit(
+                                    key: ValueKey(currentNode.id),
+                                    animatedTexts: [
+                                      TyperAnimatedText(
+                                        currentNode.text,
+                                        speed: const Duration(milliseconds: 30),
+                                        textStyle: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          height: 1.8,
+                                          letterSpacing: 0.2,
+                                          shadows: [
+                                            Shadow(
+                                                color: Colors.black87,
+                                                blurRadius: 8),
+                                          ],
+                                        ),
+                                      ),
                                     ],
+                                    isRepeatingAnimation: false,
+                                    displayFullTextOnTap: true,
                                   ),
-                                ),
-                              ],
-                              isRepeatingAnimation: false,
-                              displayFullTextOnTap: true,
-                            ),
                           ),
                         ),
                       ),
@@ -648,11 +788,7 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                           padding: const EdgeInsets.only(top: 12, bottom: 8),
                           child: Row(
                             children: [
-                              Container(
-                                width: 16,
-                                height: 1,
-                                color: Colors.white24,
-                              ),
+                              Container(width: 16, height: 1, color: Colors.white24),
                               const SizedBox(width: 8),
                               Text(
                                 '선택',
@@ -664,9 +800,37 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                                 ),
                               ),
                               const SizedBox(width: 8),
-                              Expanded(
-                                child: Container(height: 1, color: Colors.white12),
-                              ),
+                              Expanded(child: Container(height: 1, color: Colors.white12)),
+                              if (!_kScreenshotMode) ...[
+                                const SizedBox(width: 8),
+                                GestureDetector(
+                                  onTap: _showingHintAd ? null : () => _requestHint(currentNode.choices),
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFFD4A76A).withOpacity(0.12),
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(color: const Color(0xFFD4A76A).withOpacity(0.3)),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(Icons.lightbulb_outline, size: 11, color: const Color(0xFFD4A76A).withOpacity(0.8)),
+                                        const SizedBox(width: 4),
+                                        Text(
+                                          _showingHintAd ? '로딩…' : '힌트',
+                                          style: TextStyle(
+                                            color: const Color(0xFFD4A76A).withOpacity(0.8),
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.w600,
+                                            letterSpacing: 1,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ],
                           ),
                         ),
@@ -682,6 +846,7 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                               isAvailable,
                               currentNode,
                               currentEvidence,
+                              isHinted: _hintChoiceIndex == index,
                             );
                           },
                         ),
@@ -701,7 +866,40 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                 .shake(hz: 8, duration: 500.ms);
           }
 
-          return content;
+          return Stack(
+            fit: StackFit.expand,
+            children: [
+              content,
+              if (gameState.isDead) _buildDeathOverlay(),
+              if (!_kScreenshotMode && !gameState.isDead)
+                Positioned(
+                  top: MediaQuery.of(context).padding.top + 8,
+                  right: 16,
+                  child: GestureDetector(
+                    onTap: () => showInvestigationMenu(context),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.45),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.white12),
+                      ),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.menu_book_outlined, color: Colors.white60, size: 15),
+                          SizedBox(width: 5),
+                          Text(
+                            '단서장',
+                            style: TextStyle(color: Colors.white60, fontSize: 12, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          );
         },
       ),
     );

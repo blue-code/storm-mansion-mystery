@@ -30,6 +30,8 @@ class GameStateNotifier extends StateNotifier<GameState> {
   final SharedPreferences prefs;
   static const String _saveKey = 'game_state_save';
 
+  String? _lastSafeSceneId;
+
   GameStateNotifier(this.prefs) : super(_loadInitialState(prefs));
 
   static GameState _loadInitialState(SharedPreferences prefs) {
@@ -43,6 +45,11 @@ class GameStateNotifier extends StateNotifier<GameState> {
       }
     }
     return const GameState();
+  }
+
+  /// 스크린샷 캡처용으로 상태를 직접 덮어쓴다 (저장은 하지 않음)
+  void overwriteForScreenshot(GameState newState) {
+    state = newState;
   }
 
   void _saveState() {
@@ -80,6 +87,8 @@ class GameStateNotifier extends StateNotifier<GameState> {
     final newDangerLevel = state.dangerLevel + dangerDelta;
     final isNowDead = newDangerLevel >= 3;
 
+    if (isNowDead) _lastSafeSceneId = state.currentSceneId;
+
     state = state.copyWith(
       currentSceneId: isNowDead ? 'scene_death_bad_ending_1' : nextSceneId,
       timeElapsed: state.timeElapsed + timeCost,
@@ -88,6 +97,18 @@ class GameStateNotifier extends StateNotifier<GameState> {
       isDead: isNowDead,
     );
     
+    _saveState();
+  }
+
+  /// 보상형 광고 시청 후 이어하기 — 위험도 1로 복원, 직전 씬으로 복귀
+  void reviveGame() {
+    final returnScene = _lastSafeSceneId ?? 'scene_101';
+    _lastSafeSceneId = null;
+    state = state.copyWith(
+      isDead: false,
+      dangerLevel: 1,
+      currentSceneId: returnScene,
+    );
     _saveState();
   }
 

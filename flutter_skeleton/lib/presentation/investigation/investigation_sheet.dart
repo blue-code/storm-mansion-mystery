@@ -20,13 +20,13 @@ class InvestigationSheet extends ConsumerWidget {
         length: 2,
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
               child: Center(
                 child: Container(
                   width: 36,
                   height: 4,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white24,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
@@ -157,7 +157,7 @@ class InvestigationSheet extends ConsumerWidget {
                             decoration: BoxDecoration(
                               color: Colors.black26,
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.white05),
+                              border: Border.all(color: Colors.white10),
                             ),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,

@@ -17,6 +17,7 @@ dependencies:
   flutter_animate: any
   shared_preferences: any
   json_annotation: ^4.9.0
+  google_mobile_ads: any
 
 dev_dependencies:
   flutter_test:
