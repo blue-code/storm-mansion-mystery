@@ -1,0 +1,112 @@
+default_platform(:ios)
+
+platform :ios do
+
+  before_all do
+    setup_ci if ENV["CI"]
+  end
+
+  desc "App Store Connect API 인증"
+  private_lane :authenticate do
+    app_store_connect_api_key(
+      key_id: ENV["ASC_KEY_ID"],
+      issuer_id: ENV["ASC_ISSUER_ID"],
+      key_filepath: ENV["ASC_KEY_PATH"],
+      duration: 1200,
+      in_house: false
+    )
+  end
+
+  desc "TestFlight에 새 빌드 업로드"
+  lane :beta do
+    authenticate
+
+    if ENV["AUTO_INCREMENT_BUILD_NUMBER"] == "true"
+      increment_build_number(
+        build_number: latest_testflight_build_number(
+          app_identifier: "com.digimaru.stormMansionMystery"
+        ) + 1,
+        xcodeproj: "ios/Runner.xcodeproj"
+      )
+    end
+
+    get_provisioning_profile(
+      app_identifier: "com.digimaru.stormMansionMystery",
+      team_id: ENV["TEAM_ID"],
+      output_path: "./build",
+      filename: "main.mobileprovision",
+      ignore_profiles_with_different_name: false
+    )
+    profile_name = lane_context[SharedValues::SIGH_NAME]
+    UI.message("📋 Profile: #{profile_name}")
+
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: "ios/Runner.xcodeproj",
+      bundle_identifier: "com.digimaru.stormMansionMystery",
+      team_id: ENV["TEAM_ID"],
+      profile_name: profile_name,
+      code_sign_identity: "Apple Distribution",
+      targets: ["Runner"]
+    )
+
+    build_app(
+      workspace: "ios/Runner.xcworkspace",
+      scheme: "Runner",
+      clean: true,
+      export_method: "app-store",
+      export_options: {
+        signingStyle: "manual",
+        teamID: ENV["TEAM_ID"],
+        provisioningProfiles: {
+          "com.digimaru.stormMansionMystery" => profile_name
+        }
+      },
+      output_directory: "./build",
+      output_name: "StormMansionMystery.ipa"
+    )
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      changelog: changelog_from_git_commits(
+        commits_count: 10,
+        pretty: "- %s",
+        merge_commit_filtering: "exclude_merges"
+      )
+    )
+
+    clean_build_artifacts
+  end
+
+  desc "App Store Connect에 앱 등록 (최초 1회)"
+  lane :create_app do
+    authenticate
+    create_app_online(
+      app_identifier: "com.digimaru.stormMansionMystery",
+      app_name: "폭풍 저택의 유언",
+      language: "ko",
+      sku: "com.digimaru.stormMansionMystery.001",
+      team_id: ENV["TEAM_ID"],
+      platforms: ["ios"]
+    )
+  end
+
+  desc "빌드만 실행 (업로드 없이)"
+  lane :build_only do
+    authenticate
+    build_app(
+      workspace: "ios/Runner.xcworkspace",
+      scheme: "Runner",
+      clean: true,
+      export_method: "app-store",
+      export_options: {
+        signingStyle: "automatic",
+        teamID: ENV["TEAM_ID"]
+      },
+      export_xcargs: "-allowProvisioningUpdates -authenticationKeyIssuerID #{ENV['ASC_ISSUER_ID']} -authenticationKeyID #{ENV['ASC_KEY_ID']} -authenticationKeyPath #{File.expand_path(ENV['ASC_KEY_PATH'])}",
+      output_directory: "./build",
+      output_name: "StormMansionMystery.ipa"
+    )
+  end
+
+end
