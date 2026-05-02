@@ -78,6 +78,105 @@ platform :ios do
     clean_build_artifacts
   end
 
+  desc "가격(무료) + 연령등급(12+) Spaceship 으로 일괄 설정"
+  lane :setup_app_info do
+    authenticate
+    require 'spaceship'
+
+    app = Spaceship::ConnectAPI::App.find("com.digimaru.stormMansionMystery")
+    UI.user_error!("App not found") unless app
+
+    # 가격: Free (Tier 0)
+    UI.message("💰 가격을 무료(USD 0)로 설정")
+    begin
+      app.update_app_price_tier(app_price_tier_id: "0")
+      UI.success("✅ 가격: 무료")
+    rescue => e
+      UI.important("가격 설정 스킵: #{e.message}")
+    end
+
+    # 연령 등급 설문 (AppInfo 기반 - ASC API 1.3+)
+    UI.message("📋 연령 등급 설문 작성 (12+ 예상)")
+    age_rating_attrs = {
+      alcoholTobaccoOrDrugUseOrReferences: "NONE",
+      gamblingSimulated: "NONE",
+      medicalOrTreatmentInformation: "NONE",
+      profanityOrCrudeHumor: "NONE",
+      sexualContentGraphicAndNudity: "NONE",
+      sexualContentOrNudity: "NONE",
+      horrorOrFearThemes: "INFREQUENT_OR_MILD",
+      matureOrSuggestiveThemes: "NONE",
+      violenceCartoonOrFantasy: "INFREQUENT_OR_MILD",
+      violenceRealistic: "NONE",
+      violenceRealisticProlongedGraphicOrSadistic: "NONE",
+      gunsOrOtherWeapons: "NONE",
+      ageAssurance: false,
+      parentalControls: false,
+      contests: "NONE",
+      gambling: false,
+      unrestrictedWebAccess: false,
+      lootBox: false,
+      userGeneratedContent: false,
+      advertising: true,
+      messagingAndChat: false,
+      healthOrWellnessTopics: false
+    }
+
+    begin
+      app_info = app.fetch_edit_app_info
+      UI.user_error!("Edit App Info 가 없습니다 (이미 심사 중일 수 있음)") unless app_info
+      decl = app_info.fetch_age_rating_declaration
+      Spaceship::ConnectAPI.patch_age_rating_declaration(
+        age_rating_declaration_id: decl.id,
+        attributes: age_rating_attrs
+      )
+      UI.success("✅ 연령 등급 설문 저장")
+    rescue => e
+      UI.error("연령 등급 설정 실패: #{e.message}")
+      UI.error(e.backtrace.first(5).join("\n"))
+    end
+  end
+
+  desc "App Store 메타데이터 + 스크린샷 업로드 (심사 제출 안함)"
+  lane :upload_metadata do
+    authenticate
+    deliver(
+      app_identifier: "com.digimaru.stormMansionMystery",
+      skip_binary_upload: true,
+      skip_screenshots: false,
+      overwrite_screenshots: true,
+      submit_for_review: false,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      languages: ["ko"]
+    )
+  end
+
+  desc "App Store 심사 제출 (메타데이터+스크린샷+빌드 자동 선택)"
+  lane :release do
+    authenticate
+    deliver(
+      app_identifier: "com.digimaru.stormMansionMystery",
+      skip_binary_upload: true,
+      skip_screenshots: false,
+      overwrite_screenshots: true,
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      languages: ["ko"],
+      submission_information: {
+        add_id_info_uses_idfa: true,
+        add_id_info_serves_ads: true,
+        add_id_info_tracks_install: true,
+        add_id_info_tracks_action: false,
+        add_id_info_limits_tracking: true,
+        export_compliance_uses_encryption: false,
+        content_rights_contains_third_party_content: false
+      }
+    )
+  end
+
   desc "App Store Connect에 앱 등록 (최초 1회)"
   lane :create_app do
     authenticate
