@@ -82,6 +82,25 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
     'scene_ending_unsolved',
   };
 
+  // 특정 장면에 진입할 때 한 번 재생되는 효과음. JSON 의 sfx 가 우선하고,
+  // 없으면 이 맵으로 보강한다. (대량 JSON 편집 없이 드라마틱한 순간에 효과음 부여)
+  static const Map<String, String> _sceneSfx = {
+    'scene_101': 'thunder_crack',
+    'scene_murder_discovery': 'scream_distant',
+    'scene_window_check': 'thunder_crack',
+    'scene_confront_door': 'door_creak',
+    'scene_hide_curtain': 'heartbeat_fast',
+    'scene_evelyn_hostile': 'knife_swing',
+    'scene_night_explore': 'door_creak',
+    'scene_greenhouse_dark': 'door_creak',
+    'scene_investigate_greenhouse_trap': 'glass_shatter',
+    'scene_day2_second_murder': 'scream_distant',
+    'scene_death_bad_ending_1': 'heartbeat_fast',
+    'scene_ending_evelyn_escape': 'thunder_crack',
+    'scene_accuse_evelyn': 'thunder_crack',
+    'scene_accuse_richard': 'thunder_crack',
+  };
+
   static const _speakerColors = <String, Color>{
     '아서 블랙우드': Color(0xFFD4A76A),
     '에블린 블랙우드': Color(0xFFB898D4),
@@ -124,16 +143,19 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
       }
     }
 
-    // SFX 처리
-    if (node.sfx != null && node.sfx!.isNotEmpty) {
+    // SFX 처리 (JSON 의 sfx 우선, 없으면 장면 매핑으로 보강)
+    final sfx = (node.sfx != null && node.sfx!.isNotEmpty)
+        ? node.sfx
+        : _sceneSfx[node.id];
+    if (sfx != null && sfx.isNotEmpty) {
       try {
         await sfxPlayer.stop(); // 이전 SFX 중지
-        await sfxPlayer.play(AssetSource('audio/${node.sfx}.mp3'));
+        await sfxPlayer.play(AssetSource('audio/$sfx.mp3'));
       } catch (_) {
         try {
-          await sfxPlayer.play(AssetSource('audio/${node.sfx}.wav'));
+          await sfxPlayer.play(AssetSource('audio/$sfx.wav'));
         } catch (e) {
-          debugPrint('SFX 재생 실패: ${node.sfx} ($e)');
+          debugPrint('SFX 재생 실패: $sfx ($e)');
         }
       }
     }
@@ -847,7 +869,20 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                               currentNode,
                               currentEvidence,
                               isHinted: _hintChoiceIndex == index,
-                            );
+                            )
+                                // 장면 id 로 keying → 같은 장면 재빌드(힌트 등)에선
+                                // 애니메이션이 다시 돌지 않고, 장면 전환 시에만 등장한다.
+                                .animate(
+                                    key: ValueKey('choice_${currentNode.id}_$index'))
+                                .fadeIn(
+                                  delay: (120 * index + 200).ms,
+                                  duration: 420.ms,
+                                )
+                                .slideX(
+                                  begin: 0.08,
+                                  end: 0,
+                                  curve: Curves.easeOutCubic,
+                                );
                           },
                         ),
                       ],

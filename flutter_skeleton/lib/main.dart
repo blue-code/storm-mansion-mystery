@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -186,42 +188,108 @@ class _ScreenshotRouterState extends ConsumerState<_ScreenshotRouter> {
   }
 }
 
-class MainMenuScreen extends ConsumerWidget {
+class MainMenuScreen extends ConsumerStatefulWidget {
   const MainMenuScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MainMenuScreen> createState() => _MainMenuScreenState();
+}
+
+class _MainMenuScreenState extends ConsumerState<MainMenuScreen> {
+  AudioPlayer? _menuBgm;
+
+  @override
+  void initState() {
+    super.initState();
+    if (!kScreenshotMode) {
+      _startMenuBgm();
+    }
+  }
+
+  Future<void> _startMenuBgm() async {
+    try {
+      final player = AudioPlayer();
+      _menuBgm = player;
+      await player.setReleaseMode(ReleaseMode.loop);
+      await player.setVolume(0.55);
+      try {
+        await player.play(AssetSource('audio/rain_and_storm.mp3'));
+      } catch (_) {
+        await player.play(AssetSource('audio/rain_and_storm.wav'));
+      }
+    } catch (e) {
+      debugPrint('메뉴 BGM 재생 실패: $e');
+    }
+  }
+
+  @override
+  void dispose() {
+    _menuBgm?.dispose();
+    super.dispose();
+  }
+
+  Future<void> _enterStory({required bool reset}) async {
+    if (reset) {
+      ref.read(gameStateProvider.notifier).resetGame();
+    }
+    await _menuBgm?.stop();
+    if (!mounted) return;
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (_) => const StoryScreen()),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final bottomPadding = MediaQuery.of(context).padding.bottom;
+    final size = MediaQuery.of(context).size;
 
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // 배경 이미지
+          // 배경 이미지 — 느린 켄번스 줌으로 생동감 부여
           Image.asset(
             'assets/images/title_screen.png',
             fit: BoxFit.cover,
             errorBuilder: (_, __, ___) => Container(color: Colors.black87),
-          ),
-          // 어둡게 오버레이
+          )
+              .animate(onPlay: (c) => c.repeat(reverse: true))
+              .scaleXY(
+                begin: 1.0,
+                end: 1.12,
+                duration: 18.seconds,
+                curve: Curves.easeInOut,
+              ),
+          // 어둡게 오버레이 + 가장자리 비네트
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0x44000000),
+                  Color(0x55000000),
                   Color(0x22000000),
-                  Color(0xBB000000),
-                  Color(0xEE000000),
+                  Color(0xCC000000),
+                  Color(0xF2000000),
                 ],
-                stops: [0, 0.3, 0.7, 1],
+                stops: [0, 0.32, 0.72, 1],
+              ),
+            ),
+          ),
+          const DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                center: Alignment(0, -0.25),
+                radius: 1.15,
+                colors: [Colors.transparent, Color(0x66000000)],
+                stops: [0.55, 1],
               ),
             ),
           ),
           // 타이틀 텍스트
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.12,
+            top: size.height * 0.13,
             left: 24,
             right: 24,
             child: Column(
@@ -230,30 +298,55 @@ class MainMenuScreen extends ConsumerWidget {
                   '폭풍 저택의 유언',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 33,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 4.0,
                     color: Colors.white,
                     shadows: [
-                      Shadow(color: Colors.black, blurRadius: 20),
-                      Shadow(color: const Color(0xFFD4A76A).withOpacity(0.5), blurRadius: 30),
+                      const Shadow(color: Colors.black, blurRadius: 20),
+                      Shadow(
+                          color: const Color(0xFFD4A76A).withOpacity(0.5),
+                          blurRadius: 30),
                     ],
                   ),
-                ),
-                const SizedBox(height: 8),
+                )
+                    .animate()
+                    .fadeIn(duration: 1400.ms, delay: 300.ms)
+                    .slideY(begin: 0.25, end: 0, curve: Curves.easeOutCubic),
+                const SizedBox(height: 12),
+                // 장식용 금색 구분선
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                        width: 28,
+                        height: 1,
+                        color: const Color(0xFFD4A76A).withOpacity(0.5)),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Icon(Icons.diamond_outlined,
+                          size: 10, color: Color(0xFFD4A76A)),
+                    ),
+                    Container(
+                        width: 28,
+                        height: 1,
+                        color: const Color(0xFFD4A76A).withOpacity(0.5)),
+                  ],
+                ).animate().fadeIn(duration: 1600.ms, delay: 700.ms),
+                const SizedBox(height: 10),
                 Text(
                   'STORM MANSION MYSTERY',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    letterSpacing: 6.0,
-                    color: Colors.white.withOpacity(0.5),
+                    letterSpacing: 5.0,
+                    color: Colors.white.withOpacity(0.55),
                     shadows: const [
                       Shadow(color: Colors.black, blurRadius: 12),
                     ],
                   ),
-                ),
+                ).animate().fadeIn(duration: 1800.ms, delay: 900.ms),
               ],
             ),
           ),
@@ -268,22 +361,21 @@ class MainMenuScreen extends ConsumerWidget {
                   width: double.infinity,
                   child: FilledButton(
                     style: FilledButton.styleFrom(
-                      backgroundColor: const Color(0xFFD4A76A).withOpacity(0.85),
+                      backgroundColor:
+                          const Color(0xFFD4A76A).withOpacity(0.9),
                       foregroundColor: const Color(0xFF1A1008),
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    onPressed: () {
-                      ref.read(gameStateProvider.notifier).resetGame();
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (_) => const StoryScreen()),
-                      );
-                    },
+                    onPressed: () => _enterStory(reset: true),
                     child: const Text(
                       '새 사건 조사',
-                      style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700, letterSpacing: 1),
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 1),
                     ),
                   ),
                 ),
@@ -298,11 +390,7 @@ class MainMenuScreen extends ConsumerWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (_) => const StoryScreen()),
-                      );
-                    },
+                    onPressed: () => _enterStory(reset: false),
                     child: Text(
                       '기록 열람 (이어하기)',
                       style: TextStyle(
@@ -316,7 +404,10 @@ class MainMenuScreen extends ConsumerWidget {
                 ),
               ],
             ),
-          ),
+          )
+              .animate()
+              .fadeIn(duration: 1400.ms, delay: 1300.ms)
+              .slideY(begin: 0.3, end: 0, curve: Curves.easeOutCubic),
         ],
       ),
     );
