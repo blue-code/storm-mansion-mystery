@@ -42,6 +42,7 @@ class MysteryApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: '폭풍 저택의 유언',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: Colors.red[900],
