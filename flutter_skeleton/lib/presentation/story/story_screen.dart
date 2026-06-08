@@ -474,6 +474,7 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
           choice.trustDelta.forEach((charName, delta) {
             ref.read(gameStateProvider.notifier).updateTrust(charName, delta);
           });
+          _showEvidenceToast(choice.addEvidence);
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -494,6 +495,60 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
               Icons.arrow_forward_ios,
               size: 13,
               color: Colors.white.withOpacity(0.5),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// 선택으로 단서를 획득했을 때 화면에 잠깐 알림을 띄운다.
+  void _showEvidenceToast(List<String> evidence) {
+    if (evidence.isEmpty || _kScreenshotMode) return;
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.clearSnackBars();
+    messenger.showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: const Color(0xF21A130A),
+        elevation: 6,
+        duration: const Duration(milliseconds: 2600),
+        margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(color: const Color(0xFFD4A76A).withOpacity(0.55)),
+        ),
+        content: Row(
+          children: [
+            const Icon(Icons.search, color: Color(0xFFD4A76A), size: 20),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    '단서 획득',
+                    style: TextStyle(
+                      color: Color(0xFFD4A76A),
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    evidence.join('\n'),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      height: 1.3,
+                    ),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -535,6 +590,7 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                         .read(gameStateProvider.notifier)
                         .updateTrust(charName, delta);
                   });
+                  _showEvidenceToast(choice.addEvidence);
                 }
               : null,
           borderRadius: BorderRadius.circular(12),
