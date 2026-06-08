@@ -543,11 +543,21 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             decoration: BoxDecoration(
-              color: isAvailable
-                  ? Colors.white.withOpacity(0.06)
-                  : Colors.black.withOpacity(0.3),
+              color: isHinted
+                  ? const Color(0xFFD4A76A).withOpacity(0.16)
+                  : isAvailable
+                      ? Colors.white.withOpacity(0.06)
+                      : Colors.black.withOpacity(0.3),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: borderColor),
+              border: Border.all(color: borderColor, width: isHinted ? 1.6 : 1),
+              boxShadow: isHinted
+                  ? [
+                      BoxShadow(
+                        color: const Color(0xFFD4A76A).withOpacity(0.35),
+                        blurRadius: 14,
+                      ),
+                    ]
+                  : null,
             ),
             child: Row(
               children: [
@@ -588,7 +598,33 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                     ),
                   ),
                 ),
-                if (choice.dangerDelta > 0)
+                if (isHinted)
+                  Container(
+                    margin: const EdgeInsets.only(left: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFD4A76A).withOpacity(0.3),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.lightbulb, size: 11, color: Color(0xFFFFE0AE)),
+                        SizedBox(width: 3),
+                        Text(
+                          '추천',
+                          style: TextStyle(
+                            color: Color(0xFFFFE0AE),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                else if (choice.dangerDelta > 0)
                   Padding(
                     padding: const EdgeInsets.only(left: 8),
                     child: Icon(
@@ -620,16 +656,27 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
       }
     }
 
+    // 안전하게 추천할 선택지가 없으면 광고 없이 안내만 한다.
+    if (safestIndex == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('지금은 추천할 안전한 선택지가 없습니다.'),
+          duration: Duration(seconds: 2),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    }
+
     setState(() => _showingHintAd = true);
     AdService.instance.showRewardedAd(
       onRewarded: () {
         if (!mounted) return;
+        // 힌트 강조는 선택하거나 다음 장면으로 넘어갈 때까지 유지한다.
+        // (광고를 닫고 돌아오기 전에 사라지던 문제 해결 — 자동 소멸 제거)
         setState(() {
           _hintChoiceIndex = safestIndex;
           _showingHintAd = false;
-        });
-        Future.delayed(const Duration(seconds: 5), () {
-          if (mounted) setState(() => _hintChoiceIndex = null);
         });
       },
     ).then((_) {
@@ -760,6 +807,7 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                 : null;
             _lastDangerLevel = gameState.dangerLevel;
             _lastPlayedSceneId = currentNode.id;
+            _hintChoiceIndex = null; // 새 장면에선 이전 힌트 강조 해제
             WidgetsBinding.instance.addPostFrameCallback((_) {
               if (mounted) {
                 _handleSound(currentNode);
