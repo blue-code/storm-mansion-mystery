@@ -53,6 +53,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
   final ScrollController _textScrollController = ScrollController();
   String? _currentBgm;
   String? _lastPlayedSceneId;
+  int _lastDangerLevel = 0;
+  String? _shakeForSceneId; // 위험도가 '올라간' 장면에서만 1회 떨림
   int? _hintChoiceIndex;
   bool _showingHintAd = false;
 
@@ -445,6 +447,60 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
     );
   }
 
+  /// 선택지가 하나뿐인 장면은 사실상 '다음으로 진행'이므로,
+  /// 번호 매긴 선택지 UI 대신 계속 버튼처럼 보여준다 (효과는 그대로 적용).
+  Widget _buildSingleChoiceContinue(ChoiceNode choice) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(top: 12),
+      child: FilledButton(
+        style: FilledButton.styleFrom(
+          backgroundColor: Colors.white.withOpacity(0.1),
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide(color: Colors.white.withOpacity(0.08)),
+          ),
+        ),
+        onPressed: () {
+          ref.read(gameStateProvider.notifier).makeChoice(
+                nextSceneId: choice.nextSceneId,
+                timeCost: choice.timeCost,
+                dangerDelta: choice.dangerDelta,
+                newEvidence: choice.addEvidence,
+                resetGame: choice.resetGame,
+              );
+          choice.trustDelta.forEach((charName, delta) {
+            ref.read(gameStateProvider.notifier).updateTrust(charName, delta);
+          });
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              child: Text(
+                choice.text,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  height: 1.3,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 13,
+              color: Colors.white.withOpacity(0.5),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildChoiceButton(
     ChoiceNode choice,
     int index,
@@ -698,6 +754,11 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
           }
 
           if (_lastPlayedSceneId != currentNode.id) {
+            // 위험도가 직전 장면보다 올라갔을 때만 이 장면을 떨림 대상으로 표시.
+            _shakeForSceneId = gameState.dangerLevel > _lastDangerLevel
+                ? currentNode.id
+                : null;
+            _lastDangerLevel = gameState.dangerLevel;
             _lastPlayedSceneId = currentNode.id;
             WidgetsBinding.instance.addPostFrameCallback((_) {
               if (mounted) {
@@ -709,8 +770,12 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
             });
           }
 
-          final hasChoices = currentNode.choices.isNotEmpty;
-          final textAreaHeight = hasChoices
+          // 선택지가 2개 이상일 때만 '선택' 목록 UI를 보여준다.
+          // 1개뿐이면 사실상 진행이므로 계속 버튼으로 처리한다.
+          final showChoiceList = currentNode.choices.length >= 2;
+          final singleChoice =
+              currentNode.choices.length == 1 ? currentNode.choices.first : null;
+          final textAreaHeight = showChoiceList
               ? screenHeight * 0.55
               : screenHeight * 0.48;
 
@@ -802,10 +867,16 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                       ),
 
                       // Choices or continue button
-                      if (!hasChoices && currentNode.nextSceneId != null)
+                      if (!showChoiceList &&
+                          singleChoice == null &&
+                          currentNode.nextSceneId != null)
                         _buildContinueButton(currentNode),
 
-                      if (hasChoices) ...[
+                      // 선택지 1개 → 계속 버튼처럼 표시
+                      if (!showChoiceList && singleChoice != null)
+                        _buildSingleChoiceContinue(singleChoice),
+
+                      if (showChoiceList) ...[
                         Padding(
                           padding: const EdgeInsets.only(top: 12, bottom: 8),
                           child: Row(
@@ -893,11 +964,11 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
             ],
           );
 
-          if (gameState.dangerLevel > 0) {
+          // 위험도가 올라간 결정적 순간에만 1회 떨림 (매 화면 떨림 방지).
+          // 장면 id 로 keying → 같은 장면 재빌드(힌트 등)에선 다시 떨리지 않는다.
+          if (_shakeForSceneId == currentNode.id) {
             content = content
-                .animate(
-                    key: ValueKey(
-                        'danger_${gameState.dangerLevel}_${currentNode.id}'))
+                .animate(key: ValueKey('shake_${currentNode.id}'))
                 .shake(hz: 8, duration: 500.ms);
           }
 
