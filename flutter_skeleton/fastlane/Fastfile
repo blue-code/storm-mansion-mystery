@@ -158,8 +158,7 @@ platform :ios do
     deliver(
       app_identifier: "com.digimaru.stormMansionMystery",
       skip_binary_upload: true,
-      skip_screenshots: false,
-      overwrite_screenshots: true,
+      skip_screenshots: true,
       submit_for_review: true,
       automatic_release: true,
       force: true,
