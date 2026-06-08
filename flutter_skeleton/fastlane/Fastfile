@@ -176,6 +176,44 @@ platform :ios do
     )
   end
 
+  desc "진행 중 심사 제출 조회 후 취소 (반려 후 재제출 막힐 때)"
+  lane :cancel_pending_submission do
+    authenticate
+    require 'spaceship'
+    app = Spaceship::ConnectAPI::App.find("com.digimaru.stormMansionMystery")
+    subs = Spaceship::ConnectAPI.get_review_submissions(app_id: app.id).to_a
+    UI.message("review submissions: #{subs.size}")
+    subs.each do |s|
+      UI.message("  id=#{s.id} state=#{s.state}")
+      final = %w[COMPLETE COMPLETED CANCELED]
+      next if final.include?(s.state.to_s)
+      begin
+        Spaceship::ConnectAPI.patch_review_submission(review_submission_id: s.id, attributes: { canceled: true })
+        UI.success("  → canceled #{s.id}")
+      rescue => e
+        begin
+          s.cancel_submission
+          UI.success("  → canceled (model) #{s.id}")
+        rescue => e2
+          UI.error("  cancel failed: #{e.message} / #{e2.message}")
+        end
+      end
+    end
+  end
+
+  desc "심사 제출/버전 상태 조회 (읽기 전용)"
+  lane :check_submission do
+    authenticate
+    require 'spaceship'
+    app = Spaceship::ConnectAPI::App.find("com.digimaru.stormMansionMystery")
+    subs = Spaceship::ConnectAPI.get_review_submissions(app_id: app.id).to_a
+    subs.each { |s| UI.message("SUB #{s.id} state=#{s.state}") }
+    app.get_app_store_versions.each do |v|
+      b = (v.build && v.build.version) rescue nil
+      UI.message("VERSION #{v.version_string} state=#{v.app_store_state} build=#{b || 'none'}")
+    end
+  end
+
   desc "App Store Connect에 앱 등록 (최초 1회)"
   lane :create_app do
     authenticate
