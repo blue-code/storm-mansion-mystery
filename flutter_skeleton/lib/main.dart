@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,10 +22,8 @@ const int kScreenshotSecondsPerScene = 4;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
-  if (!kScreenshotMode) {
-    await AdService.instance.initialize();
-  }
 
+  // 광고/IDFA 초기화는 ATT 권한 요청 이후로 미룬다(아래 MysteryApp 참고).
   runApp(
     ProviderScope(
       overrides: [
@@ -35,8 +34,40 @@ void main() async {
   );
 }
 
-class MysteryApp extends StatelessWidget {
+class MysteryApp extends StatefulWidget {
   const MysteryApp({super.key});
+
+  @override
+  State<MysteryApp> createState() => _MysteryAppState();
+}
+
+class _MysteryAppState extends State<MysteryApp> {
+  @override
+  void initState() {
+    super.initState();
+    if (!kScreenshotMode) {
+      // 첫 프레임이 그려진 뒤(앱 활성 상태) ATT 팝업을 띄워야 정상 표시된다.
+      WidgetsBinding.instance.addPostFrameCallback((_) => _initTrackingThenAds());
+    }
+  }
+
+  /// App Tracking Transparency: 추적 데이터(AdMob IDFA) 수집 전에
+  /// 권한 요청 팝업을 먼저 띄우고, 그 다음 광고를 초기화한다.
+  Future<void> _initTrackingThenAds() async {
+    try {
+      final status =
+          await AppTrackingTransparency.trackingAuthorizationStatus;
+      if (status == TrackingStatus.notDetermined) {
+        // iOS가 팝업을 안정적으로 띄울 수 있도록 잠시 대기.
+        await Future.delayed(const Duration(milliseconds: 400));
+        await AppTrackingTransparency.requestTrackingAuthorization();
+      }
+    } catch (e) {
+      debugPrint('ATT 권한 요청 실패: $e');
+    }
+    // 권한 처리 후 광고 초기화 (IDFA 수집은 이 시점 이후)
+    await AdService.instance.initialize();
+  }
 
   @override
   Widget build(BuildContext context) {
