@@ -13,6 +13,8 @@ import '../../core/services/ad_service.dart';
 import '../../data/models/scene_node.dart';
 import '../investigation/investigation_sheet.dart';
 import '../providers/game_provider.dart';
+import '../providers/settings_provider.dart';
+import '../settings/settings_sheet.dart';
 
 const bool _kScreenshotMode =
     bool.fromEnvironment('SCREENSHOT_MODE', defaultValue: false);
@@ -57,12 +59,15 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
   Timer? _bgmFadeTimer;
   static const double _bgmVolume = 0.55;
   final ScrollController _textScrollController = ScrollController();
+  Timer? _autoScrollTimer; // 타이핑 진행에 맞춰 하단으로 따라가는 자동 스크롤
+  bool _userScrolledThisScene = false; // 사용자가 직접 스크롤하면 자동 추적 중단
   String? _currentBgm;
   String? _lastPlayedSceneId;
   int _lastDangerLevel = 0;
   String? _shakeForSceneId; // 위험도가 '올라간' 장면에서만 1회 떨림
   int? _hintChoiceIndex;
   bool _showingHintAd = false;
+  double _fontScale = 1.0; // 설정의 글씨 크기 배율 (build 에서 watch 로 갱신)
 
   static const Set<String> _impactSceneIds = {
     'scene_murder_discovery',
@@ -129,11 +134,46 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
   @override
   void dispose() {
     _bgmFadeTimer?.cancel();
+    _autoScrollTimer?.cancel();
     _bgmA.dispose();
     _bgmB.dispose();
     sfxPlayer.dispose();
     _textScrollController.dispose();
     super.dispose();
+  }
+
+  // 타자기 애니메이션이 진행되는 동안, 새로 나타나는 글자가 화면 밖으로
+  // 밀려나지 않도록 스크롤을 하단으로 부드럽게 따라가게 한다.
+  // 사용자가 직접 스크롤하면(_userScrolledThisScene) 즉시 추적을 멈춰 방해하지 않는다.
+  void _startAutoScroll(SceneNode node) {
+    _autoScrollTimer?.cancel();
+    if (_kScreenshotMode) return;
+    _userScrolledThisScene = false;
+
+    // TyperAnimatedText 의 speed(30ms/글자) 와 맞춘 예상 타이핑 시간.
+    final int typingMillis = node.text.length * 30;
+    final int deadlineMillis = typingMillis + 600;
+    int elapsed = 0;
+    const tick = Duration(milliseconds: 220);
+
+    _autoScrollTimer = Timer.periodic(tick, (timer) {
+      elapsed += tick.inMilliseconds;
+      if (!mounted ||
+          !_textScrollController.hasClients ||
+          _userScrolledThisScene) {
+        timer.cancel();
+        return;
+      }
+      final position = _textScrollController.position;
+      if (position.maxScrollExtent - position.pixels > 1) {
+        _textScrollController.animateTo(
+          position.maxScrollExtent,
+          duration: const Duration(milliseconds: 280),
+          curve: Curves.easeOut,
+        );
+      }
+      if (elapsed >= deadlineMillis) timer.cancel();
+    });
   }
 
   Future<void> _handleSound(SceneNode node) async {
@@ -681,12 +721,12 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
-                    isAvailable
-                        ? choice.text
-                        : '${choice.text} (증거 부족)',
+                    isAvailable ? choice.text : '${choice.text} (증거 부족)',
                     style: TextStyle(
-                      color: isAvailable ? Colors.white.withOpacity(0.85) : Colors.white38,
-                      fontSize: 14,
+                      color: isAvailable
+                          ? Colors.white.withOpacity(0.85)
+                          : Colors.white38,
+                      fontSize: 14 * _fontScale,
                       height: 1.4,
                       fontWeight: FontWeight.w400,
                     ),
@@ -704,7 +744,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                     child: const Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.lightbulb, size: 11, color: Color(0xFFFFE0AE)),
+                        Icon(Icons.lightbulb,
+                            size: 11, color: Color(0xFFFFE0AE)),
                         SizedBox(width: 3),
                         Text(
                           '추천',
@@ -788,7 +829,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(Icons.dangerous_outlined, color: Color(0xFFB4122D), size: 56),
+                const Icon(Icons.dangerous_outlined,
+                    color: Color(0xFFB4122D), size: 56),
                 const SizedBox(height: 16),
                 const Text(
                   '탐정 사망',
@@ -802,7 +844,10 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                 const SizedBox(height: 10),
                 Text(
                   '잘못된 선택이 당신의 목숨을 앗아갔습니다.',
-                  style: TextStyle(color: Colors.white.withOpacity(0.55), fontSize: 14, height: 1.5),
+                  style: TextStyle(
+                      color: Colors.white.withOpacity(0.55),
+                      fontSize: 14,
+                      height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),
@@ -813,7 +858,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                       backgroundColor: const Color(0xFFD4A76A),
                       foregroundColor: const Color(0xFF1A1008),
                       padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
                     ),
                     onPressed: () {
                       AdService.instance.showRewardedAd(
@@ -826,7 +872,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                     icon: const Icon(Icons.play_circle_outline, size: 20),
                     label: const Text(
                       '광고 시청 후 이어하기',
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
                     ),
                   ),
                 ),
@@ -837,7 +884,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(color: Colors.white.withOpacity(0.2)),
                       padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
                     ),
                     onPressed: () {
                       ref.read(gameStateProvider.notifier).resetGame();
@@ -847,7 +895,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                     },
                     child: Text(
                       '처음부터 시작',
-                      style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 14),
+                      style: TextStyle(
+                          color: Colors.white.withOpacity(0.6), fontSize: 14),
                     ),
                   ),
                 ),
@@ -863,6 +912,7 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
   Widget build(BuildContext context) {
     final gameState = ref.watch(gameStateProvider);
     final scenesAsyncValue = ref.watch(storyNodesProvider);
+    _fontScale = ref.watch(fontScaleProvider);
     final bottomPadding = MediaQuery.of(context).padding.bottom;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -908,6 +958,7 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                 if (_textScrollController.hasClients) {
                   _textScrollController.jumpTo(0);
                 }
+                _startAutoScroll(currentNode);
               }
             });
           }
@@ -915,11 +966,11 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
           // 선택지가 2개 이상일 때만 '선택' 목록 UI를 보여준다.
           // 1개뿐이면 사실상 진행이므로 계속 버튼으로 처리한다.
           final showChoiceList = currentNode.choices.length >= 2;
-          final singleChoice =
-              currentNode.choices.length == 1 ? currentNode.choices.first : null;
-          final textAreaHeight = showChoiceList
-              ? screenHeight * 0.55
-              : screenHeight * 0.48;
+          final singleChoice = currentNode.choices.length == 1
+              ? currentNode.choices.first
+              : null;
+          final textAreaHeight =
+              showChoiceList ? screenHeight * 0.55 : screenHeight * 0.48;
 
           Widget content = Stack(
             fit: StackFit.expand,
@@ -959,51 +1010,63 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
 
                       // Story text
                       Expanded(
-                        child: Scrollbar(
-                          controller: _textScrollController,
-                          thumbVisibility: true,
-                          thickness: 2,
-                          radius: const Radius.circular(1),
-                          child: SingleChildScrollView(
+                        child: NotificationListener<ScrollNotification>(
+                          // 사용자가 손으로 스크롤하면 자동 추적을 멈춘다
+                          // (animateTo 같은 프로그램 스크롤은 dragDetails 가 없음).
+                          onNotification: (n) {
+                            if (n is ScrollStartNotification &&
+                                n.dragDetails != null) {
+                              _userScrolledThisScene = true;
+                            }
+                            return false;
+                          },
+                          child: Scrollbar(
                             controller: _textScrollController,
-                            padding: const EdgeInsets.only(right: 8),
-                            child: _kScreenshotMode
-                                ? Text(
-                                    currentNode.text,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                      height: 1.8,
-                                      letterSpacing: 0.2,
-                                      shadows: [
-                                        Shadow(
-                                            color: Colors.black87,
-                                            blurRadius: 8),
-                                      ],
-                                    ),
-                                  )
-                                : AnimatedTextKit(
-                                    key: ValueKey(currentNode.id),
-                                    animatedTexts: [
-                                      TyperAnimatedText(
-                                        currentNode.text,
-                                        speed: const Duration(milliseconds: 30),
-                                        textStyle: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                          height: 1.8,
-                                          letterSpacing: 0.2,
-                                          shadows: [
-                                            Shadow(
-                                                color: Colors.black87,
-                                                blurRadius: 8),
-                                          ],
-                                        ),
+                            thumbVisibility: true,
+                            thickness: 2,
+                            radius: const Radius.circular(1),
+                            child: SingleChildScrollView(
+                              controller: _textScrollController,
+                              padding: const EdgeInsets.only(right: 8),
+                              child: _kScreenshotMode
+                                  ? Text(
+                                      currentNode.text,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15 * _fontScale,
+                                        height: 1.8,
+                                        letterSpacing: 0.2,
+                                        shadows: const [
+                                          Shadow(
+                                              color: Colors.black87,
+                                              blurRadius: 8),
+                                        ],
                                       ),
-                                    ],
-                                    isRepeatingAnimation: false,
-                                    displayFullTextOnTap: true,
-                                  ),
+                                    )
+                                  : AnimatedTextKit(
+                                      key: ValueKey(currentNode.id),
+                                      animatedTexts: [
+                                        TyperAnimatedText(
+                                          currentNode.text,
+                                          speed:
+                                              const Duration(milliseconds: 30),
+                                          textStyle: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15 * _fontScale,
+                                            height: 1.8,
+                                            letterSpacing: 0.2,
+                                            shadows: const [
+                                              Shadow(
+                                                  color: Colors.black87,
+                                                  blurRadius: 8),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                      isRepeatingAnimation: false,
+                                      displayFullTextOnTap: true,
+                                    ),
+                            ),
                           ),
                         ),
                       ),
@@ -1023,7 +1086,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                           padding: const EdgeInsets.only(top: 12, bottom: 8),
                           child: Row(
                             children: [
-                              Container(width: 16, height: 1, color: Colors.white24),
+                              Container(
+                                  width: 16, height: 1, color: Colors.white24),
                               const SizedBox(width: 8),
                               Text(
                                 '선택',
@@ -1035,27 +1099,39 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                                 ),
                               ),
                               const SizedBox(width: 8),
-                              Expanded(child: Container(height: 1, color: Colors.white12)),
+                              Expanded(
+                                  child: Container(
+                                      height: 1, color: Colors.white12)),
                               if (!_kScreenshotMode) ...[
                                 const SizedBox(width: 8),
                                 GestureDetector(
-                                  onTap: _showingHintAd ? null : () => _requestHint(currentNode.choices),
+                                  onTap: _showingHintAd
+                                      ? null
+                                      : () => _requestHint(currentNode.choices),
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8, vertical: 3),
                                     decoration: BoxDecoration(
-                                      color: const Color(0xFFD4A76A).withOpacity(0.12),
+                                      color: const Color(0xFFD4A76A)
+                                          .withOpacity(0.12),
                                       borderRadius: BorderRadius.circular(8),
-                                      border: Border.all(color: const Color(0xFFD4A76A).withOpacity(0.3)),
+                                      border: Border.all(
+                                          color: const Color(0xFFD4A76A)
+                                              .withOpacity(0.3)),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Icon(Icons.lightbulb_outline, size: 11, color: const Color(0xFFD4A76A).withOpacity(0.8)),
+                                        Icon(Icons.lightbulb_outline,
+                                            size: 11,
+                                            color: const Color(0xFFD4A76A)
+                                                .withOpacity(0.8)),
                                         const SizedBox(width: 4),
                                         Text(
                                           _showingHintAd ? '로딩…' : '힌트',
                                           style: TextStyle(
-                                            color: const Color(0xFFD4A76A).withOpacity(0.8),
+                                            color: const Color(0xFFD4A76A)
+                                                .withOpacity(0.8),
                                             fontSize: 10,
                                             fontWeight: FontWeight.w600,
                                             letterSpacing: 1,
@@ -1086,7 +1162,8 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                                 // 장면 id 로 keying → 같은 장면 재빌드(힌트 등)에선
                                 // 애니메이션이 다시 돌지 않고, 장면 전환 시에만 등장한다.
                                 .animate(
-                                    key: ValueKey('choice_${currentNode.id}_$index'))
+                                    key: ValueKey(
+                                        'choice_${currentNode.id}_$index'))
                                 .fadeIn(
                                   delay: (120 * index + 200).ms,
                                   duration: 420.ms,
@@ -1123,27 +1200,52 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
                 Positioned(
                   top: MediaQuery.of(context).padding.top + 8,
                   right: 16,
-                  child: GestureDetector(
-                    onTap: () => showInvestigationMenu(context),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.45),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white12),
-                      ),
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.menu_book_outlined, color: Colors.white60, size: 15),
-                          SizedBox(width: 5),
-                          Text(
-                            '단서장',
-                            style: TextStyle(color: Colors.white60, fontSize: 12, fontWeight: FontWeight.w500),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // 글씨 크기 등 설정
+                      GestureDetector(
+                        onTap: () => showSettingsSheet(context),
+                        child: Container(
+                          padding: const EdgeInsets.all(7),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.45),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white12),
                           ),
-                        ],
+                          child: const Icon(Icons.text_fields,
+                              color: Colors.white60, size: 16),
+                        ),
                       ),
-                    ),
+                      const SizedBox(width: 8),
+                      GestureDetector(
+                        onTap: () => showInvestigationMenu(context),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.45),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white12),
+                          ),
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.menu_book_outlined,
+                                  color: Colors.white60, size: 15),
+                              SizedBox(width: 5),
+                              Text(
+                                '단서장',
+                                style: TextStyle(
+                                    color: Colors.white60,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
             ],

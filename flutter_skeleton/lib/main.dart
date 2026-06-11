@@ -11,6 +11,7 @@ import 'core/models/game_state.dart';
 import 'core/services/ad_service.dart';
 import 'presentation/investigation/investigation_sheet.dart';
 import 'presentation/providers/game_provider.dart';
+import 'presentation/settings/settings_sheet.dart';
 import 'presentation/story/story_screen.dart';
 
 const bool kScreenshotMode =
@@ -47,7 +48,8 @@ class _MysteryAppState extends State<MysteryApp> {
     super.initState();
     if (!kScreenshotMode) {
       // 첫 프레임이 그려진 뒤(앱 활성 상태) ATT 팝업을 띄워야 정상 표시된다.
-      WidgetsBinding.instance.addPostFrameCallback((_) => _initTrackingThenAds());
+      WidgetsBinding.instance
+          .addPostFrameCallback((_) => _initTrackingThenAds());
     }
   }
 
@@ -55,8 +57,7 @@ class _MysteryAppState extends State<MysteryApp> {
   /// 권한 요청 팝업을 먼저 띄우고, 그 다음 광고를 초기화한다.
   Future<void> _initTrackingThenAds() async {
     try {
-      final status =
-          await AppTrackingTransparency.trackingAuthorizationStatus;
+      final status = await AppTrackingTransparency.trackingAuthorizationStatus;
       if (status == TrackingStatus.notDetermined) {
         // iOS가 팝업을 안정적으로 띄울 수 있도록 잠시 대기.
         await Future.delayed(const Duration(milliseconds: 400));
@@ -80,16 +81,17 @@ class _MysteryAppState extends State<MysteryApp> {
         scaffoldBackgroundColor: const Color(0xFF121212),
         fontFamily: 'NotoSerif',
       ),
-      home: kScreenshotMode
-          ? const _ScreenshotRouter()
-          : const MainMenuScreen(),
+      home:
+          kScreenshotMode ? const _ScreenshotRouter() : const MainMenuScreen(),
     );
   }
 }
 
 /// 스크린샷 한 컷의 사양
 class _Shot {
-  const _Shot.menu() : target = 'menu', state = const GameState();
+  const _Shot.menu()
+      : target = 'menu',
+        state = const GameState();
   const _Shot.investigation(this.state) : target = 'investigation';
   const _Shot.story(this.state) : target = 'story';
 
@@ -285,9 +287,7 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen> {
             'assets/images/title_screen.png',
             fit: BoxFit.cover,
             errorBuilder: (_, __, ___) => Container(color: Colors.black87),
-          )
-              .animate(onPlay: (c) => c.repeat(reverse: true))
-              .scaleXY(
+          ).animate(onPlay: (c) => c.repeat(reverse: true)).scaleXY(
                 begin: 1.0,
                 end: 1.12,
                 duration: 18.seconds,
@@ -393,8 +393,7 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen> {
                   width: double.infinity,
                   child: FilledButton(
                     style: FilledButton.styleFrom(
-                      backgroundColor:
-                          const Color(0xFFD4A76A).withOpacity(0.9),
+                      backgroundColor: const Color(0xFFD4A76A).withOpacity(0.9),
                       foregroundColor: const Color(0xFF1A1008),
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
@@ -440,6 +439,24 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen> {
               .animate()
               .fadeIn(duration: 1400.ms, delay: 1300.ms)
               .slideY(begin: 0.3, end: 0, curve: Curves.easeOutCubic),
+          // 설정 (글씨 크기 등)
+          Positioned(
+            top: MediaQuery.of(context).padding.top + 8,
+            right: 16,
+            child: GestureDetector(
+              onTap: () => showSettingsSheet(context),
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.4),
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white12),
+                ),
+                child:
+                    const Icon(Icons.settings, color: Colors.white70, size: 20),
+              ),
+            ).animate().fadeIn(duration: 1200.ms, delay: 1500.ms),
+          ),
         ],
       ),
     );
