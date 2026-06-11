@@ -152,11 +152,12 @@ platform :ios do
     )
   end
 
-  desc "App Store 심사 제출 (메타데이터+스크린샷+빌드 자동 선택)"
-  lane :release do
+  desc "App Store 심사 제출 (메타데이터+스크린샷+빌드 자동 선택). version: 새 버전 생성용"
+  lane :release do |options|
     authenticate
     deliver(
       app_identifier: "com.digimaru.stormMansionMystery",
+      app_version: options[:version],
       skip_binary_upload: true,
       skip_screenshots: true,
       submit_for_review: true,
