@@ -242,6 +242,7 @@
       "id": "scene_arrival_gate",
       "background_image": "stormy_mansion_exterior",
       "speaker": "system",
+      "bgm": "mansion_morning_eerie",
       "text": "검은 철문은 성문처럼 높았고, 문기둥 위의 석사자는 폭우를 맞으며 묵묵히 저택을 지키고 있었다. 정원은 오랫동안 아름다웠을 것이나 지금은 거의 버려진 성역에 가까웠다.\n\n하인 둘이 서둘러 마차 문을 열었지만, 현관 안으로 곧장 들어가기 전에 살펴볼 곳이 있었다.",
       "choices": [
         {
@@ -487,6 +488,7 @@
       "id": "scene_dinner_intro",
       "background_image": "mansion_study_room",
       "speaker": "system",
+      "bgm": "suspicious_whispers",
       "text": "긴 식탁의 양끝에 긴장이 걸려 있었다. 아서의 오른편에는 에블린이, 왼편에는 리처드가 앉아 있었다. 도로시 페어뱅크 박사는 가족도 아닌데 가족보다 더 익숙한 자세로 자리를 지키고 있었다.\n\n에블린은 하인에게 말을 건넬 때 목소리를 낮췄고, 리처드는 와인을 받는 순간조차 상대를 시험하듯 내려다봤다. 박사는 누구의 편도 아닌 얼굴을 하고 있었지만, 실제로는 모두의 상태를 측정하는 사람처럼 눈동자를 움직였다.",
       "next_scene_id": "scene_dinner_smalltalk",
       "continue_text": "만찬 초반의 대화 흐름을 먼저 읽는다",
@@ -767,6 +769,7 @@
       "id": "scene_night_restlessness",
       "background_image": "mansion_corridor",
       "speaker": "system",
+      "bgm": "rain_and_storm",
       "text": "자정이 가까워지자 저택은 오히려 더 또렷해졌다. 벽 속 배관 소리, 멀리서 닫히는 문, 바람이 창틀을 떠는 소리 하나하나가 선명했다. 잠시 뒤, 분명 사람의 것이어야 할 발소리가 복도를 지나갔다.\n\n곧이어 낮게 억눌린 언쟁, 유리 깨지는 소리, 그리고 누군가 숨을 삼키는 짧은 침묵이 이어졌다. 움직여야 할 순간이었다.",
       "next_scene_id": "scene_night_clock",
       "continue_text": "시간의 흐름과 발소리를 더 세밀히 좇는다",

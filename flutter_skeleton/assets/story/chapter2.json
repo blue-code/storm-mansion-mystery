@@ -71,6 +71,7 @@
       "id": "scene_day2_hub_morning",
       "background_image": "mansion_corridor",
       "speaker": "system",
+      "bgm": "mansion_morning_eerie",
       "text": "오전 수사는 네 갈래로 나뉘었다. 리처드의 방은 무너진 자존심과 빚의 냄새를 보여 줄 것이고, 박사와의 대면은 침착함 뒤에 숨어 있는 통제 욕구를 드러낼 수 있다. 온실은 에블린이 숨기고 싶은 문장과 닿아 있고, 서재는 죽은 아서가 아직도 가장 많이 말하고 있는 장소다.\n\n이번에는 장소를 고르는 일이 곧 사람을 고르는 일과 같았다. 어느 균열부터 벌릴지 선택해야 했다.",
       "choices": [
         {
@@ -733,6 +734,7 @@
       "id": "scene_day2_afternoon_event",
       "background_image": "second_murder_prelude",
       "speaker": "system",
+      "bgm": "rain_and_storm",
       "text": "2층 복도 끝에서 비명이 찢어졌다. 이번에는 짧지도, 애매하지도 않았다. 사람들은 거의 동시에 문을 열고 뛰쳐나왔고, 누군가는 당신보다 먼저 그 방향으로 달리고 있었다.\n\n당신이 계단을 오르는 동안 샹들리에가 흔들렸고, 불빛이 붉은 카펫 위를 불안하게 쓸고 지나갔다. 두 번째 사건은 첫 번째보다 더 노골적일 가능성이 컸다.",
       "next_scene_id": "scene_day2_second_murder",
       "continue_text": "현장으로 달려간다",

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -48,8 +49,13 @@ class StoryScreen extends ConsumerStatefulWidget {
 }
 
 class _StoryScreenState extends ConsumerState<StoryScreen> {
-  late AudioPlayer bgmPlayer;
+  // BGM 은 크로스페이드를 위해 두 개의 플레이어를 번갈아 사용한다.
+  late AudioPlayer _bgmA;
+  late AudioPlayer _bgmB;
   late AudioPlayer sfxPlayer;
+  bool _bgmUsingA = true; // 현재 소리를 내고 있는 플레이어
+  Timer? _bgmFadeTimer;
+  static const double _bgmVolume = 0.55;
   final ScrollController _textScrollController = ScrollController();
   String? _currentBgm;
   String? _lastPlayedSceneId;
@@ -113,36 +119,30 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
   @override
   void initState() {
     super.initState();
-    bgmPlayer = AudioPlayer();
+    _bgmA = AudioPlayer();
+    _bgmB = AudioPlayer();
     sfxPlayer = AudioPlayer();
-    bgmPlayer.setReleaseMode(ReleaseMode.loop);
+    _bgmA.setReleaseMode(ReleaseMode.loop);
+    _bgmB.setReleaseMode(ReleaseMode.loop);
   }
 
   @override
   void dispose() {
-    bgmPlayer.dispose();
+    _bgmFadeTimer?.cancel();
+    _bgmA.dispose();
+    _bgmB.dispose();
     sfxPlayer.dispose();
     _textScrollController.dispose();
     super.dispose();
   }
 
   Future<void> _handleSound(SceneNode node) async {
-    // BGM 처리
-    if (node.bgm != _currentBgm) {
-      _currentBgm = node.bgm;
-      await bgmPlayer.stop();
-      if (_currentBgm != null && _currentBgm!.isNotEmpty) {
-        try {
-          // mp3 우선 시도 후 wav 시도 (플레이스홀더 대응)
-          await bgmPlayer.play(AssetSource('audio/$_currentBgm.mp3'));
-        } catch (_) {
-          try {
-            await bgmPlayer.play(AssetSource('audio/$_currentBgm.wav'));
-          } catch (e) {
-            debugPrint('BGM 재생 실패: $_currentBgm ($e)');
-          }
-        }
-      }
+    // BGM 처리: bgm 이 명시된 장면에서만 트랙을 교체하고, 지정이 없는 장면에서는
+    // 직전 BGM 을 그대로 유지한다. (조사/대화 구간이 무음이 되지 않도록)
+    final bgm = node.bgm;
+    if (bgm != null && bgm.isNotEmpty && bgm != _currentBgm) {
+      _currentBgm = bgm;
+      await _crossfadeBgm(bgm);
     }
 
     // SFX 처리 (JSON 의 sfx 우선, 없으면 장면 매핑으로 보강)
@@ -161,6 +161,44 @@ class _StoryScreenState extends ConsumerState<StoryScreen> {
         }
       }
     }
+  }
+
+  // 트랙 교체 시 즉시 끊지 않고 0.8초 동안 페이드 아웃/인 으로 매끄럽게 전환한다.
+  // 비활성 플레이어에서 새 트랙을 무음으로 시작한 뒤 두 플레이어의 볼륨을
+  // 점진적으로 교차시킨다.
+  Future<void> _crossfadeBgm(String track) async {
+    final AudioPlayer from = _bgmUsingA ? _bgmA : _bgmB;
+    final AudioPlayer to = _bgmUsingA ? _bgmB : _bgmA;
+    _bgmUsingA = !_bgmUsingA;
+
+    await to.setVolume(0);
+    try {
+      // mp3 우선 시도 후 wav 시도 (플레이스홀더 대응)
+      await to.play(AssetSource('audio/$track.mp3'));
+    } catch (_) {
+      try {
+        await to.play(AssetSource('audio/$track.wav'));
+      } catch (e) {
+        debugPrint('BGM 재생 실패: $track ($e)');
+        _bgmUsingA = !_bgmUsingA; // 재생 실패 시 활성 플레이어 표시 원복
+        return;
+      }
+    }
+
+    _bgmFadeTimer?.cancel();
+    const int steps = 16;
+    const Duration interval = Duration(milliseconds: 50);
+    int i = 0;
+    _bgmFadeTimer = Timer.periodic(interval, (timer) {
+      i++;
+      final double t = i / steps;
+      to.setVolume(_bgmVolume * t);
+      from.setVolume(_bgmVolume * (1 - t));
+      if (i >= steps) {
+        timer.cancel();
+        from.stop();
+      }
+    });
   }
 
   bool _isImpactScene(SceneNode node) {
